@@ -23,7 +23,7 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+  transition: { duration: 0.6, delay, ease: "easeOut" as const },
 })
 
 /* ══════════════════════════════════════════════════════════════
@@ -402,7 +402,7 @@ export default function EngagementPage() {
                 Challenge SPI Dauphine · 45ème édition
               </motion.p>
               <motion.h1
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.22, ease: [0.22,1,0.36,1] }}
+                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.22, ease: "easeOut" }}
                 className="text-white"
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, lineHeight: 1.08, textShadow: '0 2px 20px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)' }}
               >

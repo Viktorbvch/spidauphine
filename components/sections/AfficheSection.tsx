@@ -46,7 +46,7 @@ export default function AfficheSection() {
           initial={{ opacity: 0, y: 24, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           className="relative inline-block mb-10"
         >
           <div

@@ -118,7 +118,7 @@ export default function Engagement() {
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                 className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300"
               >
                 {/* Image */}

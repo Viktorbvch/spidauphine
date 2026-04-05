@@ -96,7 +96,7 @@ export default function Imperia() {
                   className="absolute inset-0"
                   initial={false}
                   animate={{ opacity: active === i ? 1 : 0, scale: active === i ? 1 : 1.04 }}
-                  transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.65, ease: "easeOut" }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.src} alt={p.label} className="w-full h-full object-cover" />

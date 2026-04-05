@@ -340,7 +340,7 @@ export default function ContactPage() {
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                       className="flex flex-col items-center justify-center text-center p-16 gap-5"
                     >
                       <div
@@ -375,7 +375,7 @@ export default function ContactPage() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.30, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.30, ease: "easeOut" }}
                       className="p-7 sm:p-8"
                     >
                       {/* Destinataire */}

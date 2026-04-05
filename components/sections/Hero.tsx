@@ -8,7 +8,7 @@ import CountdownTimer from '@/components/ui/CountdownTimer'
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+  transition: { duration: 0.6, delay, ease: "easeOut" as const },
 })
 
 export default function Hero() {
@@ -53,7 +53,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, x: 48, rotate: 6 }}
         animate={{ opacity: 1, x: 0, rotate: 3 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
         className="absolute right-8 lg:right-16 xl:right-24 top-1/2 -translate-y-1/2 z-10 hidden lg:block"
         aria-label="Affiche officielle 45ème Challenge SPI Dauphine"
       >
