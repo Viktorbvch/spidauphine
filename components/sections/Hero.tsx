@@ -106,16 +106,25 @@ export default function Hero() {
               whiteSpace: 'nowrap',
               textShadow: '0 2px 20px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)',
             }}
-            className="mb-5"
+            className="mb-4"
           >
             Challenge{' '}
             <span style={{ color: '#E8A930' }}>SPI</span>
             {' '}Dauphine
           </motion.h1>
 
+          {/* Description */}
+          <motion.p
+            {...fadeUp(0.31)}
+            className="text-white/50 text-sm leading-relaxed max-w-md mb-5"
+            style={{ textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}
+          >
+            Régate universitaire européenne en Méditerranée — une semaine, près de 1&nbsp;000 étudiants, sous l&apos;égide de la Fédération Française de Voile.
+          </motion.p>
+
           {/* Location */}
           <motion.p
-            {...fadeUp(0.36)}
+            {...fadeUp(0.40)}
             className="text-white/65 text-lg font-light tracking-wide mb-1"
             style={{ textShadow: '0 1px 10px rgba(0,0,0,0.55)' }}
           >
@@ -124,7 +133,7 @@ export default function Hero() {
 
           {/* Date */}
           <motion.p
-            {...fadeUp(0.46)}
+            {...fadeUp(0.50)}
             className="text-white/40 text-xs uppercase tracking-[0.25em] mb-8"
             style={{ textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}
           >
@@ -136,7 +145,13 @@ export default function Hero() {
             {...fadeUp(0.58)}
             className="mb-10"
           >
-            <CountdownTimer />
+            <p
+              className="text-white/35 text-[10px] font-semibold uppercase tracking-[0.32em] mb-2"
+              style={{ textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}
+            >
+              Départ dans
+            </p>
+            <CountdownTimer compact />
           </motion.div>
 
         </div>

@@ -7,6 +7,7 @@ import Regate from '@/components/sections/Regate'
 import Multisports from '@/components/sections/Multisports'
 import GalerieRegate from '@/components/sections/GalerieRegate'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 export default function Home() {
@@ -21,26 +22,89 @@ export default function Home() {
         <Multisports />
         {/* <GalerieRegate /> */}
 
-        {/* ── Bandeau contact discret ── */}
-        <div
-          style={{
-            background: 'rgba(11,37,69,0.55)',
-            borderTop: '1px solid rgba(255,255,255,0.06)',
-          }}
+        {/* ── Découverte — 3 destinations ── */}
+        <section
+          aria-label="Explorer le Challenge SPI Dauphine"
+          style={{ background: '#060f1e', borderTop: '1px solid rgba(255,255,255,0.06)' }}
         >
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-5 flex items-center justify-between gap-4">
-            <p className="text-white/40 text-sm">
-              Une question sur l&apos;événement ?
-            </p>
-            <Link
-              href="/contact"
-              className="flex items-center gap-1.5 text-sm font-medium text-white/55 hover:text-white transition-colors duration-200 group flex-shrink-0"
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+
+            <p
+              className="text-[10px] font-bold uppercase tracking-[0.45em] mb-12"
+              style={{ color: 'rgba(11,191,191,0.65)' }}
             >
-              Contactez-nous
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" aria-hidden="true" />
-            </Link>
+              Explorer
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
+              {(
+                [
+                  {
+                    href: '/village',
+                    photo: '/photos/spi-soiree-chapiteau.jpg',
+                    title: 'Le Village',
+                    subtitle: 'Vie du village · Journée type · Soirées',
+                  },
+                  {
+                    href: '/engagement',
+                    photo: '/photos/aftersea.jpg',
+                    title: "SPI s'engage",
+                    subtitle: 'Histoire · Valeurs · Engagements RSE',
+                  },
+                  {
+                    href: '/partenaires',
+                    photo: '/photos/spi-01.jpg',
+                    title: 'Partenaires',
+                    subtitle: 'Sponsoring · Visibilité · Offres',
+                  },
+                ] as { href: string; photo: string; title: string; subtitle: string }[]
+              ).map((card) => (
+                <Link
+                  key={card.href}
+                  href={card.href}
+                  className="group relative overflow-hidden rounded-2xl block"
+                  style={{ aspectRatio: '4 / 5' }}
+                >
+                  <Image
+                    src={card.photo}
+                    alt={card.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        'linear-gradient(to top, rgba(7,26,53,0.92) 0%, rgba(7,26,53,0.25) 50%, transparent 100%)',
+                    }}
+                    aria-hidden="true"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-7">
+                    <p
+                      className="font-semibold uppercase mb-2"
+                      style={{ color: '#E8A930', fontSize: 10, letterSpacing: '0.22em' }}
+                    >
+                      {card.subtitle}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <h3
+                        className="text-white text-xl font-bold"
+                        style={{ fontFamily: 'var(--font-playfair)' }}
+                      >
+                        {card.title}
+                      </h3>
+                      <ArrowRight
+                        className="w-4 h-4 text-white/35 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </>

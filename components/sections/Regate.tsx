@@ -9,7 +9,7 @@ import { equipes } from '@/data/equipes'
 export default function Regate() {
 
   return (
-    <section id="regate" className="bg-[#F8FAFC]">
+    <section id="regate" className="bg-[#071A35]">
 
       {/* ── Bannière hero ── */}
       <div className="relative w-full overflow-hidden" style={{ height: 'clamp(480px, 75vh, 880px)' }}>
@@ -69,7 +69,7 @@ export default function Regate() {
       </div>
 
       {/* ── Contenu principal ── */}
-      <div className="py-20 lg:py-28 bg-white">
+      <div className="py-20 lg:py-28 bg-[#071A35]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* ── Binôme + format ── */}
@@ -110,8 +110,8 @@ export default function Regate() {
                     { label: 'Égide',    val: 'YC Imperia · FFVoile · FIV' },
                   ].map(({ label, val }) => (
                     <li key={label} className="flex gap-4 items-start">
-                      <span className="text-[11px] font-semibold uppercase tracking-wide text-[#1A6B8C] min-w-20 pt-0.5 flex-shrink-0">{label}</span>
-                      <span className="text-sm text-[#64748B] leading-snug">{val}</span>
+                      <span className="text-[11px] font-semibold uppercase tracking-wide text-[#0BBFBF] min-w-20 pt-0.5 flex-shrink-0">{label}</span>
+                      <span className="text-sm text-white/45 leading-snug">{val}</span>
                     </li>
                   ))}
                 </ul>
@@ -130,14 +130,14 @@ export default function Regate() {
               </div>
 
               <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3 text-sm text-[#64748B]">
-                  <Phone className="w-3.5 h-3.5 text-[#1A6B8C] flex-shrink-0" aria-hidden="true" />
-                  <span>Marc Morgeneyer — <a href="tel:+33698698849" className="text-[#1A6B8C] font-medium hover:underline cursor-pointer">+33 6 98 69 88 49</a></span>
+                <div className="flex items-center gap-3 text-sm text-white/45">
+                  <Phone className="w-3.5 h-3.5 text-[#0BBFBF] flex-shrink-0" aria-hidden="true" />
+                  <span>Marc Morgeneyer — <a href="tel:+33698698849" className="text-[#0BBFBF] font-medium hover:underline cursor-pointer">+33 6 98 69 88 49</a></span>
                 </div>
                 <a
                   href="/assets/avis-de-course-45.pdf"
                   download="Avis-de-course-SPI-Dauphine-45.pdf"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A6B8C] hover:text-[#0B2545] transition-colors duration-150 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#0BBFBF] hover:text-white transition-colors duration-150 cursor-pointer"
                 >
                   <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
