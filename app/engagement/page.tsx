@@ -852,14 +852,46 @@ export default function EngagementPage() {
               </div>
             </motion.div>
 
-            {/* 4 réalisations concrètes */}
+            {/* Label Handinamique — mis en valeur */}
+            <motion.div {...fadeUp(0.08)} className="mb-5">
+              <div
+                className="flex items-center gap-5 p-5 rounded-2xl"
+                style={{ background: 'rgba(232,169,48,0.07)', border: '1px solid rgba(232,169,48,0.20)' }}
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center"
+                  style={{ background: 'rgba(232,169,48,0.14)', border: '1px solid rgba(232,169,48,0.30)' }}
+                >
+                  <Award className="w-6 h-6" style={{ color: '#E8A930' }} aria-hidden="true" />
+                </div>
+                <div className="flex-1">
+                  <p
+                    className="text-[9px] font-bold uppercase tracking-[0.35em] mb-1"
+                    style={{ color: '#E8A930' }}
+                  >
+                    Label officiel
+                  </p>
+                  <p
+                    className="text-white font-bold text-xl leading-tight mb-1"
+                    style={{ fontFamily: 'var(--font-playfair)' }}
+                  >
+                    Association Étudiante 100% Handinamique
+                  </p>
+                  <p className="text-white/45 text-xs leading-relaxed">
+                    Distinction obtenue en reconnaissance des engagements concrets de la SPI pour l&apos;accessibilité et l&apos;inclusion à chaque édition.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 3 réalisations concrètes */}
             <div className="grid sm:grid-cols-2 gap-4">
               {([
                 {
                   icon: Heart,
                   color: '#E05B40',
                   label: 'Quatre courses caritatives',
-                  desc: 'Organisées dans le cadre de la journée de l\'inclusion, au profit des associations AIDA, Comme Les Autres et Vents Différents.',
+                  desc: 'Au profit des associations AIDA, Comme Les Autres et Vents Différents — ~1 000 coureurs mobilisés sur le front de mer d\'Imperia.',
                 },
                 {
                   icon: Users,
@@ -868,16 +900,10 @@ export default function EngagementPage() {
                   desc: 'Accueil d\'équipages aux côtés de l\'association ASEI et Vents Différents — ensemble sur l\'eau, à armes égales.',
                 },
                 {
-                  icon: Award,
-                  color: '#E8A930',
-                  label: 'Label 100% Handinamique',
-                  desc: 'Distinction obtenue en reconnaissance de nos engagements concrets pour l\'accessibilité et l\'inclusion à chaque édition.',
-                },
-                {
                   icon: Megaphone,
                   color: '#0BBFBF',
-                  label: 'Relais national',
-                  desc: 'Suivi, documentation et communication nationale des actions inclusives mises en œuvre, en lien avec les territoires accueillants.',
+                  label: 'Relais & documentation nationale',
+                  desc: 'Suivi, documentation et communication nationale des actions inclusives, en lien avec les territoires accueillants.',
                 },
               ] as { icon: React.ElementType; color: string; label: string; desc: string }[]).map(({ icon: Icon, color, label, desc }, i) => (
                 <motion.div
@@ -935,17 +961,28 @@ export default function EngagementPage() {
                 </p>
               </motion.div>
 
-              {/* Badge Fondation de la Mer */}
-              <motion.div {...fadeUp(0.12)} className="flex-shrink-0">
+              {/* Badges partenaires */}
+              <motion.div {...fadeUp(0.12)} className="flex-shrink-0 flex flex-row lg:flex-col gap-3">
                 <div
-                  className="px-5 py-4 rounded-xl"
+                  className="flex-1 lg:flex-none px-5 py-4 rounded-xl"
                   style={{ background: 'rgba(26,140,107,0.08)', border: '1px solid rgba(26,140,107,0.20)' }}
                 >
                   <p className="text-[9px] font-bold uppercase tracking-[0.30em] mb-1.5" style={{ color: '#1A8C6B' }}>
-                    Partenaire
+                    Partenaire environnement
                   </p>
                   <p className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
                     Fondation de la Mer
+                  </p>
+                </div>
+                <div
+                  className="flex-1 lg:flex-none px-5 py-4 rounded-xl"
+                  style={{ background: 'rgba(26,140,107,0.08)', border: '1px solid rgba(26,140,107,0.20)' }}
+                >
+                  <p className="text-[9px] font-bold uppercase tracking-[0.30em] mb-1.5" style={{ color: '#1A8C6B' }}>
+                    Alimentation durable
+                  </p>
+                  <p className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+                    Heura
                   </p>
                 </div>
               </motion.div>
@@ -967,6 +1004,41 @@ export default function EngagementPage() {
               >
                 Poursuivre et renforcer nos engagements RSE aux côtés du port et de la commune.
               </p>
+            </motion.div>
+
+            {/* Déjà engagés — 3 preuves concrètes passées */}
+            <motion.div {...fadeUp(0.1)} className="mb-8">
+              <p
+                className="text-[10px] font-bold uppercase tracking-[0.30em] mb-4"
+                style={{ color: 'rgba(255,255,255,0.28)' }}
+              >
+                Déjà réalisé
+              </p>
+              <div className="grid sm:grid-cols-3 gap-3">
+                {[
+                  {
+                    label: 'Table ronde Paris Dauphine',
+                    detail: 'Débat ouvert sur les enjeux environnementaux et sociaux, organisé sur le campus.',
+                  },
+                  {
+                    label: 'Partenariat Heura',
+                    detail: 'Collaboration pour une alimentation plus durable sur l\'ensemble de l\'événement.',
+                  },
+                  {
+                    label: 'Collectes déchets à Paris',
+                    detail: 'Opérations de collecte menées dans les villes accueillantes, en amont de la SPI.',
+                  },
+                ].map(({ label, detail }) => (
+                  <div
+                    key={label}
+                    className="p-4 rounded-xl"
+                    style={{ background: 'rgba(26,140,107,0.05)', border: '1px solid rgba(26,140,107,0.13)' }}
+                  >
+                    <p className="text-white/75 font-semibold text-sm mb-1 leading-snug">{label}</p>
+                    <p className="text-white/35 text-xs leading-relaxed">{detail}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             {/* 5 actions */}
