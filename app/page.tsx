@@ -19,7 +19,7 @@ export default function Home() {
         <Imperia />
         <Regate />
         <Multisports />
-        <GalerieRegate />
+        {/* <GalerieRegate /> */}
 
         {/* ── Bandeau contact discret ── */}
         <div

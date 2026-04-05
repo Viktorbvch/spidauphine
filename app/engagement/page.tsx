@@ -261,10 +261,10 @@ function EngagementVideoCard({
    CARTE JOURNÉE THÉMATIQUE (photo slot + contenu dark)
 ══════════════════════════════════════════════════════════════ */
 function ThemeCard({
-  icon: Icon, couleur, tag, date, titre, desc, photoSide = 'left', index,
+  icon: Icon, couleur, tag, date, titre, desc, photoSide = 'left', photo, index,
 }: {
   icon: React.ElementType; couleur: string; tag: string; date: string
-  titre: string; desc: string; photoSide?: 'left' | 'right'; index: number
+  titre: string; desc: string; photoSide?: 'left' | 'right'; photo?: string; index: number
 }) {
   return (
     <motion.div
@@ -275,23 +275,28 @@ function ThemeCard({
       {/* Photo slot */}
       {photoSide === 'left' && (
         <div
-          className="relative md:w-[42%] flex-shrink-0 flex flex-col items-center justify-center gap-4 min-h-[220px]"
-          style={{ background: `linear-gradient(135deg, #071A35 0%, ${couleur}30 100%)` }}
+          className="relative md:w-[42%] flex-shrink-0 min-h-[220px]"
+          style={photo ? {} : { background: `linear-gradient(135deg, #071A35 0%, ${couleur}30 100%)` }}
         >
-          {/* Motif texture subtil */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none"
-            style={{ backgroundImage: 'repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)', backgroundSize: '8px 8px', color: couleur }}
-            aria-hidden="true"
-          />
-          <div className="relative z-10 flex flex-col items-center gap-3 text-center px-6">
-            <div className="w-16 h-16 rounded-2xl flex items-center justify-center border border-white/10"
-              style={{ background: `${couleur}20` }}>
-              <Camera className="w-7 h-7" style={{ color: couleur }} />
-            </div>
-            <p className="text-white/35 text-[10px] uppercase tracking-[0.22em] font-semibold">Photo à venir</p>
-          </div>
+          {photo ? (
+            <Image src={photo} alt={titre} fill className="object-cover" sizes="42vw" />
+          ) : (
+            <>
+              <div className="absolute inset-0 opacity-5 pointer-events-none"
+                style={{ backgroundImage: 'repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)', backgroundSize: '8px 8px', color: couleur }}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 flex h-full flex-col items-center justify-center gap-3 text-center px-6">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center border border-white/10"
+                  style={{ background: `${couleur}20` }}>
+                  <Camera className="w-7 h-7" style={{ color: couleur }} />
+                </div>
+                <p className="text-white/35 text-[10px] uppercase tracking-[0.22em] font-semibold">Photo à venir</p>
+              </div>
+            </>
+          )}
           {/* Stripe couleur gauche */}
-          <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl" style={{ background: couleur }} aria-hidden="true" />
+          <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl z-10" style={{ background: couleur }} aria-hidden="true" />
         </div>
       )}
 
@@ -330,21 +335,27 @@ function ThemeCard({
       {/* Photo slot right */}
       {photoSide === 'right' && (
         <div
-          className="relative md:w-[42%] flex-shrink-0 flex flex-col items-center justify-center gap-4 min-h-[220px]"
-          style={{ background: `linear-gradient(225deg, #071A35 0%, ${couleur}30 100%)` }}
+          className="relative md:w-[42%] flex-shrink-0 min-h-[220px]"
+          style={photo ? {} : { background: `linear-gradient(225deg, #071A35 0%, ${couleur}30 100%)` }}
         >
-          <div className="absolute inset-0 opacity-5 pointer-events-none"
-            style={{ backgroundImage: 'repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)', backgroundSize: '8px 8px', color: couleur }}
-            aria-hidden="true"
-          />
-          <div className="relative z-10 flex flex-col items-center gap-3 text-center px-6">
-            <div className="w-16 h-16 rounded-2xl flex items-center justify-center border border-white/10"
-              style={{ background: `${couleur}20` }}>
-              <Camera className="w-7 h-7" style={{ color: couleur }} />
-            </div>
-            <p className="text-white/35 text-[10px] uppercase tracking-[0.22em] font-semibold">Photo à venir</p>
-          </div>
-          <div className="absolute right-0 top-0 bottom-0 w-1 rounded-r-2xl" style={{ background: couleur }} aria-hidden="true" />
+          {photo ? (
+            <Image src={photo} alt={titre} fill className="object-cover" sizes="42vw" />
+          ) : (
+            <>
+              <div className="absolute inset-0 opacity-5 pointer-events-none"
+                style={{ backgroundImage: 'repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)', backgroundSize: '8px 8px', color: couleur }}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 flex h-full flex-col items-center justify-center gap-3 text-center px-6">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center border border-white/10"
+                  style={{ background: `${couleur}20` }}>
+                  <Camera className="w-7 h-7" style={{ color: couleur }} />
+                </div>
+                <p className="text-white/35 text-[10px] uppercase tracking-[0.22em] font-semibold">Photo à venir</p>
+              </div>
+            </>
+          )}
+          <div className="absolute right-0 top-0 bottom-0 w-1 rounded-r-2xl z-10" style={{ background: couleur }} aria-hidden="true" />
         </div>
       )}
     </motion.div>
@@ -365,7 +376,7 @@ export default function EngagementPage() {
         ══════════════════════════════════════════════════════ */}
         <div className="relative overflow-hidden" style={{ height: 'clamp(560px, 78vh, 820px)' }}>
           <Image
-            src="/assets/banner-voilier.jpg"
+            src="/photos/aftersea.jpg"
             alt="Voilier du Challenge SPI Dauphine avec spinnaker rouge"
             fill priority
             className="object-cover"
@@ -521,6 +532,7 @@ export default function EngagementPage() {
                 titre="Journée de l'Inclusion"
                 desc={`Label "100% Handinamique". Tournoi de Cécifoot, quizz avec Vents Différents, cocktail de clôture et table ronde à Paris Dauphine. Un engagement fort pour rendre l'événement accessible à tous.`}
                 photoSide="left"
+                photo="/photos/handi-sport.jpg"
                 index={0}
               />
               <ThemeCard
@@ -531,6 +543,7 @@ export default function EngagementPage() {
                 titre="Journée Entrepreneuriat"
                 desc="5 start-ups innovantes avec stands et prises de parole : Quadmission, Solly, Ambassia, Sport Mate, Olago. Une journée pour connecter les étudiants avec les entrepreneurs de demain."
                 photoSide="right"
+                photo="/photos/startup.jpg"
                 index={1}
               />
             </div>
