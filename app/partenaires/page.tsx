@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { Star, Users, Leaf, Radio, Percent, Banknote, Anchor, Building2 } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
@@ -318,6 +319,531 @@ export default function PartenairesPage() {
                   </motion.div>
                 )
               })}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            POURQUOI S'ENGAGER
+        ══════════════════════════════════════════════════════ */}
+        <section className="py-20 lg:py-28 border-t border-slate-100" style={{ background: '#071A35' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* En-tête */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-2xl mb-14"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: 'rgba(232,169,48,0.5)' }} aria-hidden="true" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#E8A930' }}>
+                  Rejoindre l&apos;aventure
+                </span>
+              </div>
+              <h2
+                className="text-white leading-tight mb-4"
+                style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700 }}
+              >
+                Pourquoi s&apos;engager<br />
+                <span style={{ color: '#E8A930' }}>à nos côtés&nbsp;?</span>
+              </h2>
+              <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)' }}>
+                S&apos;associer au Challenge SPI Dauphine, c&apos;est rejoindre un événement étudiant de référence — sportif, engagé, médiatisé —
+                et bénéficier d&apos;une visibilité privilégiée auprès d&apos;un public jeune, qualifié et en mouvement.
+              </p>
+            </motion.div>
+
+            {/* Bloc featured — Un événement de référence */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.06 }}
+              className="grid lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12 p-7 lg:p-10 rounded-2xl mb-5"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)' }}
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: 'rgba(232,169,48,0.12)', border: '1px solid rgba(232,169,48,0.25)' }}
+                  >
+                    <Star className="w-[18px] h-[18px]" style={{ color: '#E8A930' }} aria-hidden="true" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#E8A930' }}>
+                    Un événement de référence
+                  </span>
+                </div>
+                <h3
+                  className="text-white font-bold leading-tight mb-4"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.3rem, 2.2vw, 1.75rem)' }}
+                >
+                  45 ans de voile étudiante,<br />soutenu par le Yacht Club de France
+                </h3>
+                <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
+                  Organisé depuis 1981, le Challenge SPI Dauphine est une régate homologuée et reconnue,
+                  soutenue par le Yacht Club de France. Chaque édition réunit des étudiants issus d&apos;universités,
+                  de grandes écoles de commerce et d&apos;écoles d&apos;ingénieurs — des profils académiques d&apos;excellence,
+                  reconnus en France comme à l&apos;international.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-3 content-start">
+                {([
+                  { val: '45', label: 'ans d\'existence' },
+                  { val: '+1 000', label: 'étudiants par édition' },
+                  { val: 'YCF', label: 'Yacht Club de France' },
+                  { val: '36', label: 'équipages en course' },
+                ] as { val: string; label: string }[]).map(({ val, label }) => (
+                  <div
+                    key={label}
+                    className="p-4 rounded-xl text-center"
+                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+                  >
+                    <div
+                      className="font-bold tabular-nums mb-1"
+                      style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.15rem, 2vw, 1.45rem)', color: '#E8A930' }}
+                    >
+                      {val}
+                    </div>
+                    <div
+                      className="text-white/30 font-semibold"
+                      style={{ fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase' }}
+                    >
+                      {label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Deux cards — Opportunité & Valeurs */}
+            <div className="grid sm:grid-cols-2 gap-5">
+
+              {/* Opportunité entreprise */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.1 }}
+                className="p-7 rounded-2xl flex flex-col gap-5"
+                style={{ background: 'rgba(11,191,191,0.05)', border: '1px solid rgba(11,191,191,0.14)' }}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: 'rgba(11,191,191,0.12)', border: '1px solid rgba(11,191,191,0.22)' }}
+                  >
+                    <Users className="w-[18px] h-[18px]" style={{ color: '#0BBFBF' }} aria-hidden="true" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#0BBFBF' }}>
+                    Opportunité entreprise
+                  </span>
+                </div>
+                <div>
+                  <h3
+                    className="text-white font-bold leading-tight mb-3"
+                    style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)' }}
+                  >
+                    Un public qualifié, dans un cadre idéal pour votre marque employeur
+                  </h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-5">
+                    Devenir partenaire, c&apos;est bénéficier d&apos;une visibilité privilégiée auprès d&apos;un public jeune, engagé et qualifié —
+                    et d&apos;une opportunité concrète de rencontrer des étudiants intéressés par des stages, alternances et emplois,
+                    dans un environnement à la fois professionnel, sportif et fédérateur.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Marque employeur', 'Stages & alternances', 'Recrutement', 'Networking'].map(tag => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 rounded-full text-[10px] font-semibold"
+                        style={{ background: 'rgba(11,191,191,0.10)', color: 'rgba(11,191,191,0.80)', border: '1px solid rgba(11,191,191,0.20)' }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Valeurs partagées */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.17 }}
+                className="p-7 rounded-2xl flex flex-col gap-5"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: 'rgba(26,140,107,0.12)', border: '1px solid rgba(26,140,107,0.22)' }}
+                  >
+                    <Leaf className="w-[18px] h-[18px]" style={{ color: '#1A8C6B' }} aria-hidden="true" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#1A8C6B' }}>
+                    Des valeurs partagées
+                  </span>
+                </div>
+                <div>
+                  <h3
+                    className="text-white font-bold leading-tight mb-3"
+                    style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)' }}
+                  >
+                    S&apos;associer à un projet à fort impact positif
+                  </h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-5">
+                    Soutenir la SPI, c&apos;est s&apos;associer à des valeurs fortes et à un événement à notoriété croissante,
+                    à impact positif pour ses partenaires comme pour le territoire d&apos;accueil.
+                  </p>
+                  <div className="grid grid-cols-2 gap-y-3 gap-x-4">
+                    {([
+                      { label: 'Esprit d\'équipe',          color: '#E8A930' },
+                      { label: 'Performance',               color: '#0BBFBF' },
+                      { label: 'Engagement sociétal',       color: '#E05B40' },
+                      { label: 'Engagement environnemental', color: '#1A8C6B' },
+                    ] as { label: string; color: string }[]).map(({ label, color }) => (
+                      <div key={label} className="flex items-center gap-2.5">
+                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color }} aria-hidden="true" />
+                        <span className="text-white/58 text-sm leading-snug">{label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            BILAN MÉDIATIQUE
+        ══════════════════════════════════════════════════════ */}
+        <section className="py-20 lg:py-24 border-t border-white/6" style={{ background: '#060f1e' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+              {/* Texte */}
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: 'rgba(232,169,48,0.12)', border: '1px solid rgba(232,169,48,0.22)' }}
+                  >
+                    <Radio className="w-[18px] h-[18px]" style={{ color: '#E8A930' }} aria-hidden="true" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#E8A930' }}>
+                    Rayonnement · Visibilité
+                  </span>
+                </div>
+                <h2
+                  className="text-white leading-tight mb-5"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
+                >
+                  Un événement qui résonne<br />
+                  <span style={{ color: '#E8A930' }}>bien au-delà de la marina</span>
+                </h2>
+                <p className="text-white/55 leading-relaxed mb-4" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
+                  Le Challenge SPI Dauphine bénéficie d&apos;un écho médiatique réel — presse nautique, médias grand public,
+                  relais institutionnels et numériques. Devenir partenaire, c&apos;est s&apos;inscrire dans un environnement
+                  médiatique crédible et valorisant.
+                </p>
+                <p className="text-white/40 text-sm leading-relaxed">
+                  Chaque édition génère des retombées presse, des publications digitales et une visibilité
+                  auprès des communautés étudiantes, nautiques et institutionnelles en France et en Europe.
+                </p>
+              </motion.div>
+
+              {/* Chips médias */}
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <p
+                  className="text-[10px] font-bold uppercase tracking-[0.30em] mb-5"
+                  style={{ color: 'rgba(255,255,255,0.28)' }}
+                >
+                  Ils ont parlé de nous
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    'Course au Large',
+                    'BFM TV',
+                    'France Inter',
+                    'NRJ',
+                    'Le Figaro Nautisme',
+                    'Var-Matin',
+                    'Dauphine · PSL',
+                  ].map((media, i) => (
+                    <motion.div
+                      key={media}
+                      initial={{ opacity: 0, scale: 0.92 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: 0.12 + i * 0.05 }}
+                      className="px-4 py-2.5 rounded-xl"
+                      style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)' }}
+                    >
+                      <span className="text-white/70 text-sm font-semibold">{media}</span>
+                    </motion.div>
+                  ))}
+                </div>
+                <p
+                  className="mt-6 text-xs leading-relaxed"
+                  style={{ color: 'rgba(255,255,255,0.25)', fontStyle: 'italic' }}
+                >
+                  Retombées presse, couverture digitale et relais institutionnels — 45ème édition · 2026
+                </p>
+              </motion.div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            VOTRE PARTICIPATION — IMPACT DU SOUTIEN
+        ══════════════════════════════════════════════════════ */}
+        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#071A35' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Badge fiscal 60% + intro */}
+            <div className="grid lg:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-start mb-14">
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.94 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55 }}
+                className="flex-shrink-0 text-center px-10 py-8 rounded-2xl"
+                style={{ background: 'rgba(232,169,48,0.07)', border: '1px solid rgba(232,169,48,0.22)' }}
+              >
+                <div
+                  className="font-bold tabular-nums leading-none mb-1"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(3.5rem, 8vw, 5rem)', color: '#E8A930' }}
+                >
+                  60<span style={{ fontSize: '55%' }}>%</span>
+                </div>
+                <p className="text-white/55 text-sm font-semibold mb-1">de déduction fiscale</p>
+                <p className="text-white/28 text-[10px] uppercase tracking-[0.18em]">association loi 1901</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.08 }}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: 'rgba(232,169,48,0.12)', border: '1px solid rgba(232,169,48,0.22)' }}
+                  >
+                    <Percent className="w-[18px] h-[18px]" style={{ color: '#E8A930' }} aria-hidden="true" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#E8A930' }}>
+                    Votre participation
+                  </span>
+                </div>
+                <h2
+                  className="text-white leading-tight mb-5"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
+                >
+                  Voir concrètement<br />
+                  <span style={{ color: '#E8A930' }}>l&apos;impact de son soutien</span>
+                </h2>
+                <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
+                  Le Challenge SPI Dauphine est une association loi 1901. Votre soutien ouvre droit à une déduction fiscale
+                  équivalente à 60&nbsp;% du montant du don — et finance directement ce qui fait la réussite de l&apos;événement.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* 2 colonnes : ce que ça finance / ce que ça permet */}
+            <div className="grid sm:grid-cols-2 gap-5 mb-8">
+
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.05 }}
+                className="p-7 rounded-2xl"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                <p
+                  className="text-[10px] font-bold uppercase tracking-[0.30em] mb-5"
+                  style={{ color: 'rgba(255,255,255,0.30)' }}
+                >
+                  Votre participation finance
+                </p>
+                <div className="flex flex-col gap-3.5">
+                  {[
+                    'Une sécurité renforcée pour tous les participants',
+                    'Des infrastructures solides et accueillantes',
+                    'Des services pensés pour l\'expérience des participants et du public',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#E8A930' }} aria-hidden="true" />
+                      <span className="text-white/60 text-sm leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.12 }}
+                className="p-7 rounded-2xl"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                <p
+                  className="text-[10px] font-bold uppercase tracking-[0.30em] mb-5"
+                  style={{ color: 'rgba(255,255,255,0.30)' }}
+                >
+                  Votre engagement permet de
+                </p>
+                <div className="flex flex-col gap-3.5">
+                  {[
+                    'Développer des actions d\'inclusion concrètes',
+                    'Investir dans des équipements durables',
+                    'Proposer des activités sportives accessibles',
+                    'Mener des actions de sensibilisation tout au long de la semaine',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#0BBFBF' }} aria-hidden="true" />
+                      <span className="text-white/60 text-sm leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Quote callout */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.15 }}
+              className="p-6 rounded-2xl"
+              style={{
+                background: 'rgba(232,169,48,0.05)',
+                borderLeft: '3px solid rgba(232,169,48,0.5)',
+                border: '1px solid rgba(232,169,48,0.14)',
+              }}
+            >
+              <p
+                className="text-white/75 font-semibold leading-relaxed"
+                style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)' }}
+              >
+                Chaque euro investi est fléché, lisible et assumé — il alimente un projet sportif,
+                responsable et ouvert, qui transforme un simple événement en expérience collective à impact réel.
+              </p>
+            </motion.div>
+
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            LES OFFRES DE SPONSORING
+        ══════════════════════════════════════════════════════ */}
+        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#060f1e' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-xl mb-14"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px w-8" style={{ background: 'rgba(11,191,191,0.5)' }} aria-hidden="true" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#0BBFBF' }}>
+                  Formes de partenariat
+                </span>
+              </div>
+              <h2
+                className="text-white leading-tight mb-4"
+                style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
+              >
+                Les offres de <span style={{ color: '#E8A930' }}>sponsoring</span>
+              </h2>
+              <p className="text-white/50 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
+                Trois formes d&apos;engagement pour s&apos;associer à la 45ème édition — de la participation financière
+                à la présence active sur le village et sur l&apos;eau.
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-3 gap-5">
+              {([
+                {
+                  icon: Banknote,
+                  color: '#E8A930',
+                  titre: 'Partenariats financiers',
+                  desc: 'Un soutien direct à l\'événement, avec visibilité logo sur l\'ensemble des supports de communication — affiche officielle, site, réseaux et diffusions sur place.',
+                  tag: 'Visibilité · Notoriété',
+                },
+                {
+                  icon: Anchor,
+                  color: '#0BBFBF',
+                  titre: 'Sailing & Business',
+                  desc: 'Participez à la régate au sein d\'une équipe mixte étudiants–entreprise. Une expérience unique de cohésion, de dépassement et d\'immersion dans l\'événement.',
+                  tag: 'Expérience · Team building',
+                },
+                {
+                  icon: Building2,
+                  color: '#1A6B8C',
+                  titre: 'Village entreprises',
+                  desc: 'Disposez d\'un espace de 9 m² au cœur du village d\'animation — stand, animations, contact direct avec plus d\'un millier de participants pendant toute la semaine.',
+                  tag: 'Présence · Contact direct',
+                },
+              ] as { icon: React.ElementType; color: string; titre: string; desc: string; tag: string }[]).map(({ icon: Icon, color, titre, desc, tag }, i) => (
+                <motion.div
+                  key={titre}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: i * 0.09 }}
+                  className="p-7 rounded-2xl flex flex-col gap-5"
+                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+                >
+                  <div>
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                      style={{ background: `${color}15`, border: `1px solid ${color}28` }}
+                    >
+                      <Icon className="w-5 h-5" style={{ color }} aria-hidden="true" />
+                    </div>
+                    <h3
+                      className="text-white font-bold leading-snug mb-3"
+                      style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.1rem, 1.8vw, 1.25rem)' }}
+                    >
+                      {titre}
+                    </h3>
+                    <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+                  </div>
+                  <div className="mt-auto pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <span
+                      className="text-[10px] font-bold uppercase tracking-[0.22em]"
+                      style={{ color }}
+                    >
+                      {tag}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
           </div>
