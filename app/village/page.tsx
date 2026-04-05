@@ -3,7 +3,9 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import Image from 'next/image'
 import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Utensils, MonitorPlay, Tent, ShieldCheck, Building2 } from 'lucide-react'
 
 /* ══ Utils ═══════════════════════════════════════════════════════ */
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
@@ -434,6 +436,221 @@ export default function VillagePage() {
           </div>
         </div>
       </main>
+
+      {/* ══════════════════════════════════════════════════════════════
+          SECTION INFRASTRUCTURES
+      ══════════════════════════════════════════════════════════════ */}
+      <section
+        id="infrastructures"
+        style={{ background: 'linear-gradient(180deg, #050a14 0%, #060f1e 100%)' }}
+        className="py-24 lg:py-32"
+      >
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+          {/* ── En-tête de section ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="mb-16 lg:mb-20 max-w-3xl"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-8 bg-[#0BBFBF]/50" />
+              <span className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.40em]">
+                Le village d&apos;animation
+              </span>
+            </div>
+            <h2
+              className="text-white mb-6 leading-tight"
+              style={{
+                fontFamily: 'var(--font-playfair)',
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontWeight: 700,
+              }}
+            >
+              Ses <span style={{ color: '#E8A930' }}>infrastructures</span>
+            </h2>
+            <p className="text-white/50 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)' }}>
+              Espace de minimum <strong className="text-white/75 font-semibold">1 000 m²</strong> au cœur du dispositif,
+              le village d&apos;animation accueille partenaires institutionnels et entreprises autour de stands,
+              d&apos;activités et de sensibilisation. En soirée, il se transforme en lieu festif encadré — musique live,
+              remises de prix — dans le strict respect des règles de sécurité et de tranquillité publique.
+            </p>
+          </motion.div>
+
+          {/* ── Grille des infrastructures ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            {/* 1 — Restauration */}
+            <InfraCard
+              index={0}
+              icon={Utensils}
+              color="#0BBFBF"
+              stat="75 m²"
+              statLabel="3 tentes · 5×5 m"
+              title="L'espace restauration"
+              bullets={[
+                'Débit de boissons Licence 3',
+                'Snacks et petite restauration',
+                'À caractère non commercial',
+              ]}
+            />
+
+            {/* 2 — Écran LED */}
+            <InfraCard
+              index={1}
+              icon={MonitorPlay}
+              color="#E8A930"
+              stat="15 m²"
+              statLabel="Écran 3×5 m"
+              title="L'écran géant LED"
+              bullets={[
+                'Dalle LED 3 m × 5 m',
+                'Estrade de 24 m²',
+                'Diffusions live & JT du soir',
+              ]}
+            />
+
+            {/* 3 — Tentes entreprises */}
+            <InfraCard
+              index={2}
+              icon={Building2}
+              color="#1A6B8C"
+              stat="90 m²"
+              statLabel="10 tentes · 3×3 m"
+              title="Les tentes entreprises"
+              bullets={[
+                '10 espaces de 9 m² chacun',
+                'Stands partenaires & animations',
+                'Configuration modulable',
+              ]}
+            />
+
+            {/* 4 — Sécurité & organisation (mi-largeur sur lg) */}
+            <InfraCard
+              index={3}
+              icon={ShieldCheck}
+              color="#64748B"
+              stat="36 m²"
+              statLabel="4 tentes · 9 m²"
+              title="Sécurité & organisation"
+              bullets={[
+                '2 tentes Protection civile',
+                '2 tentes Centre opérationnel',
+                'Dispositif réglementaire complet',
+              ]}
+            />
+
+            {/* 5 — Chapiteau (featured — span 2 sur lg) */}
+            <InfraCard
+              index={4}
+              icon={Tent}
+              color="#E8A930"
+              stat="240 m²"
+              statLabel="12×20 m · structure principale"
+              title="Le chapiteau"
+              featured
+              bullets={[
+                'Structure piquetée ou lestée selon le terrain',
+                '3 sorties de secours avec blocs lumineux',
+                '3 blocs d\'éclairage de sécurité autonomes',
+                '3 extincteurs AB + 1 extincteur CO₂',
+              ]}
+            />
+
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </>
+  )
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   COMPOSANT CARD INFRASTRUCTURE
+══════════════════════════════════════════════════════════════════ */
+function InfraCard({
+  index, icon: Icon, color, stat, statLabel, title, bullets, featured = false,
+}: {
+  index: number
+  icon: React.ElementType
+  color: string
+  stat: string
+  statLabel: string
+  title: string
+  bullets: string[]
+  featured?: boolean
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
+      className={`relative rounded-2xl flex flex-col overflow-hidden ${featured ? 'sm:col-span-2 lg:col-span-2' : ''}`}
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.07)',
+      }}
+    >
+      {/* Bande couleur haut */}
+      <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${color}, ${color}44)` }} />
+
+      <div className="p-7 lg:p-8 flex flex-col gap-6 flex-1">
+
+        {/* Icône + stat */}
+        <div className={`flex ${featured ? 'items-start justify-between flex-wrap gap-4' : 'items-start justify-between'}`}>
+          <div
+            className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+            style={{ background: `${color}18`, border: `1px solid ${color}30` }}
+          >
+            <Icon className="w-5 h-5" style={{ color }} aria-hidden="true" />
+          </div>
+
+          <div className="text-right">
+            <div
+              className="font-bold leading-none tabular-nums"
+              style={{
+                fontFamily: 'var(--font-playfair)',
+                fontSize: featured ? 'clamp(2rem, 3.5vw, 2.8rem)' : 'clamp(1.7rem, 2.8vw, 2.2rem)',
+                color,
+              }}
+            >
+              {stat}
+            </div>
+            <div className="text-white/30 mt-1" style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>
+              {statLabel}
+            </div>
+          </div>
+        </div>
+
+        {/* Titre */}
+        <h3
+          className="text-white font-semibold leading-snug"
+          style={{
+            fontFamily: 'var(--font-playfair)',
+            fontSize: featured ? 'clamp(1.15rem, 1.8vw, 1.35rem)' : 'clamp(1rem, 1.5vw, 1.15rem)',
+          }}
+        >
+          {title}
+        </h3>
+
+        {/* Bullets */}
+        <ul className={`flex flex-col gap-2 mt-auto ${featured ? 'sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-2' : ''}`}>
+          {bullets.map((b, i) => (
+            <li key={i} className="flex items-start gap-2.5">
+              <div
+                className="w-1 h-1 rounded-full mt-[7px] flex-shrink-0"
+                style={{ background: color }}
+              />
+              <span className="text-white/50 text-sm leading-relaxed">{b}</span>
+            </li>
+          ))}
+        </ul>
+
+      </div>
+    </motion.div>
   )
 }
