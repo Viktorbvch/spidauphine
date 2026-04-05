@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import {
   ArrowLeft, Heart, Leaf, Users, Lightbulb,
   Play, Pause, Volume2, VolumeX, Camera,
+  Trophy, GraduationCap, MapPin,
 } from 'lucide-react'
 import Link from 'next/link'
 import Header from '@/components/layout/Header'
@@ -446,6 +447,92 @@ export default function EngagementPage() {
         </section>
 
         {/* ══════════════════════════════════════════════════════
+            GENÈSE — la naissance de la SPI en 1981
+        ══════════════════════════════════════════════════════ */}
+        <section className="border-t border-white/6 py-14 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+              {/* Gauche : récit */}
+              <motion.div {...fadeUp()}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-8" style={{ background: 'rgba(232,169,48,0.5)' }} />
+                  <span className="text-[#E8A930] text-[10px] font-bold uppercase tracking-[0.40em]">
+                    La genèse · 1981
+                  </span>
+                </div>
+                <h2
+                  className="text-white mb-6 leading-tight"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 700 }}
+                >
+                  Nés d&apos;une <span style={{ color: '#E8A930' }}>frustration</span>,<br />devenus une légende
+                </h2>
+                <p className="text-white/60 text-base leading-relaxed mb-5">
+                  Tout commence par une conviction : les étudiants de Paris Dauphine méritent leur propre régate. Frustrés des conditions d&apos;accueil de la régate Edhec Voile, un groupe d&apos;étudiants passionnés décide en 1981 de créer quelque chose à eux — plus humain, plus festif, plus dauphinois.
+                </p>
+                <p className="text-white/60 text-base leading-relaxed mb-5">
+                  Parmi les fondateurs, une jeune étudiante nommée Catherine Chabaud. Elle deviendra en 2000 la première femme à boucler un tour du monde en solitaire sans escale et sans assistance, puis Secrétaire d&apos;État chargée de la Mer sous le gouvernement Borne.
+                </p>
+                <p className="text-white/60 text-base leading-relaxed">
+                  Quarante-cinq ans plus tard, la SPI rassemble chaque année plus de 1 000 étudiants en Méditerranée — toujours portée par cet esprit originel : la passion, l&apos;audace et le goût du large.
+                </p>
+              </motion.div>
+
+              {/* Droite : citation + stats */}
+              <motion.div {...fadeUp(0.15)} className="flex flex-col gap-5">
+                <blockquote
+                  className="relative p-8 rounded-2xl overflow-hidden"
+                  style={{ background: 'rgba(232,169,48,0.06)', border: '1px solid rgba(232,169,48,0.15)' }}
+                >
+                  <div
+                    className="absolute top-4 left-7 pointer-events-none select-none"
+                    style={{ fontFamily: 'var(--font-playfair)', fontSize: '5.5rem', lineHeight: 1, color: 'rgba(232,169,48,0.18)' }}
+                    aria-hidden="true"
+                  >&ldquo;</div>
+                  <p className="relative text-white/75 text-lg leading-relaxed italic mt-6" style={{ fontFamily: 'var(--font-playfair)' }}>
+                    On voulait une régate qui ressemble à Dauphine — libre, joyeuse, et un peu folle.
+                  </p>
+                  <footer className="mt-5 flex items-center gap-3">
+                    <div className="h-px flex-1" style={{ background: 'rgba(232,169,48,0.20)' }} />
+                    <span className="text-[#E8A930] text-[10px] font-bold uppercase tracking-[0.25em]">
+                      Fondateurs · 1981
+                    </span>
+                  </footer>
+                </blockquote>
+
+                <div className="grid grid-cols-3 gap-3">
+                  {[
+                    { val: '1981', label: 'Année de fondation' },
+                    { val: '45', label: 'Éditions au compteur' },
+                    { val: '+1 000', label: 'Étudiants par an' },
+                  ].map(stat => (
+                    <div
+                      key={stat.label}
+                      className="text-center p-5 rounded-xl"
+                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+                    >
+                      <div
+                        className="font-bold mb-1.5 tabular-nums"
+                        style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)', color: '#E8A930' }}
+                      >
+                        {stat.val}
+                      </div>
+                      <div
+                        className="text-white/35 font-semibold"
+                        style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase' }}
+                      >
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
             HISTOIRE — jalons
         ══════════════════════════════════════════════════════ */}
         <section className="border-t border-white/6 py-14 lg:py-20">
@@ -490,11 +577,50 @@ export default function EngagementPage() {
             <motion.div {...fadeUp()} className="max-w-xl mb-12">
               <p className="text-[#0BBFBF] text-[10px] font-semibold uppercase tracking-[0.3em] mb-3">Notre engagement</p>
               <h2 className="text-white mb-3" style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 700 }}>
-                La SPI <span style={{ color: '#E8A930' }}>s'engage</span>
+                La SPI <span style={{ color: '#E8A930' }}>s&apos;engage</span>
               </h2>
               <p className="text-white/50 text-base leading-relaxed">
-                Au-delà de la régate, le Challenge SPI Dauphine s'engage concrètement pour quatre causes qui structurent chaque édition.
+                Au-delà de la régate, le Challenge SPI Dauphine structure chaque édition autour de six piliers forts — sport, inclusion, environnement, respect, engagement associatif et valorisation du territoire.
               </p>
+            </motion.div>
+
+            {/* ── 6 piliers d'engagement ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: 'easeOut' as const }}
+              className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-14"
+            >
+              {([
+                { icon: Trophy,        color: '#E8A930', label: 'Sport et esprit',               desc: 'La compétition comme vecteur de dépassement et de cohésion collective.' },
+                { icon: Users,         color: '#0BBFBF', label: 'Inclusion',                     desc: 'Label 100% Handinamique — l\'événement accessible à tous.' },
+                { icon: Leaf,          color: '#1A8C6B', label: 'Responsabilité environnementale', desc: 'Collectes, partenariats Fondation de la Mer, réduction d\'empreinte.' },
+                { icon: Heart,         color: '#E05B40', label: 'Respect des participants',      desc: 'Charte de conduite, sécurité et bien-être de chaque participant.' },
+                { icon: GraduationCap, color: '#A855F7', label: 'Engagement associatif',        desc: 'Un événement géré entièrement par des étudiants bénévoles.' },
+                { icon: MapPin,        color: '#1A6B8C', label: 'Valorisation du territoire',   desc: 'Ancrage local fort, partenariat actif avec la commune d\'Imperia.' },
+              ] as { icon: React.ElementType; color: string; label: string; desc: string }[]).map(({ icon: Icon, color, label, desc }, i) => (
+                <motion.div
+                  key={label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.07, ease: 'easeOut' as const }}
+                  className="p-5 rounded-xl flex flex-col gap-3"
+                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+                >
+                  <div
+                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${color}18`, border: `1px solid ${color}30` }}
+                  >
+                    <Icon className="w-[18px] h-[18px]" style={{ color }} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm mb-1 leading-snug">{label}</p>
+                    <p className="text-white/40 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
 
             {/* ── Duo vidéo cinématique ── */}

@@ -182,7 +182,190 @@ export default function VillagePage() {
     <>
       <Header />
 
-      {/* Curseur custom */}
+      {/* ══════════════════════════════════════════════════════════════
+          HEADER VIDÉO — placeholder prêt à recevoir la vidéo
+      ══════════════════════════════════════════════════════════════ */}
+      <div
+        className="relative overflow-hidden"
+        style={{ height: 'clamp(520px, 78vh, 860px)', marginTop: 82 }}
+      >
+        {/* TODO: remplacer l'image par <video src="..." autoPlay muted loop playsInline> */}
+        <Image
+          src="/photos/spi-regate-village.jpg"
+          alt="Le village SPI Dauphine"
+          fill
+          priority
+          className="object-cover"
+          style={{ objectPosition: 'center 55%' }}
+          sizes="100vw"
+        />
+
+        {/* Gradients */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, rgba(5,10,20,0.18) 0%, rgba(5,10,20,0.15) 40%, rgba(5,10,20,0.65) 75%, #050a14 100%)' }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to right, rgba(5,10,20,0.5) 0%, rgba(5,10,20,0.15) 50%, transparent 100%)' }}
+          aria-hidden="true"
+        />
+
+        {/* Contenu overlay */}
+        <div className="absolute inset-0 flex flex-col justify-end">
+          <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 pb-14 lg:pb-20">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-[#0BBFBF] font-bold uppercase mb-4"
+              style={{ fontSize: 10, letterSpacing: '0.40em' }}
+            >
+              Marina di Imperia · Avril 2026
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.2 }}
+              className="text-white leading-tight mb-5"
+              style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, textShadow: '0 2px 20px rgba(0,0,0,0.55)' }}
+            >
+              Le village <span style={{ color: '#E8A930' }}>SPI Dauphine</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.32 }}
+              className="text-white/60 leading-relaxed max-w-xl"
+              style={{ fontSize: 'clamp(0.88rem, 1.3vw, 1rem)' }}
+            >
+              Espace de vie au cœur du challenge — stands partenaires, animations sportives,
+              AfterSea en bord de mer et soirées sous chapiteau. Sept jours où la compétition rencontre la fête.
+            </motion.p>
+          </div>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════════════════════════
+          SECTION INFRASTRUCTURES
+      ══════════════════════════════════════════════════════════════ */}
+      <section
+        id="infrastructures"
+        style={{ background: 'linear-gradient(180deg, #050a14 0%, #060f1e 100%)' }}
+        className="py-24 lg:py-32"
+      >
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+          {/* ── En-tête de section ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="mb-16 lg:mb-20 max-w-3xl"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-8 bg-[#0BBFBF]/50" />
+              <span className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.40em]">
+                Le village d&apos;animation
+              </span>
+            </div>
+            <h2
+              className="text-white mb-6 leading-tight"
+              style={{
+                fontFamily: 'var(--font-playfair)',
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontWeight: 700,
+              }}
+            >
+              Ses <span style={{ color: '#E8A930' }}>infrastructures</span>
+            </h2>
+            <p className="text-white/50 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)' }}>
+              Espace de minimum <strong className="text-white/75 font-semibold">1 000 m²</strong> au cœur du dispositif,
+              le village d&apos;animation accueille partenaires institutionnels et entreprises autour de stands,
+              d&apos;activités et de sensibilisation. En soirée, il se transforme en lieu festif encadré — musique live,
+              remises de prix — dans le strict respect des règles de sécurité et de tranquillité publique.
+            </p>
+          </motion.div>
+
+          {/* ── Grille des infrastructures ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            {/* 1 — Restauration */}
+            <InfraCard
+              index={0}
+              icon={Utensils}
+              color="#0BBFBF"
+              stat="75 m²"
+              statLabel="3 tentes · 5×5 m"
+              title="L'espace restauration"
+              bullets={[
+                'Débit de boissons Licence 3',
+                'Snacks et petite restauration',
+                'À caractère non commercial',
+              ]}
+            />
+
+            {/* 2 — Écran LED */}
+            <InfraCard
+              index={1}
+              icon={MonitorPlay}
+              color="#E8A930"
+              stat="15 m²"
+              statLabel="Écran 3×5 m"
+              title="L'écran géant LED"
+              bullets={[
+                'Dalle LED 3 m × 5 m',
+                'Estrade de 24 m²',
+                'Diffusions live & JT du soir',
+              ]}
+            />
+
+            {/* 3 — Tentes entreprises */}
+            <InfraCard
+              index={2}
+              icon={Building2}
+              color="#1A6B8C"
+              stat="90 m²"
+              statLabel="10 tentes · 3×3 m"
+              title="Les tentes entreprises"
+              bullets={[
+                '10 espaces de 9 m² chacun',
+                'Stands partenaires & animations',
+                'Configuration modulable',
+              ]}
+            />
+
+            {/* 4 — Sécurité & organisation */}
+            <InfraCard
+              index={3}
+              icon={ShieldCheck}
+              color="#64748B"
+              stat="36 m²"
+              statLabel="4 tentes · 9 m²"
+              title="Sécurité & organisation"
+              bullets={[
+                '2 tentes Protection civile',
+                '2 tentes Centre opérationnel',
+                'Dispositif réglementaire complet',
+              ]}
+            />
+
+            {/* 5 — Chapiteau (featured — span 2 sur lg) */}
+            <InfraCard
+              index={4}
+              icon={Tent}
+              color="#E8A930"
+              stat="240 m²"
+              statLabel="12×20 m · structure principale"
+              title="Le chapiteau"
+              featured
+              bullets={[
+                'Structure piquetée ou lestée selon le terrain',
+                '3 sorties de secours avec blocs lumineux',
+                '3 blocs d\'éclairage de sécurité autonomes',
+                '3 extincteurs AB + 1 extincteur CO₂',
+              ]}
+            />
+
+          </div>
+        </div>
+      </section>
+
+      {/* Curseur custom — journée type */}
       <div
         ref={cursorRef}
         aria-hidden="true"
@@ -194,7 +377,7 @@ export default function VillagePage() {
         }}
       />
 
-      <main className="relative h-screen overflow-hidden" style={{ cursor: 'none', background: '#050a14' }}>
+      <div className="relative h-screen overflow-hidden" style={{ cursor: 'none', background: '#050a14' }}>
 
         {/* ══ PHOTOS — parallax wrapper + crossfade ══ */}
         <div
@@ -435,133 +618,7 @@ export default function VillagePage() {
 
           </div>
         </div>
-      </main>
-
-      {/* ══════════════════════════════════════════════════════════════
-          SECTION INFRASTRUCTURES
-      ══════════════════════════════════════════════════════════════ */}
-      <section
-        id="infrastructures"
-        style={{ background: 'linear-gradient(180deg, #050a14 0%, #060f1e 100%)' }}
-        className="py-24 lg:py-32"
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-
-          {/* ── En-tête de section ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="mb-16 lg:mb-20 max-w-3xl"
-          >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="h-px w-8 bg-[#0BBFBF]/50" />
-              <span className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.40em]">
-                Le village d&apos;animation
-              </span>
-            </div>
-            <h2
-              className="text-white mb-6 leading-tight"
-              style={{
-                fontFamily: 'var(--font-playfair)',
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                fontWeight: 700,
-              }}
-            >
-              Ses <span style={{ color: '#E8A930' }}>infrastructures</span>
-            </h2>
-            <p className="text-white/50 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)' }}>
-              Espace de minimum <strong className="text-white/75 font-semibold">1 000 m²</strong> au cœur du dispositif,
-              le village d&apos;animation accueille partenaires institutionnels et entreprises autour de stands,
-              d&apos;activités et de sensibilisation. En soirée, il se transforme en lieu festif encadré — musique live,
-              remises de prix — dans le strict respect des règles de sécurité et de tranquillité publique.
-            </p>
-          </motion.div>
-
-          {/* ── Grille des infrastructures ── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-            {/* 1 — Restauration */}
-            <InfraCard
-              index={0}
-              icon={Utensils}
-              color="#0BBFBF"
-              stat="75 m²"
-              statLabel="3 tentes · 5×5 m"
-              title="L'espace restauration"
-              bullets={[
-                'Débit de boissons Licence 3',
-                'Snacks et petite restauration',
-                'À caractère non commercial',
-              ]}
-            />
-
-            {/* 2 — Écran LED */}
-            <InfraCard
-              index={1}
-              icon={MonitorPlay}
-              color="#E8A930"
-              stat="15 m²"
-              statLabel="Écran 3×5 m"
-              title="L'écran géant LED"
-              bullets={[
-                'Dalle LED 3 m × 5 m',
-                'Estrade de 24 m²',
-                'Diffusions live & JT du soir',
-              ]}
-            />
-
-            {/* 3 — Tentes entreprises */}
-            <InfraCard
-              index={2}
-              icon={Building2}
-              color="#1A6B8C"
-              stat="90 m²"
-              statLabel="10 tentes · 3×3 m"
-              title="Les tentes entreprises"
-              bullets={[
-                '10 espaces de 9 m² chacun',
-                'Stands partenaires & animations',
-                'Configuration modulable',
-              ]}
-            />
-
-            {/* 4 — Sécurité & organisation (mi-largeur sur lg) */}
-            <InfraCard
-              index={3}
-              icon={ShieldCheck}
-              color="#64748B"
-              stat="36 m²"
-              statLabel="4 tentes · 9 m²"
-              title="Sécurité & organisation"
-              bullets={[
-                '2 tentes Protection civile',
-                '2 tentes Centre opérationnel',
-                'Dispositif réglementaire complet',
-              ]}
-            />
-
-            {/* 5 — Chapiteau (featured — span 2 sur lg) */}
-            <InfraCard
-              index={4}
-              icon={Tent}
-              color="#E8A930"
-              stat="240 m²"
-              statLabel="12×20 m · structure principale"
-              title="Le chapiteau"
-              featured
-              bullets={[
-                'Structure piquetée ou lestée selon le terrain',
-                '3 sorties de secours avec blocs lumineux',
-                '3 blocs d\'éclairage de sécurité autonomes',
-                '3 extincteurs AB + 1 extincteur CO₂',
-              ]}
-            />
-
-          </div>
-        </div>
-      </section>
+      </div>
 
       <Footer />
     </>
