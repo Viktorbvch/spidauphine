@@ -5,9 +5,9 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { MapPin, Anchor, Wind, Thermometer, Navigation } from 'lucide-react'
 
 const photos = [
-  { src: '/assets/imperia-1.jpg', label: 'Imperia depuis la mer', sub: 'La ville haute et son dôme' },
-  { src: '/assets/imperia-2.jpg', label: 'Marina di Imperia',    sub: 'L\'une des plus grandes de Ligurie' },
-  { src: '/assets/imperia-3.jpg', label: 'Le port et les couleurs', sub: 'Architecture ligure typique' },
+  { src: '/photos/imperia-1.jpg', label: 'Imperia depuis la mer', sub: 'La ville haute et son dôme' },
+  { src: '/photos/imperia-2.jpg', label: 'Marina di Imperia',    sub: 'L\'une des plus grandes de Ligurie' },
+  { src: '/photos/imperia-3.jpg', label: 'Le port et les couleurs', sub: 'Architecture ligure typique' },
 ]
 
 const facts = [
