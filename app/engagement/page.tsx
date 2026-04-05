@@ -16,7 +16,7 @@ const jalons = [
   { annee: '1981', fait: 'Fondée par des étudiants de Paris Dauphine — dont Catherine Chabaud, future première femme à boucler un tour du monde en solitaire.' },
   { annee: '1982', fait: 'Invention du binôme : une équipe étudiante + une équipe d\'entreprise sous la même enseigne. Un concept toujours inédit.' },
   { annee: '1986', fait: 'Cap sur la Méditerranée. La SPI trouve son identité : soleil, voile et esprit de fête sur les côtes du Sud.' },
-  { annee: '2026', fait: '45ème édition à Marina di Imperia. +1 000 étudiants, 36 équipages, 7 jours. La plus grande régate universitaire de France.' },
+  { annee: '2026', fait: '45ème édition à Marina di Imperia. +1 000 étudiants, 36 équipages, 7 jours. La plus grande régate universitaire du sud de la France.' },
 ]
 
 const fadeUp = (delay = 0) => ({

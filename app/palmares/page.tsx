@@ -18,7 +18,7 @@ export default function PalmaresPage() {
           eyebrow="Depuis 1981 — 44 éditions"
           title="Palmarès des"
           titleAccent="anciennes éditions"
-          subtitle="Depuis la première édition en 1981 imaginée par des étudiants de Paris Dauphine, le Challenge SPI est devenu la plus grande régate universitaire de France."
+          subtitle="Depuis la première édition en 1981 imaginée par des étudiants de Paris Dauphine, le Challenge SPI est devenu la plus grande régate universitaire du sud de la France."
           photo="/photos/spi-07.jpg"
           photoAlt="Flotte de voiliers au départ de la régate SPI Dauphine"
         />

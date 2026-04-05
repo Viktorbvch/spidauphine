@@ -229,14 +229,14 @@ export default function Presse() {
 
             <div className="flex flex-col gap-4">
               <a
-                href="mailto:pauline.petitdidier@spidauphine.com?subject=Demande%20d%27accr%C3%A9ditation%20presse%20SPI%20Dauphine%2045"
+                href="mailto:contact@spidauphine.com?subject=Demande%20d%27accr%C3%A9ditation%20presse%20SPI%20Dauphine%2045"
                 className="flex items-center gap-3 bg-[#E8A930] hover:bg-[#D4962A] text-[#0B2545] rounded-xl px-5 py-3.5 font-semibold text-sm transition-colors duration-200 cursor-pointer"
               >
                 <FileText className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                 Demande d&apos;accréditation presse
               </a>
               <a
-                href="mailto:pauline.petitdidier@spidauphine.com?subject=Contact%20presse%20SPI%20Dauphine"
+                href="mailto:contact@spidauphine.com?subject=Contact%20presse%20SPI%20Dauphine"
                 className="flex items-center gap-3 bg-white/10 hover:bg-white/15 border border-white/15 text-white rounded-xl px-5 py-3.5 font-medium text-sm transition-colors duration-200 cursor-pointer"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
@@ -312,12 +312,8 @@ export default function Presse() {
           <div>
             <p className="text-[#1A6B8C] text-xs font-semibold uppercase tracking-widest mb-1">Contact presse</p>
             <p className="text-[#0B2545] font-semibold mb-0.5">Pauline Petitdidier — Présidente</p>
-            <a href="mailto:pauline.petitdidier@spidauphine.com" className="text-[#64748B] text-sm hover:text-[#1A6B8C] transition-colors cursor-pointer">
-              pauline.petitdidier@spidauphine.com
-            </a>
-            <br />
-            <a href="tel:+33769350811" className="text-[#64748B] text-sm hover:text-[#1A6B8C] transition-colors cursor-pointer">
-              +33 7 69 35 08 11
+            <a href="mailto:contact@spidauphine.com" className="text-[#64748B] text-sm hover:text-[#1A6B8C] transition-colors cursor-pointer">
+              contact@spidauphine.com
             </a>
           </div>
         </motion.div>

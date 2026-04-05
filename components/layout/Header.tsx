@@ -15,15 +15,15 @@ const leftLinks = [
 const rightLinks = [
   { href: '#regate',      label: 'La Régate' },
   { href: '#multisports', label: 'Le Challenge Multisports' },
+  { href: '/village',     label: 'Le Village' },
   { href: '/contact',     label: 'Contact' },
 ]
 
 const navLinks = [...leftLinks, ...rightLinks]
 
 const discoverLinks = [
-  { href: '/partenaires', label: 'Espace Partenaires',  desc: 'Nos 28 partenaires de la 45ème édition',                       num: '01' },
-  { href: '/presse',      label: 'Espace Presse',       desc: 'Revue de presse & accréditations médias',                      num: '02' },
-  { href: '/village',     label: 'La Journée SPI',      desc: 'Explorez une journée type au village — de l\'aube à la nuit', num: '03' },
+  { href: '/partenaires', label: 'Espace Partenaires',  desc: 'Nos 28 partenaires de la 45ème édition',  num: '01' },
+  { href: '/presse',      label: 'Espace Presse',       desc: 'Revue de presse & accréditations médias', num: '02' },
 ]
 
 export default function Header() {
@@ -105,7 +105,7 @@ export default function Header() {
                   const isPage = resolvedHref.startsWith('/')
                   const id = link.href.replace('#', '')
                   const isActive = !link.href.startsWith('/') && activeSection === id
-                  const cls = `relative px-2.5 py-2 text-[10px] font-bold rounded-lg whitespace-nowrap transition-colors duration-200 cursor-pointer uppercase tracking-[0.12em] ${
+                  const cls = `relative px-2.5 py-2 text-[13px] font-bold rounded-lg whitespace-nowrap transition-colors duration-200 cursor-pointer uppercase tracking-[0.08em] ${
                     isActive ? 'text-white' : 'text-white/50 hover:text-white/90'
                   }`
                   const inner = (
@@ -169,7 +169,7 @@ export default function Header() {
                   const isPage = resolvedHref.startsWith('/')
                   const id = link.href.replace('#', '')
                   const isActive = !link.href.startsWith('/') && activeSection === id
-                  const cls = `relative px-2.5 py-2 text-[10px] font-bold rounded-lg whitespace-nowrap transition-colors duration-200 cursor-pointer uppercase tracking-[0.12em] ${
+                  const cls = `relative px-2.5 py-2 text-[13px] font-bold rounded-lg whitespace-nowrap transition-colors duration-200 cursor-pointer uppercase tracking-[0.08em] ${
                     isActive ? 'text-white' : 'text-white/50 hover:text-white/90'
                   }`
                   const inner = (
@@ -197,7 +197,7 @@ export default function Header() {
                     onClick={() => setDropdown(v => !v)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.97 }}
-                    className="relative flex items-center gap-1.5 px-4 py-2 text-[10px] font-bold rounded-lg whitespace-nowrap transition-all duration-250 cursor-pointer uppercase tracking-[0.1em]"
+                    className="relative flex items-center gap-1.5 px-4 py-2 text-[13px] font-bold rounded-lg whitespace-nowrap transition-all duration-250 cursor-pointer uppercase tracking-[0.08em]"
                     style={{
                       background: dropdownOpen
                         ? 'linear-gradient(135deg, #E8A930 0%, #D4921A 100%)'
