@@ -7,6 +7,8 @@ import {
   ArrowLeft, Heart, Leaf, Users, Lightbulb,
   Play, Pause, Volume2, VolumeX, Camera,
   Trophy, GraduationCap, MapPin,
+  ShieldCheck, AlertCircle, Award, Megaphone,
+  Recycle, Trash2, BookOpen, Package,
 } from 'lucide-react'
 import Link from 'next/link'
 import Header from '@/components/layout/Header'
@@ -672,6 +674,351 @@ export default function EngagementPage() {
                 photo="/photos/startup.jpg"
                 index={1}
               />
+            </div>
+
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            VIOLENCES SEXISTES ET SEXUELLES
+        ══════════════════════════════════════════════════════ */}
+        <section className="border-t border-white/6 py-14 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* En-tête */}
+            <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 items-start mb-12">
+              <motion.div {...fadeUp()}>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ background: 'rgba(167,139,250,0.15)', border: '1px solid rgba(167,139,250,0.28)' }}>
+                    <ShieldCheck className="w-4 h-4" style={{ color: '#A78BFA' }} />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#A78BFA' }}>
+                    Sécurité · Tolérance zéro
+                  </span>
+                </div>
+                <h2
+                  className="text-white leading-tight mb-5"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
+                >
+                  Un événement plus sûr<br />
+                  <span style={{ color: '#E8A930' }}>pour toutes et tous</span>
+                </h2>
+                <p className="text-white/55 leading-relaxed max-w-xl" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
+                  La SPI Dauphine applique une politique de tolérance zéro face aux violences sexistes et sexuelles.
+                  Un dispositif concret, structuré et humain est déployé à chaque édition — pour que chaque participant·e
+                  vive l&apos;événement dans un cadre rassurant, vigilant et encadré.
+                </p>
+              </motion.div>
+
+              {/* Badge SafeHub */}
+              <motion.div {...fadeUp(0.15)} className="flex-shrink-0">
+                <div
+                  className="px-6 py-5 rounded-2xl"
+                  style={{ background: 'rgba(167,139,250,0.07)', border: '1px solid rgba(167,139,250,0.20)' }}
+                >
+                  <p className="text-[9px] font-bold uppercase tracking-[0.35em] mb-2" style={{ color: '#A78BFA' }}>
+                    Partenaire sécurité
+                  </p>
+                  <p className="text-white font-bold text-2xl mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+                    SafeHub
+                  </p>
+                  <p className="text-white/40 text-xs leading-relaxed" style={{ maxWidth: 210 }}>
+                    Dispositif d&apos;alerte et de sécurité déployé sur l&apos;ensemble de l&apos;événement.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* 4 mesures concrètes */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {([
+                {
+                  icon: ShieldCheck,
+                  title: 'Charte VSS',
+                  desc: 'Une charte contre les violences sexistes et sexuelles, adoptée et appliquée à l\'ensemble de nos événements.',
+                },
+                {
+                  icon: Users,
+                  title: 'Responsables VSS',
+                  desc: 'Plusieurs référent·e·s identifiés et disponibles à tout moment pendant toute la semaine.',
+                },
+                {
+                  icon: AlertCircle,
+                  title: 'Dispositif d\'alerte',
+                  desc: 'Système de signalement structuré avec SafeHub — simple d\'accès, réponse rapide et encadrée.',
+                },
+                {
+                  icon: Heart,
+                  title: 'Espace d\'écoute',
+                  desc: 'Équipe formée et espace accessible pour accompagner toute personne en difficulté.',
+                },
+              ] as { icon: React.ElementType; title: string; desc: string }[]).map(({ icon: Icon, title, desc }, i) => (
+                <motion.div
+                  key={title}
+                  {...fadeUp(i * 0.07)}
+                  className="p-5 rounded-xl flex flex-col gap-4"
+                  style={{ background: 'rgba(167,139,250,0.05)', border: '1px solid rgba(167,139,250,0.13)' }}
+                >
+                  <div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ background: 'rgba(167,139,250,0.12)', border: '1px solid rgba(167,139,250,0.22)' }}
+                  >
+                    <Icon className="w-[18px] h-[18px]" style={{ color: '#A78BFA' }} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm mb-1.5 leading-snug">{title}</p>
+                    <p className="text-white/45 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            INCLUSION — section enrichie
+        ══════════════════════════════════════════════════════ */}
+        <section
+          className="border-t border-white/6 py-14 lg:py-20"
+          style={{ background: 'linear-gradient(180deg, #071A35 0%, #060f1e 100%)' }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Intro deux colonnes */}
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-16">
+              <motion.div {...fadeUp()}>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ background: 'rgba(11,191,191,0.12)', border: '1px solid rgba(11,191,191,0.25)' }}>
+                    <Users className="w-4 h-4" style={{ color: '#0BBFBF' }} />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#0BBFBF' }}>
+                    Inclusion · Mixité
+                  </span>
+                </div>
+                <h2
+                  className="text-white leading-tight mb-6"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
+                >
+                  Un événement <span style={{ color: '#E8A930' }}>inclusif</span>
+                </h2>
+                <p className="text-white/55 leading-relaxed mb-4" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
+                  Sur l&apos;eau, des bateaux mixtes aux couleurs de l&apos;inclusion prennent chaque année le départ —
+                  symbole concret de l&apos;engagement de la SPI pour l&apos;égalité et la mixité en compétition.
+                </p>
+                <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
+                  À terre, des actions de sensibilisation au handicap sont déployées à travers des interventions
+                  associatives, des mises en situation, des pratiques sportives inclusives, des dispositifs de
+                  parrainage et des temps de partage entre participants.
+                </p>
+              </motion.div>
+
+              <motion.div {...fadeUp(0.12)}>
+                <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '4/3' }}>
+                  <Image
+                    src="/photos/handi-sport.jpg"
+                    alt="Journée de l'inclusion — SPI Dauphine"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ background: 'linear-gradient(to top, rgba(6,15,30,0.75) 0%, transparent 55%)' }}
+                    aria-hidden="true"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-white"
+                      style={{ background: '#1A6B8C' }}
+                    >
+                      Journée inclusion · Chaque édition
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Séparateur "Ce que nous avons concrétisé" */}
+            <motion.div {...fadeUp(0.1)} className="mb-10">
+              <div className="flex items-center gap-4">
+                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.30em] flex-shrink-0" style={{ color: 'rgba(255,255,255,0.30)' }}>
+                  Ce que nous avons concrétisé
+                </span>
+                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.08)' }} />
+              </div>
+            </motion.div>
+
+            {/* 4 réalisations concrètes */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {([
+                {
+                  icon: Heart,
+                  color: '#E05B40',
+                  label: 'Quatre courses caritatives',
+                  desc: 'Organisées dans le cadre de la journée de l\'inclusion, au profit des associations AIDA, Comme Les Autres et Vents Différents.',
+                },
+                {
+                  icon: Users,
+                  color: '#1A6B8C',
+                  label: 'Équipages en situation de handicap',
+                  desc: 'Accueil d\'équipages aux côtés de l\'association ASEI et Vents Différents — ensemble sur l\'eau, à armes égales.',
+                },
+                {
+                  icon: Award,
+                  color: '#E8A930',
+                  label: 'Label 100% Handinamique',
+                  desc: 'Distinction obtenue en reconnaissance de nos engagements concrets pour l\'accessibilité et l\'inclusion à chaque édition.',
+                },
+                {
+                  icon: Megaphone,
+                  color: '#0BBFBF',
+                  label: 'Relais national',
+                  desc: 'Suivi, documentation et communication nationale des actions inclusives mises en œuvre, en lien avec les territoires accueillants.',
+                },
+              ] as { icon: React.ElementType; color: string; label: string; desc: string }[]).map(({ icon: Icon, color, label, desc }, i) => (
+                <motion.div
+                  key={label}
+                  {...fadeUp(i * 0.08)}
+                  className="flex items-start gap-4 p-5 rounded-xl"
+                  style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.07)' }}
+                >
+                  <div
+                    className="w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5"
+                    style={{ background: `${color}18`, border: `1px solid ${color}30` }}
+                  >
+                    <Icon className="w-[18px] h-[18px]" style={{ color }} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm mb-1 leading-snug">{label}</p>
+                    <p className="text-white/45 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            ÉCORESPONSABILITÉ
+        ══════════════════════════════════════════════════════ */}
+        <section className="border-t border-white/6 py-14 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* En-tête */}
+            <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end mb-10">
+              <motion.div {...fadeUp()}>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ background: 'rgba(26,140,107,0.15)', border: '1px solid rgba(26,140,107,0.28)' }}>
+                    <Leaf className="w-4 h-4" style={{ color: '#1A8C6B' }} />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#1A8C6B' }}>
+                    Écoresponsabilité · RSE
+                  </span>
+                </div>
+                <h2
+                  className="text-white leading-tight mb-5"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
+                >
+                  Un événement <span style={{ color: '#E8A930' }}>écoresponsable</span>
+                </h2>
+                <p className="text-white/55 leading-relaxed max-w-2xl" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
+                  En complément de nos collaborations avec des partenaires engagés comme{' '}
+                  <strong className="text-white/75 font-semibold">Heura</strong>, de l&apos;organisation d&apos;une table ronde
+                  à Paris Dauphine dédiée aux enjeux environnementaux et sociaux, et de nos collectes à Paris,
+                  notre objectif est de poursuivre et renforcer nos engagements RSE aux côtés du port et de la commune.
+                </p>
+              </motion.div>
+
+              {/* Badge Fondation de la Mer */}
+              <motion.div {...fadeUp(0.12)} className="flex-shrink-0">
+                <div
+                  className="px-5 py-4 rounded-xl"
+                  style={{ background: 'rgba(26,140,107,0.08)', border: '1px solid rgba(26,140,107,0.20)' }}
+                >
+                  <p className="text-[9px] font-bold uppercase tracking-[0.30em] mb-1.5" style={{ color: '#1A8C6B' }}>
+                    Partenaire
+                  </p>
+                  <p className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+                    Fondation de la Mer
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Phrase forte */}
+            <motion.div
+              {...fadeUp(0.08)}
+              className="mb-10 p-6 rounded-2xl"
+              style={{
+                background: 'rgba(26,140,107,0.06)',
+                borderLeft: '3px solid rgba(26,140,107,0.6)',
+                border: '1px solid rgba(26,140,107,0.15)',
+              }}
+            >
+              <p
+                className="text-white/75 font-semibold leading-relaxed"
+                style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1rem, 1.6vw, 1.15rem)' }}
+              >
+                Poursuivre et renforcer nos engagements RSE aux côtés du port et de la commune.
+              </p>
+            </motion.div>
+
+            {/* 5 actions */}
+            <div className="flex flex-col gap-3">
+              {([
+                {
+                  icon: Recycle,
+                  title: 'Co-construction des actions RSE',
+                  desc: 'En association avec le port et la commune, nous co-construisons les actions RSE avec les acteurs locaux — collectifs de tri, associations engagées et protecteurs du littoral.',
+                },
+                {
+                  icon: Trash2,
+                  title: 'Collectes de déchets',
+                  desc: 'Collectes sur le port, les plages et dans la commune — opérations Port Propre en partenariat avec des associations nationales, locales et la Fondation de la Mer.',
+                },
+                {
+                  icon: BookOpen,
+                  title: 'Sensibilisation environnementale',
+                  desc: 'Ateliers pédagogiques, interventions associatives et temps d\'échange à destination des participants et du public tout au long de la semaine.',
+                },
+                {
+                  icon: Package,
+                  title: 'Dispositifs concrets sur site',
+                  desc: 'Tri des déchets en plusieurs flux, cendriers incitatifs, mobilier recyclé — gestion responsable de l\'ensemble des espaces de l\'événement.',
+                },
+                {
+                  icon: Megaphone,
+                  title: 'Communication RSE dédiée',
+                  desc: 'Valorisation de l\'implication du port et de la commune accueillante auprès des participants, partenaires et du grand public à chaque édition.',
+                },
+              ] as { icon: React.ElementType; title: string; desc: string }[]).map(({ icon: Icon, title, desc }, i) => (
+                <motion.div
+                  key={title}
+                  {...fadeUp(i * 0.07)}
+                  className="flex items-start gap-5 p-5 rounded-xl"
+                  style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.06)' }}
+                >
+                  <div
+                    className="w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5"
+                    style={{ background: 'rgba(26,140,107,0.12)', border: '1px solid rgba(26,140,107,0.22)' }}
+                  >
+                    <Icon className="w-[18px] h-[18px]" style={{ color: '#1A8C6B' }} aria-hidden="true" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-semibold text-sm mb-1.5 leading-snug">{title}</p>
+                    <p className="text-white/45 text-sm leading-relaxed">{desc}</p>
+                  </div>
+                  <div className="flex-shrink-0 pt-2 pl-2">
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: 'rgba(26,140,107,0.5)' }} aria-hidden="true" />
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
           </div>
