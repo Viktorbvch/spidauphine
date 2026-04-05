@@ -23,8 +23,7 @@ const navLinks = [...leftLinks, ...rightLinks]
 const discoverLinks = [
   { href: '/partenaires', label: 'Espace Partenaires',  desc: 'Nos 28 partenaires de la 45ème édition',                       num: '01' },
   { href: '/presse',      label: 'Espace Presse',       desc: 'Revue de presse & accréditations médias',                      num: '02' },
-  { href: '/palmares',    label: 'Anciennes éditions',  desc: 'Palmarès des vainqueurs depuis 1981',                          num: '03' },
-  { href: '/village',     label: 'La Journée SPI',      desc: 'Explorez une journée type au village — de l\'aube à la nuit', num: '04' },
+  { href: '/village',     label: 'La Journée SPI',      desc: 'Explorez une journée type au village — de l\'aube à la nuit', num: '03' },
 ]
 
 export default function Header() {

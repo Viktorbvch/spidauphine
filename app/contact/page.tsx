@@ -15,7 +15,7 @@ const CHANNELS = [
     Icon: MessageSquare,
     label: 'Question générale',
     desc:  'Informations, inscriptions, logistique ou toute autre question sur l\'événement.',
-    to:    'contact@spidophile.com',
+    to:    'contact@spidauphine.com',
     subject: 'Question générale — SPI Dauphine 45',
   },
   {
@@ -23,7 +23,7 @@ const CHANNELS = [
     Icon: Newspaper,
     label: 'Demande de presse',
     desc:  'Accréditations, demandes d\'interviews, revue de presse et accès médias.',
-    to:    'contact@spidophile.com',
+    to:    'contact@spidauphine.com',
     subject: 'Demande de presse — SPI Dauphine 45',
   },
   {
@@ -31,7 +31,7 @@ const CHANNELS = [
     Icon: Building2,
     label: 'Partenariat',
     desc:  'Rejoindre l\'aventure en tant que partenaire ou sponsor de la 45ème édition.',
-    to:    'bureau@spidophile.com',
+    to:    'bureau@spidauphine.com',
     subject: 'Demande de partenariat — SPI Dauphine 45',
   },
 ] as const
@@ -223,8 +223,8 @@ export default function ContactPage() {
                 </p>
                 <div className="space-y-5">
                   {[
-                    { label: 'Bureau',  email: 'bureau@spidophile.com' },
-                    { label: 'Contact', email: 'contact@spidophile.com' },
+                    { label: 'Bureau',  email: 'bureau@spidauphine.com' },
+                    { label: 'Contact', email: 'contact@spidauphine.com' },
                   ].map(({ label, email }) => (
                     <a
                       key={email}

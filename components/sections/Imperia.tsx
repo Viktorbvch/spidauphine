@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { MapPin, Anchor, Wind, Thermometer, Navigation } from 'lucide-react'
 
@@ -20,9 +21,7 @@ const facts = [
 
 export default function Imperia() {
   const sectionRef   = useRef<HTMLDivElement>(null)
-  const videoRef     = useRef<HTMLVideoElement>(null)
   const [active, setActive] = useState(0)
-  const [muted] = useState(true)
 
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] })
   const videoScale  = useTransform(scrollYProgress, [0, 0.5], [1.08, 1])
@@ -35,16 +34,15 @@ export default function Imperia() {
       {/* ══ BLOC 1 : Vidéo hero plein-écran ══════════════════════════════ */}
       <div className="relative h-[82svh] flex items-end overflow-hidden">
 
-        {/* Vidéo en parallaxe */}
+        {/* Photo en parallaxe */}
         <motion.div className="absolute inset-0" style={{ scale: videoScale }}>
-          <video
-            ref={videoRef}
-            src="/assets/imperia-aerial.mp4"
-            autoPlay
-            loop
-            muted={muted}
-            playsInline
-            className="w-full h-full object-cover"
+          <Image
+            src="/photos/header-imperia.jpg"
+            alt="Vue aérienne d'Imperia, côte ligure"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
           />
         </motion.div>
 

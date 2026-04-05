@@ -80,7 +80,7 @@ export default function Footer() {
                 { href: '/engagement',   label: 'Histoire & engagements' },
                 { href: '/partenaires',  label: 'Espace Partenaires' },
                 { href: '/presse',       label: 'Espace Presse' },
-                { href: '/palmares',     label: 'Anciennes éditions' },
+
                 { href: '/contact',      label: 'Contact' },
               ].map(link => (
                 <li key={link.href}>

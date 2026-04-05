@@ -354,7 +354,7 @@ export default function PartenairesPage() {
               {/* CTA */}
               <div className="flex justify-center mt-8">
                 <a
-                  href="mailto:spi@dauphine.eu?subject=Partenariat SPI Dauphine 45"
+                  href="/contact"
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-[#0B2545] transition-all duration-200 hover:scale-105 cursor-pointer"
                   style={{
                     background: 'linear-gradient(135deg, #E8A930 0%, #D4921A 100%)',

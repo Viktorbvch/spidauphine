@@ -20,7 +20,7 @@ export default function Hero() {
     >
       {/* ── Background photo ── */}
       <Image
-        src="/photos/regate-hero.jpg"
+        src="/photos/spi-09.jpg"
         alt="Voiliers en régate lors du Challenge SPI Dauphine"
         fill
         priority

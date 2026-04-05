@@ -1,50 +1,30 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { X, Play, Pause, Volume2, VolumeX, Phone } from 'lucide-react'
+import { X, Phone } from 'lucide-react'
 import { equipes } from '@/data/equipes'
 
 export default function Regate() {
-  const [isMuted, setIsMuted] = useState(true)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  const toggleMute = () => {
-    if (videoRef.current) { videoRef.current.muted = !isMuted; setIsMuted(m => !m) }
-  }
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) videoRef.current.pause(); else videoRef.current.play()
-      setIsPlaying(p => !p)
-    }
-  }
 
   return (
     <section id="regate" className="bg-[#F8FAFC]">
 
-      {/* ── Vidéo hero ── */}
+      {/* ── Bannière hero ── */}
       <div className="relative w-full overflow-hidden" style={{ height: 'clamp(480px, 75vh, 880px)' }}>
-        <video
-          ref={videoRef}
-          src="/videos/regate.mov"
-          autoPlay muted loop playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 30%' }}
+        <Image
+          src="/photos/regate-hero.jpg"
+          alt="Voiliers en régate lors du Challenge SPI Dauphine"
+          fill
+          priority
+          className="object-cover"
+          style={{ objectPosition: 'center 40%' }}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-[#0B2545]/85" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B2545]/60 via-transparent to-transparent" aria-hidden="true" />
 
-        {/* Contrôles vidéo */}
-        <div className="absolute bottom-6 right-6 flex items-center gap-2 z-10">
-          <button onClick={togglePlay} className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-200 cursor-pointer" aria-label={isPlaying ? 'Pause' : 'Lire'}>
-            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-          </button>
-          <button onClick={toggleMute} className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all duration-200 cursor-pointer" aria-label={isMuted ? 'Activer le son' : 'Couper le son'}>
-            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-          </button>
-        </div>
 
         {/* Texte overlay */}
         <div className="absolute inset-0 flex flex-col justify-end">
