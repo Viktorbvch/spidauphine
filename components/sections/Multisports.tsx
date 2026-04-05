@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Phone } from 'lucide-react'
+import { Phone, CalendarDays, Users, MapPin } from 'lucide-react'
 import { sports } from '@/data/sports'
 
 function SportIcon({ id, className }: { id: string; className?: string }) {
@@ -160,6 +160,136 @@ export default function Multisports() {
               )
             })}
           </motion.div>
+        </div>
+      </div>
+
+      {/* ── CONTEXTE CHALLENGE MULTISPORT ── */}
+      <div className="border-t border-white/8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+
+          {/* Barre de répartition 70 / 30 */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+            className="mb-12"
+          >
+            <p
+              className="text-[10px] font-bold uppercase tracking-[0.35em] mb-3"
+              style={{ color: 'rgba(255,255,255,0.28)' }}
+            >
+              Répartition du classement général
+            </p>
+            <div
+              className="flex h-1.5 rounded-full overflow-hidden"
+              style={{ background: 'rgba(255,255,255,0.06)' }}
+              role="img"
+              aria-label="70 % épreuves nautiques, 30 % épreuves terrestres"
+            >
+              <div
+                className="h-full"
+                style={{ width: '70%', background: 'linear-gradient(90deg, #0BBFBF, rgba(11,191,191,0.5))' }}
+              />
+              <div
+                className="h-full"
+                style={{ width: '30%', background: 'linear-gradient(90deg, rgba(232,169,48,0.5), #E8A930)' }}
+              />
+            </div>
+            <div className="flex justify-between mt-2.5">
+              <span className="text-[11px] font-semibold" style={{ color: 'rgba(11,191,191,0.7)' }}>
+                70 % — épreuves nautiques
+              </span>
+              <span className="text-[11px] font-semibold" style={{ color: 'rgba(232,169,48,0.7)' }}>
+                30 % — épreuves terrestres
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Grille : texte éditorial + 3 piliers */}
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
+
+            {/* Colonne gauche — texte */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+            >
+              <p
+                className="text-[10px] font-bold uppercase tracking-[0.38em] mb-4"
+                style={{ color: '#0BBFBF' }}
+              >
+                Le volet terrestre
+              </p>
+              <h3
+                className="text-white font-bold leading-tight mb-5"
+                style={{
+                  fontFamily: 'var(--font-playfair)',
+                  fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
+                }}
+              >
+                Une discipline différente<br />
+                <span style={{ color: '#E8A930' }}>chaque jour</span>
+              </h3>
+              <p className="text-white/55 leading-relaxed mb-4" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
+                Le Challenge Multisport constitue le volet terrestre de l&apos;événement et entre pleinement dans le classement général.
+                Chaque jour, une discipline différente est proposée aux équipes — football, rugby, volley, kayak, course caritative —
+                avec un programme volontairement évolutif d&apos;une édition à l&apos;autre, adapté aux infrastructures disponibles :
+                plages, terrains et équipements municipaux.
+              </p>
+              <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
+                Les jeunes de la ville hôte sont invités à participer aux épreuves terrestres,
+                favorisant les échanges entre équipes étudiantes et acteurs locaux.
+              </p>
+            </motion.div>
+
+            {/* Colonne droite — 3 piliers */}
+            <div className="flex flex-col gap-3">
+              {([
+                {
+                  icon: CalendarDays,
+                  color: '#E8A930',
+                  label: 'Programme évolutif',
+                  desc: 'Une nouvelle discipline à chaque édition, pensée selon les infrastructures locales disponibles — plages, terrains, équipements municipaux.',
+                },
+                {
+                  icon: MapPin,
+                  color: '#0BBFBF',
+                  label: 'Associations sportives locales',
+                  desc: 'Partenariats opérationnels avec les clubs du territoire — mise à disposition de terrains, encadrement et prêt de matériel.',
+                },
+                {
+                  icon: Users,
+                  color: '#1A6B8C',
+                  label: 'Ouverture sur la ville',
+                  desc: 'Les jeunes de la ville hôte participent aux épreuves aux côtés des équipes étudiantes — une rencontre unique entre campus et territoire.',
+                },
+              ] as { icon: React.ElementType; color: string; label: string; desc: string }[]).map(({ icon: Icon, color, label, desc }, i) => (
+                <motion.div
+                  key={label}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.08 + i * 0.07 }}
+                  className="flex items-start gap-4 p-5 rounded-xl"
+                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+                >
+                  <div
+                    className="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center mt-0.5"
+                    style={{ background: `${color}18`, border: `1px solid ${color}30` }}
+                  >
+                    <Icon className="w-[18px] h-[18px]" style={{ color }} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm mb-1 leading-snug">{label}</p>
+                    <p className="text-white/42 text-xs leading-relaxed">{desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
