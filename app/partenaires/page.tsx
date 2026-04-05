@@ -264,7 +264,10 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             GRILLE COMPLÈTE
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28 bg-white border-t border-slate-100">
+        <section
+          className="py-20 lg:py-28"
+          style={{ background: '#071A35', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+        >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <motion.div
@@ -275,7 +278,7 @@ export default function PartenairesPage() {
               className="text-center mb-10"
             >
               <p className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.3em] mb-3">Nos 28 partenaires</p>
-              <h2 className="text-[#0B2545]"
+              <h2 className="text-white"
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700 }}>
                 Ensemble pour la <span style={{ color: '#E8A930' }}>45ème édition</span>
               </h2>

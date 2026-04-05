@@ -2,19 +2,23 @@
 
 /* ─── Design Tokens — Challenge SPI Dauphine ─── */
 @theme inline {
-  --color-navy: #0B2545;
+  /* Couleurs principales */
+  --color-deep-navy:  #060f1e;
+  --color-navy:       #0B2545;
   --color-navy-light: #133366;
-  --color-ocean: #1A6B8C;
-  --color-turquoise: #0BBFBF;
+  --color-ocean-blue: #1B3A5C;
+  --color-azure:      #2E7DAF;
+  --color-ocean:      #1A6B8C;
+  --color-turquoise:  #0BBFBF;
   --color-turquoise-light: #40D4D4;
-  --color-gold: #E8A930;
+  --color-gold:       #E8A930;
   --color-gold-light: #F5C842;
-  --color-coral: #E05B40;
-  --color-sand: #F5EED9;
+  --color-coral:      #E05B40;
+  --color-sand:       #F5EED9;
   --color-sand-light: #FDF8ED;
-  --color-off-white: #F8FAFC;
-  --color-muted: #64748B;
-  --color-border: #E2E8F0;
+  --color-off-white:  #F8FAFC;
+  --color-muted:      #64748B;
+  --color-border:     #E2E8F0;
 }
 
 /* ─── Base ─── */
@@ -23,10 +27,11 @@ html {
 }
 
 body {
-  background-color: #F8FAFC;
-  color: #0B2545;
+  background-color: #060f1e;
+  color: #e8edf4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65;
 }
 
 /* ─── Gradient text helpers ─── */

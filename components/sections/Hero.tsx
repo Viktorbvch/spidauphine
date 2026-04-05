@@ -32,23 +32,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/35 to-[#071A35]/95" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#071A35]/50 via-transparent to-transparent" aria-hidden="true" />
 
-      {/* ── Logo — top left ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0 }}
-        className="absolute top-20 left-6 sm:left-8 lg:left-10 z-10"
-      >
-        <Image
-          src="/assets/logo.png"
-          alt="Logo officiel Challenge SPI Dauphine"
-          width={140}
-          height={140}
-          className="drop-shadow-2xl"
-          priority
-        />
-      </motion.div>
-
       {/* ── Affiche flottante — desktop uniquement, côté droit ── */}
       <motion.div
         initial={{ opacity: 0, x: 48, rotate: 6 }}

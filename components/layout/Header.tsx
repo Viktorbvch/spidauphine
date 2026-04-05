@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronRight } from 'lucide-react'
 
 const leftLinks = [
-  { href: '/engagement',  label: 'Histoire' },
+  { href: '/engagement',  label: "S'engage" },
   { href: '#imperia',     label: 'Imperia' },
   { href: '#regate',      label: 'La Régate' },
   { href: '#multisports', label: 'Multisports' },
@@ -146,7 +146,17 @@ export default function Header() {
               <nav className="flex items-center justify-start gap-0 h-full" aria-label="Navigation droite">
                 <div className="w-px h-5 mr-2 flex-shrink-0"
                   style={{ background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.12), transparent)' }} aria-hidden="true" />
-                {rightLinks.map(link => <NavLink key={link.href} link={link} side="r" />)}
+                {rightLinks.filter(l => l.href !== '/contact').map(link => <NavLink key={link.href} link={link} side="r" />)}
+                <Link
+                  href="/contact"
+                  className="ml-4 flex-shrink-0 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.08em] text-white transition-all duration-200 hover:brightness-110 active:scale-[0.97]"
+                  style={{
+                    background: 'linear-gradient(135deg, #1B5C8A 0%, #2E7DAF 100%)',
+                    boxShadow: '0 2px 14px rgba(46,125,175,0.28), inset 0 1px 0 rgba(255,255,255,0.12)',
+                  }}
+                >
+                  Contact
+                </Link>
               </nav>
             </div>
 
