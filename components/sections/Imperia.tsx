@@ -6,9 +6,11 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { MapPin, Anchor, Wind, Thermometer, Navigation } from 'lucide-react'
 
 const photos = [
-  { src: '/photos/imperia-1.jpg', label: 'Imperia depuis la mer', sub: 'La ville haute et son dôme' },
-  { src: '/photos/imperia-2.jpg', label: 'Marina di Imperia',    sub: 'L\'une des plus grandes de Ligurie' },
-  { src: '/photos/imperia-3.jpg', label: 'Le port et les couleurs', sub: 'Architecture ligure typique' },
+  { src: '/photos/imperia-aerial.jpg',   label: 'Imperia vue du ciel',        sub: 'La baie et la Marina di Imperia' },
+  { src: '/photos/imperia-marina.jpg',   label: 'La Marina di Imperia',        sub: 'Heure dorée sur le port' },
+  { src: '/photos/imperia-couleurs.png', label: 'Le vieux village',            sub: 'Architecture ligure et couleurs du Sud' },
+  { src: '/photos/imperia-porto.png',    label: 'Marina di Imperia — aerial',  sub: 'L\'une des plus grandes marinas de Ligurie' },
+  { src: '/photos/imperia-ville.jpg',    label: 'Imperia — la cathédrale',     sub: 'La ville historique surplombant le port' },
 ]
 
 const facts = [
@@ -37,11 +39,12 @@ export default function Imperia() {
         {/* Photo en parallaxe */}
         <motion.div className="absolute inset-0" style={{ scale: videoScale }}>
           <Image
-            src="/photos/header-imperia.jpg"
+            src="/photos/imperia-aerial.jpg"
             alt="Vue aérienne d'Imperia, côte ligure"
             fill
             priority
             className="object-cover"
+            style={{ objectPosition: 'center 60%' }}
             sizes="100vw"
           />
         </motion.div>
