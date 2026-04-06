@@ -26,7 +26,7 @@ export const sports: Sport[] = [
       'Dossards fournis par l\'organisation',
       'Ambiance festive et solidaire garantie',
     ],
-    imageUrl: '/photos/spi-caritative.jpg',
+    imageUrl: '/photos/cm-caritative.jpg',
   },
   {
     id: 'rugby',
@@ -43,7 +43,7 @@ export const sports: Sport[] = [
       'Les passes se font uniquement vers l\'arrière',
       'Objectif : aplatir le ballon derrière la ligne d\'en-but adverse',
     ],
-    imageUrl: '/photos/spi-13.jpg',
+    imageUrl: '/photos/cm-rugby.jpg',
   },
   {
     id: 'volley',
@@ -60,7 +60,7 @@ export const sports: Sport[] = [
       'Alternance entre réception, passe et attaque pour marquer',
       'Auto-arbitrage dans l\'esprit sportsmanship',
     ],
-    imageUrl: '/photos/spi-beachvolley.jpg',
+    imageUrl: '/photos/cm-volley.jpg',
   },
   {
     id: 'football',
@@ -77,7 +77,7 @@ export const sports: Sport[] = [
       'Les fautes donnent des coups francs ou des penalties',
       'Esprit fair-play exigé — contacts excessifs sanctionnés',
     ],
-    imageUrl: '/photos/spi-11.jpg',
+    imageUrl: '/photos/cm-football.jpg',
   },
   {
     id: 'spikeball',
@@ -94,6 +94,6 @@ export const sports: Sport[] = [
       'Équipes de 2 joueurs (format doubles)',
       'Ouvert à tous niveaux — bonne ambiance obligatoire',
     ],
-    imageUrl: '/photos/spi-spikeball.jpg',
+    imageUrl: '/photos/cm-spikeball.jpg',
   },
 ]
