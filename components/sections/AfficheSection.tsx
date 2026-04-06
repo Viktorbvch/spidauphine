@@ -16,6 +16,11 @@ export default function AfficheSection() {
   const rotateY = useSpring(useTransform(mouseX, [0, 1], [-8, 8]), { stiffness: 200, damping: 25 })
   const glareX = useTransform(mouseX, [0, 1], ['0%', '100%'])
   const glareY = useTransform(mouseY, [0, 1], ['0%', '100%'])
+  const glareBackground = useTransform(
+    [glareX, glareY],
+    ([x, y]) =>
+      `radial-gradient(ellipse at ${x} ${y}, rgba(255,255,255,0.12) 0%, transparent 60%)`
+  )
 
   const handleMouse = (e: MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
@@ -112,13 +117,7 @@ export default function AfficheSection() {
                 {/* Reflective highlight following mouse */}
                 <motion.div
                   className="absolute inset-0 rounded-2xl pointer-events-none"
-                  style={{
-                    background: useTransform(
-                      [glareX, glareY],
-                      ([x, y]) =>
-                        `radial-gradient(ellipse at ${x} ${y}, rgba(255,255,255,0.12) 0%, transparent 60%)`
-                    ),
-                  }}
+                  style={{ background: glareBackground }}
                   aria-hidden="true"
                 />
               </div>

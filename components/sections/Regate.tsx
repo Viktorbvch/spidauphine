@@ -48,21 +48,69 @@ export default function Regate() {
         </div>
       </div>
 
-      {/* ── Bannière défilante — équipes ── */}
-      <div className="bg-[#0C1B33] py-5 overflow-hidden" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-        <p className="text-center text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.28em] mb-4 px-4">
+      {/* ── Bannière défilante — équipes (glassmorphism pills) ── */}
+      <div className="bg-[#0C1B33] py-6 overflow-hidden" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+        <p
+          className="text-center text-[10px] font-bold uppercase tracking-[0.35em] mb-5 px-4"
+          style={{ fontFamily: 'var(--font-mono)', color: 'rgba(61,184,164,0.6)' }}
+        >
           36 équipes participantes · 45ème édition
         </p>
-        <div className="flex animate-marquee" style={{ animationDuration: '20s' }} aria-hidden="true">
+
+        {/* Row 1 — forward */}
+        <div className="flex animate-marquee mb-3" style={{ animationDuration: '30s' }} aria-hidden="true">
           {[...equipes, ...equipes].map((e, i) => (
-            <div key={i} className="flex items-center gap-3 px-7 flex-shrink-0">
-              <span className="text-[10px] font-mono text-white/25 tabular-nums flex-shrink-0">
+            <div
+              key={`a-${i}`}
+              className="flex items-center gap-2.5 px-4 py-2 rounded-full flex-shrink-0 mx-1.5"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.07)',
+              }}
+            >
+              <span
+                className="text-[10px] tabular-nums flex-shrink-0"
+                style={{ fontFamily: 'var(--font-mono)', color: 'rgba(200,162,77,0.5)' }}
+              >
                 {String(e.numero).padStart(2, '0')}
               </span>
-              <span className="text-[17px] text-white/85 whitespace-nowrap" style={{ fontFamily: 'var(--font-playfair)', fontStyle: 'italic', fontWeight: 500 }}>
+              <span
+                className="text-[15px] text-white/80 whitespace-nowrap"
+                style={{ fontFamily: 'var(--font-playfair)', fontStyle: 'italic' }}
+              >
                 {e.nom}
               </span>
-              <span className="text-[#C8A24D]/40 text-[10px] select-none ml-1">◆</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 — reverse direction */}
+        <div
+          className="flex animate-marquee"
+          style={{ animationDuration: '35s', animationDirection: 'reverse' }}
+          aria-hidden="true"
+        >
+          {[...equipes.slice().reverse(), ...equipes.slice().reverse()].map((e, i) => (
+            <div
+              key={`b-${i}`}
+              className="flex items-center gap-2.5 px-4 py-2 rounded-full flex-shrink-0 mx-1.5"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.07)',
+              }}
+            >
+              <span
+                className="text-[10px] tabular-nums flex-shrink-0"
+                style={{ fontFamily: 'var(--font-mono)', color: 'rgba(200,162,77,0.5)' }}
+              >
+                {String(e.numero).padStart(2, '0')}
+              </span>
+              <span
+                className="text-[15px] text-white/80 whitespace-nowrap"
+                style={{ fontFamily: 'var(--font-playfair)', fontStyle: 'italic' }}
+              >
+                {e.nom}
+              </span>
             </div>
           ))}
         </div>
@@ -86,8 +134,8 @@ export default function Regate() {
               <Image src="/photos/spi-01.jpg" alt="Équipage en régate" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0C1B33]/90 via-[#0C1B33]/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-7">
-                <p className="text-[#C8A24D] text-[10px] font-semibold uppercase tracking-[0.25em] mb-2">Concept fondateur · 1982</p>
-                <h3 className="text-white text-2xl font-bold mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>Le binôme</h3>
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] mb-2" style={{ fontFamily: 'var(--font-mono)', color: '#C8A24D' }}>Concept fondateur · 1982</p>
+                <h3 className="text-white text-2xl mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>Le binôme</h3>
                 <p className="text-white/75 text-sm leading-relaxed">
                   Une équipe étudiante et une équipe d'entreprise unies sous la même enseigne. Ils naviguent ensemble, concourent ensemble, et partagent la victoire.
                 </p>
@@ -102,7 +150,7 @@ export default function Regate() {
               className="flex flex-col justify-between gap-8"
             >
               <div>
-                <p className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.25em] mb-5">Format officiel</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] mb-5" style={{ fontFamily: 'var(--font-mono)', color: '#3DB8A4' }}>Format officiel</p>
                 <ul className="space-y-4">
                   {[
                     { label: 'Parcours', val: 'Prologue + parcours banane + tracés côtiers' },
@@ -122,9 +170,16 @@ export default function Regate() {
                   { titre: 'Sélection 37', desc: '37 pieds · régates en baie et côtiers' },
                   { titre: 'First 31.7',   desc: '31 pieds · monotype accessible' },
                 ].map(b => (
-                  <div key={b.titre} className="bg-[#0C1B33] rounded-xl p-4 text-white">
-                    <p className="font-bold text-sm mb-1">{b.titre}</p>
-                    <p className="text-xs text-white/50 leading-relaxed">{b.desc}</p>
+                  <div
+                    key={b.titre}
+                    className="rounded-xl p-4 text-white"
+                    style={{
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.07)',
+                    }}
+                  >
+                    <p className="font-semibold text-sm mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>{b.titre}</p>
+                    <p className="text-xs text-white/45 leading-relaxed">{b.desc}</p>
                   </div>
                 ))}
               </div>
