@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Utensils, MonitorPlay, Tent, ShieldCheck, Building2, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 /* ══ Utils ═══════════════════════════════════════════════════════ */
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
@@ -283,22 +283,22 @@ export default function VillagePage() {
       </div>
 
       {/* ══════════════════════════════════════════════════════════════
-          SECTION INFRASTRUCTURES
+          SECTION : LE VILLAGE EN IMAGES
       ══════════════════════════════════════════════════════════════ */}
       <section
         id="infrastructures"
-        style={{ background: 'linear-gradient(180deg, #070D1F 0%, #070D1F 100%)' }}
+        style={{ background: '#070D1F' }}
         className="py-16 sm:py-24 lg:py-32"
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16">
 
-          {/* ── En-tête de section ── */}
+          {/* ── En-tête ── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="mb-10 sm:mb-16 lg:mb-20 max-w-3xl"
+            className="mb-10 sm:mb-14 max-w-2xl"
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="h-px w-8 bg-[#3DB8A4]/50" />
@@ -307,102 +307,129 @@ export default function VillagePage() {
               </span>
             </div>
             <h2
-              className="text-white mb-6 leading-tight"
-              style={{
-                fontFamily: 'var(--font-playfair)',
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                fontWeight: 700,
-              }}
+              className="text-white mb-5 leading-tight"
+              style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700 }}
             >
-              Ses <span style={{ color: '#C8A24D' }}>infrastructures</span>
+              Une semaine <span style={{ color: '#C8A24D' }}>hors du commun</span>
             </h2>
             <p className="text-white/50 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)' }}>
-              Espace de minimum <strong className="text-white/75 font-semibold">1 000 m²</strong> au cœur du dispositif,
-              le village d&apos;animation accueille partenaires institutionnels et entreprises autour de stands,
-              d&apos;activités et de sensibilisation. En soirée, il se transforme en lieu festif encadré — musique live,
-              remises de prix — dans le strict respect des règles de sécurité et de tranquillité publique.
+              Plus de 1 000 m² au cœur de la marina — stands partenaires, écran géant, chapiteau festif et espace de détente.
+              Du briefing du matin à la soirée sous les étoiles, le village est le lieu de vie de la semaine SPI.
             </p>
           </motion.div>
 
-          {/* ── Grille des infrastructures ── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* ── Bento gallery ── */}
+          <div
+            className="grid gap-3 lg:gap-4"
+            style={{
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateRows: 'repeat(3, 230px)',
+            }}
+          >
 
-            {/* 1 — Restauration */}
-            <InfraCard
-              index={0}
-              icon={Utensils}
-              color="#3DB8A4"
-              stat="75 m²"
-              statLabel="3 tentes · 5×5 m"
-              title="L'espace restauration"
-              bullets={[
-                'Débit de boissons Licence 3',
-                'Snacks et petite restauration',
-                'À caractère non commercial',
-              ]}
-            />
+            {/* Photo 1 — grande, col 1, rows 1-2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ duration: 0.65 }}
+              className="relative rounded-2xl overflow-hidden"
+              style={{ gridColumn: '1', gridRow: '1 / 3' }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/photos/village-foule.jpg" alt="L'ambiance sur le village SPI" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)' }} />
+              <div className="absolute bottom-0 left-0 p-5">
+                <p className="font-bold uppercase mb-1.5" style={{ color: '#C8A24D', fontSize: 9, letterSpacing: '0.30em' }}>Ambiance</p>
+                <p className="text-white font-semibold leading-snug" style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)', fontFamily: 'var(--font-playfair)' }}>
+                  Le cœur battant<br />de la marina
+                </p>
+              </div>
+            </motion.div>
 
-            {/* 2 — Écran LED */}
-            <InfraCard
-              index={1}
-              icon={MonitorPlay}
-              color="#C8A24D"
-              stat="15 m²"
-              statLabel="Écran 3×5 m"
-              title="L'écran géant LED"
-              bullets={[
-                'Dalle LED 3 m × 5 m',
-                'Estrade de 24 m²',
-                'Diffusions live & JT du soir',
-              ]}
-            />
+            {/* Photo 2 — animations, col 2, row 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.07 }}
+              className="relative rounded-2xl overflow-hidden"
+              style={{ gridColumn: '2', gridRow: '1' }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/photos/village-animations.jpg" alt="Animations et défis sportifs" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.68) 0%, transparent 60%)' }} />
+              <div className="absolute bottom-0 left-0 p-4">
+                <p className="font-bold uppercase mb-1" style={{ color: '#3DB8A4', fontSize: 9, letterSpacing: '0.28em' }}>Animations</p>
+                <p className="text-white text-xs font-semibold">Défis & challenges</p>
+              </div>
+            </motion.div>
 
-            {/* 3 — Tentes entreprises */}
-            <InfraCard
-              index={2}
-              icon={Building2}
-              color="#1E6FA8"
-              stat="90 m²"
-              statLabel="10 tentes · 3×3 m"
-              title="Les tentes entreprises"
-              bullets={[
-                '10 espaces de 9 m² chacun',
-                'Stands partenaires & animations',
-                'Configuration modulable',
-              ]}
-            />
+            {/* Photo 3 — écran géant, col 3, row 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.12 }}
+              className="relative rounded-2xl overflow-hidden"
+              style={{ gridColumn: '3', gridRow: '1' }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/photos/village-ecran.jpg" alt="Écran géant et projections live" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.68) 0%, transparent 60%)' }} />
+              <div className="absolute bottom-0 left-0 p-4">
+                <p className="font-bold uppercase mb-1" style={{ color: '#C8A24D', fontSize: 9, letterSpacing: '0.28em' }}>Écran géant</p>
+                <p className="text-white text-xs font-semibold">Live & JT du soir</p>
+              </div>
+            </motion.div>
 
-            {/* 4 — Sécurité & organisation */}
-            <InfraCard
-              index={3}
-              icon={ShieldCheck}
-              color="#7A8599"
-              stat="36 m²"
-              statLabel="4 tentes · 9 m²"
-              title="Sécurité & organisation"
-              bullets={[
-                '2 tentes Protection civile',
-                '2 tentes Centre opérationnel',
-                'Dispositif réglementaire complet',
-              ]}
-            />
+            {/* Photo 4 — chapiteau, cols 2-3, row 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.16 }}
+              className="relative rounded-2xl overflow-hidden"
+              style={{ gridColumn: '2 / 4', gridRow: '2' }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/photos/village-chapiteau.jpg" alt="Le chapiteau et les soirées SPI" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.08) 55%, transparent 100%)' }} />
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between gap-6">
+                <div>
+                  <p className="font-bold uppercase mb-1" style={{ color: '#C8A24D', fontSize: 9, letterSpacing: '0.28em' }}>Chapiteau 240 m²</p>
+                  <p className="text-white font-semibold leading-snug" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1rem)', fontFamily: 'var(--font-playfair)' }}>
+                    Les soirées sous la grande toile
+                  </p>
+                </div>
+                <p className="text-white/40 text-xs leading-relaxed max-w-[220px] hidden lg:block text-right">
+                  Structure 12 × 20 m — son, lumière et dancefloor chaque soir.
+                </p>
+              </div>
+            </motion.div>
 
-            {/* 5 — Chapiteau (featured — span 2 sur lg) */}
-            <InfraCard
-              index={4}
-              icon={Tent}
-              color="#C8A24D"
-              stat="240 m²"
-              statLabel="12×20 m · structure principale"
-              title="Le chapiteau"
-              featured
-              bullets={[
-                'Structure piquetée ou lestée selon le terrain',
-                '3 sorties de secours avec blocs lumineux',
-                '3 blocs d\'éclairage de sécurité autonomes',
-                '3 extincteurs AB + 1 extincteur CO₂',
-              ]}
-            />
+            {/* Photo 5 — détente, full row 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.2 }}
+              className="relative rounded-2xl overflow-hidden"
+              style={{ gridColumn: '1 / 4', gridRow: '3' }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/photos/village-detente.jpg" alt="Espace détente et convivialité" className="absolute inset-0 w-full h-full object-cover object-center" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)' }} />
+              <div className="absolute inset-y-0 left-0 flex flex-col justify-center p-6 lg:p-10">
+                <p className="font-bold uppercase mb-2" style={{ color: '#3DB8A4', fontSize: 9, letterSpacing: '0.30em' }}>Espace détente</p>
+                <p className="text-white font-semibold leading-snug mb-3" style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.15rem)', fontFamily: 'var(--font-playfair)' }}>
+                  Entre deux courses, le village<br className="hidden lg:block" /> est un espace de convivialité
+                </p>
+                {/* Stats inline */}
+                <div className="flex flex-wrap gap-5 lg:gap-8">
+                  {[
+                    { value: '1 000 m²', label: 'Surface totale' },
+                    { value: '10 stands', label: 'Partenaires' },
+                    { value: '3×5 m', label: 'Écran LED' },
+                  ].map(({ value, label }) => (
+                    <div key={label} className="flex items-baseline gap-1.5">
+                      <span className="font-bold" style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)', color: '#C8A24D' }}>{value}</span>
+                      <span className="text-white/35 uppercase" style={{ fontSize: 9, letterSpacing: '0.15em' }}>{label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
           </div>
         </div>
@@ -860,89 +887,3 @@ export default function VillagePage() {
   )
 }
 
-/* ══════════════════════════════════════════════════════════════════
-   COMPOSANT CARD INFRASTRUCTURE
-══════════════════════════════════════════════════════════════════ */
-function InfraCard({
-  index, icon: Icon, color, stat, statLabel, title, bullets, featured = false,
-}: {
-  index: number
-  icon: React.ElementType
-  color: string
-  stat: string
-  statLabel: string
-  title: string
-  bullets: string[]
-  featured?: boolean
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
-      className={`relative rounded-2xl flex flex-col overflow-hidden ${featured ? 'sm:col-span-2 lg:col-span-2' : ''}`}
-      style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.07)',
-      }}
-    >
-      {/* Bande couleur haut */}
-      <div className="h-[2px] w-full" style={{ background: `linear-gradient(90deg, ${color}, ${color}44)` }} />
-
-      <div className="p-7 lg:p-8 flex flex-col gap-6 flex-1">
-
-        {/* Icône + stat */}
-        <div className={`flex ${featured ? 'items-start justify-between flex-wrap gap-4' : 'items-start justify-between'}`}>
-          <div
-            className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ background: `${color}18`, border: `1px solid ${color}30` }}
-          >
-            <Icon className="w-5 h-5" style={{ color }} aria-hidden="true" />
-          </div>
-
-          <div className="text-right">
-            <div
-              className="font-bold leading-none tabular-nums"
-              style={{
-                fontFamily: 'var(--font-playfair)',
-                fontSize: featured ? 'clamp(2rem, 3.5vw, 2.8rem)' : 'clamp(1.7rem, 2.8vw, 2.2rem)',
-                color,
-              }}
-            >
-              {stat}
-            </div>
-            <div className="text-white/30 mt-1" style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>
-              {statLabel}
-            </div>
-          </div>
-        </div>
-
-        {/* Titre */}
-        <h3
-          className="text-white font-semibold leading-snug"
-          style={{
-            fontFamily: 'var(--font-playfair)',
-            fontSize: featured ? 'clamp(1.15rem, 1.8vw, 1.35rem)' : 'clamp(1rem, 1.5vw, 1.15rem)',
-          }}
-        >
-          {title}
-        </h3>
-
-        {/* Bullets */}
-        <ul className={`flex flex-col gap-2 mt-auto ${featured ? 'sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-2' : ''}`}>
-          {bullets.map((b, i) => (
-            <li key={i} className="flex items-start gap-2.5">
-              <div
-                className="w-1 h-1 rounded-full mt-[7px] flex-shrink-0"
-                style={{ background: color }}
-              />
-              <span className="text-white/50 text-sm leading-relaxed">{b}</span>
-            </li>
-          ))}
-        </ul>
-
-      </div>
-    </motion.div>
-  )
-}
