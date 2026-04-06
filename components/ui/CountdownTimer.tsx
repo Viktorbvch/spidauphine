@@ -49,12 +49,13 @@ function CompactCountdown({ timeLeft }: { timeLeft: TimeLeft }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
             className="text-white font-semibold tabular-nums text-sm"
+            style={{ fontFamily: 'var(--font-mono)' }}
           >
             {pad(value)}
           </motion.span>
-          <span className="text-white/40 text-xs">{label}</span>
+          <span className="text-white/40 text-xs" style={{ fontFamily: 'var(--font-mono)' }}>{label}</span>
           {i < units.length - 1 && (
-            <span className="text-white/25 text-xs ml-1">·</span>
+            <span className="text-white/20 text-xs ml-1">·</span>
           )}
         </span>
       ))}
@@ -78,13 +79,18 @@ function Digit({ value, label }: { value: number; label: string }) {
         >
           <span
             className="text-3xl sm:text-4xl font-bold text-white tabular-nums"
-            style={{ fontFamily: 'var(--font-playfair)' }}
+            style={{ fontFamily: 'var(--font-mono)' }}
           >
             {display}
           </span>
         </motion.div>
       </div>
-      <span className="text-xs text-white/70 uppercase tracking-widest">{label}</span>
+      <span
+        className="text-[10px] text-white/50 uppercase tracking-[0.25em]"
+        style={{ fontFamily: 'var(--font-mono)' }}
+      >
+        {label}
+      </span>
     </div>
   )
 }
