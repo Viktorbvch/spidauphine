@@ -1,11 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useState, useEffect, useCallback } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import {
   ArrowLeft, Heart, Leaf, Users, Lightbulb,
-  Play, Pause, Volume2, VolumeX, Camera,
+  Camera,
   Trophy, GraduationCap, MapPin,
   ShieldCheck, AlertCircle, Award, Megaphone,
   Recycle, Trash2, BookOpen, Package,
@@ -28,237 +28,6 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true },
   transition: { duration: 0.6, delay, ease: "easeOut" as const },
 })
-
-/* ══════════════════════════════════════════════════════════════
-   LECTEUR VIDÉO PRINCIPAL (histoire)
-══════════════════════════════════════════════════════════════ */
-function MainVideoPlayer() {
-  const videoRef      = useRef<HTMLVideoElement>(null)
-  const containerRef  = useRef<HTMLDivElement>(null)
-  const [playing, setPlaying] = useState(false)
-  const [muted,   setMuted]   = useState(false)
-  const [started, setStarted] = useState(false)
-  const [progress, setProgress] = useState(0)
-
-  // Démarre quand ≥ 2/3 de la vidéo sont visibles à l'écran
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0]
-        const v = videoRef.current; if (!v) return
-
-        if (entry.intersectionRatio >= 0.66) {
-          // ≥ 2/3 visible → lancer avec son
-          v.muted = false
-          v.play()
-            .then(() => { setPlaying(true); setStarted(true); setMuted(false) })
-            .catch(() => {
-              // Navigateur bloque le son → fallback muet
-              v.muted = true; setMuted(true)
-              v.play().then(() => { setPlaying(true); setStarted(true) }).catch(() => {})
-            })
-        } else if (entry.intersectionRatio < 0.66 && !v.paused) {
-          // Moins de 2/3 visible (scroll vers le haut ou vers le bas) → pause
-          v.pause(); setPlaying(false)
-        }
-      },
-      { threshold: [0, 0.66] }
-    )
-
-    observer.observe(container)
-    return () => observer.disconnect()
-  }, [started])
-
-  const togglePlay = useCallback(() => {
-    const v = videoRef.current; if (!v) return
-    if (v.paused) { v.play(); setPlaying(true); setStarted(true) }
-    else          { v.pause(); setPlaying(false) }
-  }, [])
-
-  const toggleMute = useCallback(() => {
-    const v = videoRef.current; if (!v) return
-    v.muted = !v.muted; setMuted(v.muted)
-  }, [])
-
-  const handleSeek = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const v = videoRef.current; if (!v) return
-    const r = e.currentTarget.getBoundingClientRect()
-    v.currentTime = ((e.clientX - r.left) / r.width) * v.duration
-  }, [])
-
-  return (
-    <div
-      ref={containerRef}
-      className="relative w-full overflow-hidden rounded-2xl bg-black cursor-pointer"
-      style={{ aspectRatio: '16/9' }}
-    >
-      <video
-        ref={videoRef}
-        src="/assets/spi-history.mp4"
-        loop playsInline
-        onTimeUpdate={() => {
-          const v = videoRef.current
-          if (v?.duration) setProgress((v.currentTime / v.duration) * 100)
-        }}
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-        className="absolute inset-0 w-full h-full object-cover"
-        onClick={togglePlay}
-      />
-
-      {/* Overlay play centré si en pause */}
-      {!playing && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/35 z-10 gap-4" onClick={togglePlay}>
-          <motion.div
-            initial={{ scale: 0.85, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-            className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center"
-          >
-            <Play className="w-8 h-8 text-white fill-white ml-1" />
-          </motion.div>
-          {!started && (
-            <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-medium">
-              Scrollez pour lancer la vidéo
-            </p>
-          )}
-        </div>
-      )}
-
-      {/* Barre de contrôles */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-20 px-4 pb-4 pt-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%)' }}
-      >
-        <div
-          className="w-full h-1 bg-white/25 rounded-full mb-3 cursor-pointer hover:h-1.5 transition-all pointer-events-auto"
-          onClick={handleSeek}
-        >
-          <div className="h-full rounded-full bg-[#C8A24D] transition-all duration-200" style={{ width: `${progress}%` }} />
-        </div>
-        <div className="flex items-center gap-3 pointer-events-auto">
-          <button onClick={togglePlay} aria-label={playing ? 'Pause' : 'Lecture'}
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 transition-colors border border-white/20 cursor-pointer">
-            {playing ? <Pause className="w-4 h-4 text-white fill-white" /> : <Play className="w-4 h-4 text-white fill-white ml-0.5" />}
-          </button>
-          <button onClick={toggleMute} aria-label={muted ? 'Activer le son' : 'Couper le son'}
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 transition-colors border border-white/20 cursor-pointer">
-            {muted ? <VolumeX className="w-4 h-4 text-white" /> : <Volume2 className="w-4 h-4 text-white" />}
-          </button>
-          {muted && started && (
-            <span className="text-[10px] text-white/50 font-medium uppercase tracking-wide">
-              Son coupé · cliquez pour activer
-            </span>
-          )}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-/* ══════════════════════════════════════════════════════════════
-   CARTE VIDÉO ENGAGEMENT (hover-only)
-══════════════════════════════════════════════════════════════ */
-function EngagementVideoCard({
-  src, tag, couleur, titre, desc, date, side,
-}: {
-  src: string; tag: string; couleur: string
-  titre: string; desc: string; date: string; side: 'left' | 'right'
-}) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(false)
-  const [muted,   setMuted]   = useState(true)
-  const [hovered, setHovered] = useState(false)
-
-  const handleEnter = useCallback(() => {
-    setHovered(true)
-    const v = videoRef.current; if (!v) return
-    v.muted = true; setMuted(true)
-    v.play().then(() => setPlaying(true)).catch(() => {})
-  }, [])
-
-  const handleLeave = useCallback(() => {
-    setHovered(false)
-    const v = videoRef.current; if (!v) return
-    v.pause(); setPlaying(false)
-  }, [])
-
-  const toggleMute = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation()
-    const v = videoRef.current; if (!v) return
-    v.muted = !v.muted; setMuted(v.muted)
-  }, [])
-
-  return (
-    <div
-      className="relative overflow-hidden flex-1"
-      style={{ aspectRatio: '4/3' }}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-    >
-      <video
-        ref={videoRef} src={src} loop playsInline muted
-        onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
-        style={{ transform: hovered ? 'scale(1.04)' : 'scale(1)' }}
-      />
-
-      {/* Overlay couleur directionnel */}
-      <div className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-        style={{
-          background: side === 'left'
-            ? `linear-gradient(135deg, ${couleur}60 0%, transparent 65%)`
-            : `linear-gradient(225deg, ${couleur}60 0%, transparent 65%)`,
-          opacity: hovered ? 0.8 : 0.55,
-        }}
-        aria-hidden="true"
-      />
-      {/* Dégradé bas */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)' }}
-        aria-hidden="true"
-      />
-
-      {/* Icône play au centre si pas encore joué */}
-      <div
-        className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 pointer-events-none"
-        style={{ opacity: !hovered ? 1 : 0 }}
-      >
-        <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center">
-          <Play className="w-6 h-6 text-white/70 fill-white/70 ml-0.5" />
-        </div>
-      </div>
-
-      {/* Contenu bas */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] text-white"
-            style={{ background: couleur }}>
-            {tag}
-          </span>
-          <span className="text-white/45 text-[10px]">{date}</span>
-        </div>
-        <p className="text-white font-bold text-lg leading-tight mb-1.5" style={{ fontFamily: 'var(--font-playfair)' }}>
-          {titre}
-        </p>
-        <p className="text-white/60 text-xs leading-relaxed line-clamp-2 transition-opacity duration-300"
-          style={{ opacity: hovered ? 1 : 0.7 }}>
-          {desc}
-        </p>
-      </div>
-
-      {/* Bouton son — apparaît au hover */}
-      <div className="absolute top-3 right-3 transition-opacity duration-200" style={{ opacity: hovered && playing ? 1 : 0 }}>
-        <button onClick={toggleMute}
-          className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/20 hover:bg-black/60 transition-colors cursor-pointer"
-          aria-label={muted ? 'Activer le son' : 'Couper le son'}>
-          {muted ? <VolumeX className="w-3.5 h-3.5 text-white" /> : <Volume2 className="w-3.5 h-3.5 text-white" />}
-        </button>
-      </div>
-    </div>
-  )
-}
 
 /* ══════════════════════════════════════════════════════════════
    CARTE JOURNÉE THÉMATIQUE (photo slot + contenu dark)
@@ -448,7 +217,19 @@ export default function EngagementPage() {
               </p>
             </motion.div>
             <motion.div {...fadeUp(0.1)}>
-              <MainVideoPlayer />
+              <div
+                className="relative w-full overflow-hidden rounded-2xl aspect-video"
+                style={{ border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 8px 48px rgba(0,0,0,0.5)' }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/O2VMuHXUj2g?rel=0&modestbranding=1"
+                  title="L'histoire des 45 ans de la SPI Dauphine"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 0 }}
+                />
+              </div>
             </motion.div>
           </div>
         </section>
@@ -573,26 +354,6 @@ export default function EngagementPage() {
               ))}
             </div>
 
-            {/* ── Vidéo : 45 ans de SPI ── */}
-            <motion.div {...fadeUp(0.12)} className="mt-14">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-8" style={{ background: 'rgba(200,162,77,0.4)' }} />
-                <span className="text-[#C8A24D] text-[10px] font-bold uppercase tracking-[0.35em]">En images</span>
-              </div>
-              <div
-                className="relative w-full overflow-hidden rounded-2xl aspect-video"
-                style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 40px rgba(0,0,0,0.45)' }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/O2VMuHXUj2g?rel=0&modestbranding=1"
-                  title="L'histoire des 45 ans de la SPI Dauphine"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  style={{ border: 0 }}
-                />
-              </div>
-            </motion.div>
 
           </div>
         </section>
@@ -652,30 +413,47 @@ export default function EngagementPage() {
               ))}
             </motion.div>
 
-            {/* ── Duo vidéo cinématique ── */}
-            <motion.div {...fadeUp(0.08)} className="mb-4">
-              <div className="flex flex-col sm:flex-row overflow-hidden rounded-2xl"
-                style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.35)' }}>
-                <EngagementVideoCard
-                  src="/assets/course-caritative.mp4"
-                  tag="Solidarité" couleur="#E2593A"
-                  titre="Course Caritative" date="Lundi 20 avril"
-                  desc="Course à pied au profit de Vents Différents — ~1 000 coureurs mobilisés sur le front de mer d'Imperia."
-                  side="left"
-                />
-                <div className="w-px flex-shrink-0 bg-white/8 hidden sm:block" aria-hidden="true" />
-                <EngagementVideoCard
-                  src="/assets/collecte-dechets.mp4"
-                  tag="Environnement" couleur="#1A8C6B"
-                  titre="Collecte Port Propre" date="Mar. 21 & Jeu. 23"
-                  desc="Deux collectes de déchets sur le littoral avec la commune d'Imperia et la Fondation de la Mer."
-                  side="right"
-                />
-              </div>
-              <p className="text-[10px] text-white/25 mt-2.5 text-center uppercase tracking-[0.2em]">
-                Passez la souris pour lancer la vidéo
-              </p>
-            </motion.div>
+            {/* ── Deux vidéos YouTube ── */}
+            <div className="grid sm:grid-cols-2 gap-5 mb-4">
+              <motion.div {...fadeUp(0.08)}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="h-px w-6 rounded-full" style={{ background: 'rgba(226,89,58,0.55)' }} />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.30em]" style={{ color: '#E2593A' }}>Solidarité · Course Caritative</span>
+                </div>
+                <div
+                  className="relative w-full overflow-hidden rounded-2xl aspect-video"
+                  style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}
+                >
+                  <iframe
+                    src="https://www.youtube.com/embed/-4Hvh6j6R8U?rel=0&modestbranding=1"
+                    title="Course Caritative SPI Dauphine — Vents Différents"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 0 }}
+                  />
+                </div>
+              </motion.div>
+              <motion.div {...fadeUp(0.12)}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="h-px w-6 rounded-full" style={{ background: 'rgba(26,140,107,0.55)' }} />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.30em]" style={{ color: '#1A8C6B' }}>Environnement · Collecte Port Propre</span>
+                </div>
+                <div
+                  className="relative w-full overflow-hidden rounded-2xl aspect-video"
+                  style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}
+                >
+                  <iframe
+                    src="https://www.youtube.com/embed/e1luWl4taco?rel=0&modestbranding=1"
+                    title="Collecte de déchets SPI Dauphine — Port Propre"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 0 }}
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* ── Journées thématiques ── */}
             <div className="flex flex-col gap-4 mt-4">
@@ -927,26 +705,6 @@ export default function EngagementPage() {
               en lien étroit avec les territoires et associations partenaires.
             </motion.p>
 
-            {/* ── Vidéo : Course Caritative ── */}
-            <motion.div {...fadeUp(0.1)} className="mt-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-8" style={{ background: 'rgba(226,89,58,0.5)' }} />
-                <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#E2593A' }}>Course Caritative · Vents Différents</span>
-              </div>
-              <div
-                className="relative w-full overflow-hidden rounded-2xl aspect-video"
-                style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 40px rgba(0,0,0,0.45)' }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/-4Hvh6j6R8U?rel=0&modestbranding=1"
-                  title="Course Caritative SPI Dauphine — Vents Différents"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  style={{ border: 0 }}
-                />
-              </div>
-            </motion.div>
 
           </div>
         </section>
@@ -1031,27 +789,6 @@ export default function EngagementPage() {
               >
                 Poursuivre et renforcer nos engagements RSE aux côtés du port et de la commune.
               </p>
-            </motion.div>
-
-            {/* ── Vidéo : Collecte de déchets ── */}
-            <motion.div {...fadeUp(0.1)} className="mb-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-8" style={{ background: 'rgba(26,140,107,0.5)' }} />
-                <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#1A8C6B' }}>Collecte Port Propre · En vidéo</span>
-              </div>
-              <div
-                className="relative w-full overflow-hidden rounded-2xl aspect-video"
-                style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 40px rgba(0,0,0,0.45)' }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/e1luWl4taco?rel=0&modestbranding=1"
-                  title="Collecte de déchets SPI Dauphine — Port Propre"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  style={{ border: 0 }}
-                />
-              </div>
             </motion.div>
 
             {/* 5 actions */}
