@@ -889,47 +889,20 @@ export default function EngagementPage() {
               </div>
             </motion.div>
 
-            {/* 3 réalisations concrètes */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {([
-                {
-                  icon: Heart,
-                  color: '#E2593A',
-                  label: 'Quatre courses caritatives',
-                  desc: 'Au profit des associations AIDA, Comme Les Autres et Vents Différents — ~1 000 coureurs mobilisés sur le front de mer d\'Imperia.',
-                },
-                {
-                  icon: Users,
-                  color: '#1E6FA8',
-                  label: 'Équipages en situation de handicap',
-                  desc: 'Accueil d\'équipages aux côtés de l\'association ASEI et Vents Différents — ensemble sur l\'eau, à armes égales.',
-                },
-                {
-                  icon: Megaphone,
-                  color: '#3DB8A4',
-                  label: 'Relais & documentation nationale',
-                  desc: 'Suivi, documentation et communication nationale des actions inclusives, en lien avec les territoires accueillants.',
-                },
-              ] as { icon: React.ElementType; color: string; label: string; desc: string }[]).map(({ icon: Icon, color, label, desc }, i) => (
-                <motion.div
-                  key={label}
-                  {...fadeUp(i * 0.08)}
-                  className="flex items-start gap-4 p-5 rounded-xl"
-                  style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.07)' }}
-                >
-                  <div
-                    className="w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5"
-                    style={{ background: `${color}18`, border: `1px solid ${color}30` }}
-                  >
-                    <Icon className="w-[18px] h-[18px]" style={{ color }} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm mb-1 leading-snug">{label}</p>
-                    <p className="text-white/45 text-xs leading-relaxed">{desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {/* Texte synthèse éditorial */}
+            <motion.p
+              {...fadeUp(0.08)}
+              className="text-white/55 leading-relaxed"
+              style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}
+            >
+              Depuis plusieurs éditions, ces engagements se traduisent en actions mesurables.
+              Quatre courses caritatives ont été organisées sur le front de mer d&apos;Imperia — au profit
+              des associations AIDA, Comme Les Autres et Vents Différents — mobilisant près de 1&nbsp;000 coureurs
+              à chaque édition. Des équipages en situation de handicap, accueillis aux côtés de l&apos;ASEI et de
+              Vents Différents, prennent le départ dans les mêmes conditions que tous les autres équipages,
+              voile et compétition à armes égales. Ces actions sont documentées et relayées à l&apos;échelle nationale,
+              en lien étroit avec les territoires et associations partenaires.
+            </motion.p>
 
           </div>
         </section>
@@ -941,7 +914,7 @@ export default function EngagementPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* En-tête */}
-            <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end mb-10">
+            <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-start mb-10">
               <motion.div {...fadeUp()}>
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -959,37 +932,42 @@ export default function EngagementPage() {
                   Un événement <span style={{ color: '#C8A24D' }}>écoresponsable</span>
                 </h2>
                 <p className="text-white/55 leading-relaxed max-w-2xl" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
-                  En complément de nos collaborations avec des partenaires engagés comme{' '}
-                  <strong className="text-white/75 font-semibold">Heura</strong>, de l&apos;organisation d&apos;une table ronde
-                  à Paris Dauphine dédiée aux enjeux environnementaux et sociaux, et de nos collectes à Paris,
-                  notre objectif est de poursuivre et renforcer nos engagements RSE aux côtés du port et de la commune.
+                  Aux côtés de la Fondation de la Mer et d&apos;Un Geste Pour la Mer, notre engagement dépasse
+                  la régate : collectes sur le littoral, sensibilisation des participants, co-construction avec le
+                  port et la commune d&apos;Imperia. Chaque édition est l&apos;occasion de renforcer concrètement
+                  nos pratiques — sur place et dans la durée.
                 </p>
               </motion.div>
 
-              {/* Badges partenaires */}
+              {/* Logos partenaires environnement */}
               <motion.div {...fadeUp(0.12)} className="flex-shrink-0 flex flex-row lg:flex-col gap-3">
-                <div
-                  className="flex-1 lg:flex-none px-5 py-4 rounded-xl"
-                  style={{ background: 'rgba(26,140,107,0.08)', border: '1px solid rgba(26,140,107,0.20)' }}
-                >
-                  <p className="text-[9px] font-bold uppercase tracking-[0.30em] mb-1.5" style={{ color: '#1A8C6B' }}>
-                    Partenaire environnement
-                  </p>
-                  <p className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-                    Fondation de la Mer
-                  </p>
-                </div>
-                <div
-                  className="flex-1 lg:flex-none px-5 py-4 rounded-xl"
-                  style={{ background: 'rgba(26,140,107,0.08)', border: '1px solid rgba(26,140,107,0.20)' }}
-                >
-                  <p className="text-[9px] font-bold uppercase tracking-[0.30em] mb-1.5" style={{ color: '#1A8C6B' }}>
-                    Alimentation durable
-                  </p>
-                  <p className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
-                    Heura
-                  </p>
-                </div>
+                {[
+                  { file: 'Fondation-de-la-Mer.jpg', label: 'Fondation de la Mer', sub: 'Partenaire environnement' },
+                  { file: 'Un-geste-pour-la-mer.webp', label: 'Un Geste Pour la Mer', sub: 'Engagement mer' },
+                ].map(({ file, label, sub }) => (
+                  <div
+                    key={file}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl"
+                    style={{ background: 'rgba(26,140,107,0.07)', border: '1px solid rgba(26,140,107,0.18)' }}
+                  >
+                    <div
+                      className="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center bg-white overflow-hidden"
+                      style={{ border: '1px solid rgba(26,140,107,0.15)' }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`/assets/partenaires/${file}`}
+                        alt={label}
+                        className="w-full h-full object-contain p-0.5"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-[9px] font-bold uppercase tracking-[0.25em] mb-0.5" style={{ color: '#1A8C6B' }}>{sub}</p>
+                      <p className="text-white font-semibold text-sm leading-tight">{label}</p>
+                    </div>
+                  </div>
+                ))}
               </motion.div>
             </div>
 
@@ -1009,41 +987,6 @@ export default function EngagementPage() {
               >
                 Poursuivre et renforcer nos engagements RSE aux côtés du port et de la commune.
               </p>
-            </motion.div>
-
-            {/* Déjà engagés — 3 preuves concrètes passées */}
-            <motion.div {...fadeUp(0.1)} className="mb-8">
-              <p
-                className="text-[10px] font-bold uppercase tracking-[0.30em] mb-4"
-                style={{ color: 'rgba(255,255,255,0.28)' }}
-              >
-                Déjà réalisé
-              </p>
-              <div className="grid sm:grid-cols-3 gap-3">
-                {[
-                  {
-                    label: 'Table ronde Paris Dauphine',
-                    detail: 'Débat ouvert sur les enjeux environnementaux et sociaux, organisé sur le campus.',
-                  },
-                  {
-                    label: 'Partenariat Heura',
-                    detail: 'Collaboration pour une alimentation plus durable sur l\'ensemble de l\'événement.',
-                  },
-                  {
-                    label: 'Collectes déchets à Paris',
-                    detail: 'Opérations de collecte menées dans les villes accueillantes, en amont de la SPI.',
-                  },
-                ].map(({ label, detail }) => (
-                  <div
-                    key={label}
-                    className="p-4 rounded-xl"
-                    style={{ background: 'rgba(26,140,107,0.05)', border: '1px solid rgba(26,140,107,0.13)' }}
-                  >
-                    <p className="text-white/75 font-semibold text-sm mb-1 leading-snug">{label}</p>
-                    <p className="text-white/35 text-xs leading-relaxed">{detail}</p>
-                  </div>
-                ))}
-              </div>
             </motion.div>
 
             {/* 5 actions */}

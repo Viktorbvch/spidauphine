@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Phone, CalendarDays, Users, MapPin } from 'lucide-react'
+import { Phone, ChevronDown } from 'lucide-react'
 import { sports } from '@/data/sports'
 
 function SportIcon({ id, className }: { id: string; className?: string }) {
@@ -48,13 +48,16 @@ function SportIcon({ id, className }: { id: string; className?: string }) {
 
 export default function Multisports() {
   const [activeTab, setActiveTab] = useState(sports[0].id)
+  const [rulesOpen, setRulesOpen] = useState(false)
   const activeSport = sports.find(s => s.id === activeTab)!
+
+  useEffect(() => { setRulesOpen(false) }, [activeTab])
 
   return (
     <section id="multisports" className="relative bg-[#0C1B33] overflow-hidden">
 
       {/* ── BANNER — photo crossfade ── */}
-      <div className="relative h-[65vh] min-h-[480px] max-h-[700px]">
+      <div className="relative h-[75vh] min-h-[560px] max-h-[820px]">
         <AnimatePresence>
           <motion.div
             key={activeTab}
@@ -81,7 +84,7 @@ export default function Multisports() {
         <div className="absolute inset-x-0 bottom-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
 
           {/* Titre + badge 30% sur la même ligne */}
-          <div className="flex flex-wrap items-end gap-5 mb-8">
+          <div className="flex flex-wrap items-end gap-5 mb-5">
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +101,7 @@ export default function Multisports() {
               Challenge <span style={{ color: '#C8A24D' }}>Multisports</span>
             </motion.h2>
 
-            {/* Badge 30% — mis en avant, sobre, bien visible */}
+            {/* Badge 30% */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -117,6 +120,33 @@ export default function Multisports() {
               </div>
             </motion.div>
           </div>
+
+          {/* Intro + barre 70/30 — juste avant les onglets */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-5 max-w-2xl"
+          >
+            <p className="text-white/45 text-sm leading-relaxed mb-3">
+              Le volet terrestre de l&apos;événement — une discipline différente chaque jour, ouverte aux jeunes de la ville hôte.
+              Les résultats terrestres comptent pour&nbsp;<strong className="text-white/60 font-semibold">30&nbsp;% du classement général</strong>.
+            </p>
+            <div
+              className="flex h-1 rounded-full overflow-hidden mb-1.5"
+              style={{ background: 'rgba(255,255,255,0.06)' }}
+              role="img"
+              aria-label="70 % épreuves nautiques, 30 % épreuves terrestres"
+            >
+              <div className="h-full" style={{ width: '70%', background: 'linear-gradient(90deg, #3DB8A4, rgba(61,184,164,0.4))' }} />
+              <div className="h-full" style={{ width: '30%', background: 'linear-gradient(90deg, rgba(200,162,77,0.4), #C8A24D)' }} />
+            </div>
+            <div className="flex justify-between">
+              <span style={{ fontSize: 10, color: 'rgba(61,184,164,0.65)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>70 % — nautique</span>
+              <span style={{ fontSize: 10, color: 'rgba(200,162,77,0.65)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>30 % — terrestre</span>
+            </div>
+          </motion.div>
 
           {/* Tabs = planning intégré : jour · sport · lieu en une seule carte */}
           <motion.div
@@ -163,136 +193,6 @@ export default function Multisports() {
         </div>
       </div>
 
-      {/* ── CONTEXTE CHALLENGE MULTISPORT ── */}
-      <div className="border-t border-white/8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-
-          {/* Barre de répartition 70 / 30 */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="mb-12"
-          >
-            <p
-              className="text-[10px] font-bold uppercase tracking-[0.35em] mb-3"
-              style={{ color: 'rgba(255,255,255,0.28)' }}
-            >
-              Répartition du classement général
-            </p>
-            <div
-              className="flex h-1.5 rounded-full overflow-hidden"
-              style={{ background: 'rgba(255,255,255,0.06)' }}
-              role="img"
-              aria-label="70 % épreuves nautiques, 30 % épreuves terrestres"
-            >
-              <div
-                className="h-full"
-                style={{ width: '70%', background: 'linear-gradient(90deg, #3DB8A4, rgba(61,184,164,0.5))' }}
-              />
-              <div
-                className="h-full"
-                style={{ width: '30%', background: 'linear-gradient(90deg, rgba(200,162,77,0.5), #C8A24D)' }}
-              />
-            </div>
-            <div className="flex justify-between mt-2.5">
-              <span className="text-[11px] font-semibold" style={{ color: 'rgba(61,184,164,0.7)' }}>
-                70 % — épreuves nautiques
-              </span>
-              <span className="text-[11px] font-semibold" style={{ color: 'rgba(200,162,77,0.7)' }}>
-                30 % — épreuves terrestres
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Grille : texte éditorial + 3 piliers */}
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
-
-            {/* Colonne gauche — texte */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-            >
-              <p
-                className="text-[10px] font-bold uppercase tracking-[0.38em] mb-4"
-                style={{ color: '#3DB8A4' }}
-              >
-                Le volet terrestre
-              </p>
-              <h3
-                className="text-white font-bold leading-tight mb-5"
-                style={{
-                  fontFamily: 'var(--font-playfair)',
-                  fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
-                }}
-              >
-                Une discipline différente<br />
-                <span style={{ color: '#C8A24D' }}>chaque jour</span>
-              </h3>
-              <p className="text-white/55 leading-relaxed mb-4" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
-                Le Challenge Multisport constitue le volet terrestre de l&apos;événement et entre pleinement dans le classement général.
-                Chaque jour, une discipline différente est proposée aux équipes — football, rugby, volley, kayak, course caritative —
-                avec un programme volontairement évolutif d&apos;une édition à l&apos;autre, adapté aux infrastructures disponibles :
-                plages, terrains et équipements municipaux.
-              </p>
-              <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
-                Les jeunes de la ville hôte sont invités à participer aux épreuves terrestres,
-                favorisant les échanges entre équipes étudiantes et acteurs locaux.
-              </p>
-            </motion.div>
-
-            {/* Colonne droite — 3 piliers */}
-            <div className="flex flex-col gap-3">
-              {([
-                {
-                  icon: CalendarDays,
-                  color: '#C8A24D',
-                  label: 'Programme évolutif',
-                  desc: 'Une nouvelle discipline à chaque édition, pensée selon les infrastructures locales disponibles — plages, terrains, équipements municipaux.',
-                },
-                {
-                  icon: MapPin,
-                  color: '#3DB8A4',
-                  label: 'Associations sportives locales',
-                  desc: 'Partenariats opérationnels avec les clubs du territoire — mise à disposition de terrains, encadrement et prêt de matériel.',
-                },
-                {
-                  icon: Users,
-                  color: '#1E6FA8',
-                  label: 'Ouverture sur la ville',
-                  desc: 'Les jeunes de la ville hôte participent aux épreuves aux côtés des équipes étudiantes — une rencontre unique entre campus et territoire.',
-                },
-              ] as { icon: React.ElementType; color: string; label: string; desc: string }[]).map(({ icon: Icon, color, label, desc }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.08 + i * 0.07 }}
-                  className="flex items-start gap-4 p-5 rounded-xl"
-                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
-                >
-                  <div
-                    className="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center mt-0.5"
-                    style={{ background: `${color}18`, border: `1px solid ${color}30` }}
-                  >
-                    <Icon className="w-[18px] h-[18px]" style={{ color }} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm mb-1 leading-snug">{label}</p>
-                    <p className="text-white/42 text-xs leading-relaxed">{desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
       {/* ── DÉTAIL SPORT — léger, épuré ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <AnimatePresence mode="wait">
@@ -306,20 +206,66 @@ export default function Multisports() {
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"
           >
-            {/* Description — 2 cols */}
+            {/* Description + règles en accordéon — 2 cols */}
             <div className="lg:col-span-2">
-              <p className="text-white/65 text-base leading-relaxed mb-6">
+              <p className="text-white/65 text-base leading-relaxed mb-5">
                 {activeSport.description}
               </p>
-              {/* Règles en ligne compacte */}
-              <ul className="flex flex-col gap-2">
-                {activeSport.regles.map((regle, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-white/55">
-                    <span className="text-[#C8A24D]/60 mt-0.5 flex-shrink-0 text-xs">◆</span>
-                    {regle}
-                  </li>
-                ))}
-              </ul>
+
+              {/* Accordéon règles */}
+              <div
+                className="rounded-xl overflow-hidden"
+                style={{ border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.025)' }}
+              >
+                <button
+                  onClick={() => setRulesOpen(o => !o)}
+                  className="w-full flex items-center justify-between px-5 py-3.5 text-left cursor-pointer group"
+                  aria-expanded={rulesOpen}
+                >
+                  <span
+                    className="text-[11px] font-bold uppercase tracking-[0.30em] group-hover:text-white/60 transition-colors"
+                    style={{ color: 'rgba(255,255,255,0.35)' }}
+                  >
+                    Règles de l&apos;épreuve
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-white/25 transition-transform duration-300 group-hover:text-white/45 ${rulesOpen ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {rulesOpen && (
+                    <motion.div
+                      key="rules"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <ul
+                        className="flex flex-col gap-0 px-5 pb-4"
+                        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+                      >
+                        {activeSport.regles.map((regle, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, x: -6 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2, delay: i * 0.04 }}
+                            className="flex items-start gap-3 text-sm text-white/50 py-2.5"
+                            style={i < activeSport.regles.length - 1 ? { borderBottom: '1px solid rgba(255,255,255,0.04)' } : {}}
+                          >
+                            <span className="text-[#C8A24D]/45 mt-0.5 flex-shrink-0 text-[10px]">◆</span>
+                            {regle}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* Contact — 1 col, sobre */}
