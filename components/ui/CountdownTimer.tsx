@@ -112,7 +112,7 @@ export default function CountdownTimer({ compact = false }: { compact?: boolean 
 
   if (isOver) {
     return (
-      <span className={compact ? 'text-[#0BBFBF] text-sm font-semibold' : 'text-center text-white/90 text-lg font-semibold'}>
+      <span className={compact ? 'text-[#3DB8A4] text-sm font-semibold' : 'text-center text-white/90 text-lg font-semibold'}>
         L'événement est en cours !
       </span>
     )

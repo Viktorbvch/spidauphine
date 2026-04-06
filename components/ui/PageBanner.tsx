@@ -41,13 +41,13 @@ export default function PageBanner({
       <div
         className="absolute inset-0"
         style={{
-          background: gradient ?? 'linear-gradient(to bottom, rgba(7,26,53,0.25) 0%, rgba(7,26,53,0.55) 50%, rgba(7,26,53,0.92) 100%)',
+          background: gradient ?? 'linear-gradient(to bottom, rgba(12,27,51,0.25) 0%, rgba(12,27,51,0.55) 50%, rgba(12,27,51,0.92) 100%)',
         }}
         aria-hidden="true"
       />
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(to right, rgba(7,26,53,0.65) 0%, transparent 60%)' }}
+        style={{ background: 'linear-gradient(to right, rgba(12,27,51,0.65) 0%, transparent 60%)' }}
         aria-hidden="true"
       />
 
@@ -65,7 +65,7 @@ export default function PageBanner({
       {/* Text */}
       <div className="absolute inset-0 flex flex-col justify-end">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16">
-          <p className="text-[#0BBFBF] text-xs font-semibold uppercase tracking-[0.3em] mb-4"
+          <p className="text-[#3DB8A4] text-xs font-semibold uppercase tracking-[0.3em] mb-4"
             style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
             {eyebrow}
           </p>
@@ -84,7 +84,7 @@ export default function PageBanner({
             {titleAccent && (
               <>
                 {' '}
-                <span style={{ color: '#E8A930' }}>{titleAccent}</span>
+                <span style={{ color: '#C8A24D' }}>{titleAccent}</span>
               </>
             )}
           </h1>
@@ -98,7 +98,7 @@ export default function PageBanner({
       {/* Accent bar */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[3px]"
-        style={{ background: 'linear-gradient(to right, #0B2545, #1A6B8C, #0BBFBF)' }}
+        style={{ background: 'linear-gradient(to right, #0C1B33, #1E6FA8, #3DB8A4)' }}
         aria-hidden="true"
       />
     </div>

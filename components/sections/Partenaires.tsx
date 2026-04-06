@@ -6,34 +6,34 @@ import { Mail } from 'lucide-react'
 
 /* ── Liste complète des partenaires ────────────────────────── */
 const PARTENAIRES = [
-  { nom: 'Marina di Imperia',     couleur: '#0B2545' },
-  { nom: 'Yacht Club Imperia',    couleur: '#1A6B8C' },
-  { nom: 'FFVoile',               couleur: '#0B2545' },
+  { nom: 'Marina di Imperia',     couleur: '#0C1B33' },
+  { nom: 'Yacht Club Imperia',    couleur: '#1E6FA8' },
+  { nom: 'FFVoile',               couleur: '#0C1B33' },
   { nom: 'FIV',                   couleur: '#008C45' },
   { nom: 'Fondation de la Mer',   couleur: '#0077B6' },
-  { nom: 'Città di Imperia',      couleur: '#1A6B8C' },
+  { nom: 'Città di Imperia',      couleur: '#1E6FA8' },
   { nom: 'Ineja',                 couleur: '#2D6A4F' },
-  { nom: 'Geste pour la Mer',     couleur: '#0B2545' },
-  { nom: 'FFTW',                  couleur: '#1A6B8C' },
+  { nom: 'Geste pour la Mer',     couleur: '#0C1B33' },
+  { nom: 'FFTW',                  couleur: '#1E6FA8' },
   { nom: 'Dauphine PSL',          couleur: '#990000' },
-  { nom: 'CVEC',                  couleur: '#0B2545' },
+  { nom: 'CVEC',                  couleur: '#0C1B33' },
   { nom: 'JPA International',     couleur: '#C4A000' },
   { nom: 'Deliveroo',             couleur: '#00CCBC' },
-  { nom: 'Nautistore',            couleur: '#1A6B8C' },
-  { nom: "L'épaulette de Classe", couleur: '#0B2545' },
-  { nom: 'BAP',                   couleur: '#E8A930' },
+  { nom: 'Nautistore',            couleur: '#1E6FA8' },
+  { nom: "L'épaulette de Classe", couleur: '#0C1B33' },
+  { nom: 'BAP',                   couleur: '#C8A24D' },
   { nom: 'VandB Groupe',          couleur: '#7B2D8B' },
   { nom: 'Red Bull',              couleur: '#CC0000' },
-  { nom: 'CRCustom.fr',           couleur: '#0B2545' },
+  { nom: 'CRCustom.fr',           couleur: '#0C1B33' },
   { nom: 'Sumeria',               couleur: '#6366F1' },
   { nom: 'En Voiture Simone',     couleur: '#059669' },
-  { nom: "Martinpêch'",           couleur: '#0B2545' },
-  { nom: 'Solly',                 couleur: '#E8A930' },
+  { nom: "Martinpêch'",           couleur: '#0C1B33' },
+  { nom: 'Solly',                 couleur: '#C8A24D' },
   { nom: 'Ambassia',              couleur: '#7C3AED' },
-  { nom: 'Sport Mate',            couleur: '#0B2545' },
-  { nom: 'Quadmission',           couleur: '#1A6B8C' },
+  { nom: 'Sport Mate',            couleur: '#0C1B33' },
+  { nom: 'Quadmission',           couleur: '#1E6FA8' },
   { nom: 'Olago',                 couleur: '#059669' },
-  { nom: 'SafeHub',               couleur: '#E05B40' },
+  { nom: 'SafeHub',               couleur: '#E2593A' },
 ]
 
 /* ── Pill compact pour l'orbite desktop ─────────────────────── */
@@ -45,7 +45,7 @@ function OrbitPill({ nom, couleur }: { nom: string; couleur: string }) {
         style={{ background: couleur }}
         aria-hidden="true"
       />
-      <span className="text-[11px] font-medium text-[#0B2545] whitespace-nowrap leading-none">
+      <span className="text-[11px] font-medium text-[#0C1B33] whitespace-nowrap leading-none">
         {nom}
       </span>
     </div>
@@ -63,7 +63,7 @@ function MarqueePill({ nom, couleur }: { nom: string; couleur: string }) {
       >
         {nom.split(/[\s'\-]/g).filter(w => w.length > 1).slice(0, 2).map(w => w[0].toUpperCase()).join('') || nom.slice(0, 2).toUpperCase()}
       </div>
-      <span className="text-sm font-medium text-[#0B2545] whitespace-nowrap">{nom}</span>
+      <span className="text-sm font-medium text-[#0C1B33] whitespace-nowrap">{nom}</span>
     </div>
   )
 }
@@ -80,7 +80,7 @@ export default function Partenaires() {
   const row2 = [...PARTENAIRES.slice(14),    ...PARTENAIRES.slice(14)]
 
   return (
-    <section id="partenaires" className="py-20 lg:py-28 bg-[#F8FAFC] overflow-hidden">
+    <section id="partenaires" className="py-20 lg:py-28 bg-[#F7F4EF] overflow-hidden">
 
       {/* ── En-tête texte ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-4">
@@ -89,7 +89,7 @@ export default function Partenaires() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-[#0BBFBF] text-xs font-semibold uppercase tracking-[0.3em] mb-4"
+          className="text-[#3DB8A4] text-xs font-semibold uppercase tracking-[0.3em] mb-4"
         >
           Ils nous soutiennent
         </motion.p>
@@ -98,7 +98,7 @@ export default function Partenaires() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="text-[#0B2545] mb-4"
+          className="text-[#0C1B33] mb-4"
           style={{
             fontFamily: 'var(--font-playfair)',
             fontSize: 'clamp(1.8rem, 4vw, 3rem)',
@@ -106,14 +106,14 @@ export default function Partenaires() {
           }}
         >
           Un grand merci à nos{' '}
-          <span style={{ color: '#E8A930' }}>partenaires</span>
+          <span style={{ color: '#C8A24D' }}>partenaires</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[#64748B] text-base max-w-lg mx-auto"
+          className="text-[#7A8599] text-base max-w-lg mx-auto"
         >
           28 partenaires institutionnels, académiques, sportifs et entrepreneuriaux
           aux côtés de la 45ème édition.
@@ -137,9 +137,9 @@ export default function Partenaires() {
 
           {/* Guides visuels — cercles en pointillés discrets */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-            <div className="absolute rounded-full border border-dashed" style={{ width: 296, height: 296, borderColor: 'rgba(11,37,69,0.08)' }} />
-            <div className="absolute rounded-full border border-dashed" style={{ width: 492, height: 492, borderColor: 'rgba(11,37,69,0.06)' }} />
-            <div className="absolute rounded-full border border-dashed" style={{ width: 702, height: 702, borderColor: 'rgba(11,37,69,0.04)' }} />
+            <div className="absolute rounded-full border border-dashed" style={{ width: 296, height: 296, borderColor: 'rgba(12,27,51,0.08)' }} />
+            <div className="absolute rounded-full border border-dashed" style={{ width: 492, height: 492, borderColor: 'rgba(12,27,51,0.06)' }} />
+            <div className="absolute rounded-full border border-dashed" style={{ width: 702, height: 702, borderColor: 'rgba(12,27,51,0.04)' }} />
           </div>
 
           {/* Anneau 1 — 8 items — rayon 130px — sens CW — 45s */}
@@ -190,7 +190,7 @@ export default function Partenaires() {
           {/* Centre — logo + message de remerciement */}
           <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
             <div className="text-center px-6 max-w-[210px]">
-              <div className="w-14 h-14 rounded-2xl bg-[#0B2545] flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <div className="w-14 h-14 rounded-2xl bg-[#0C1B33] flex items-center justify-center mx-auto mb-4 shadow-lg">
                 <Image
                   src="/assets/logo.png"
                   alt="Logo SPI Dauphine"
@@ -200,13 +200,13 @@ export default function Partenaires() {
                 />
               </div>
               <p
-                className="text-[#0B2545] font-bold leading-tight mb-1.5"
+                className="text-[#0C1B33] font-bold leading-tight mb-1.5"
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.05rem' }}
               >
                 Un grand merci à nos{' '}
-                <span style={{ color: '#E8A930' }}>partenaires</span>
+                <span style={{ color: '#C8A24D' }}>partenaires</span>
               </p>
-              <p className="text-[11px] text-[#94A3B8] font-medium">
+              <p className="text-[11px] text-[#8A95A8] font-medium">
                 28 partenaires · 45ème édition
               </p>
             </div>
@@ -255,12 +255,12 @@ export default function Partenaires() {
       >
         <a
           href="mailto:pauline.petitdidier@spidauphine.com?subject=Demande%20de%20partenariat%20SPI%20Dauphine%2045"
-          className="inline-flex items-center gap-2.5 bg-[#0B2545] hover:bg-[#133366] text-white rounded-full px-8 py-3.5 text-sm font-semibold transition-colors duration-200 cursor-pointer"
+          className="inline-flex items-center gap-2.5 bg-[#0C1B33] hover:bg-[#14355A] text-white rounded-full px-8 py-3.5 text-sm font-semibold transition-colors duration-200 cursor-pointer"
         >
           <Mail className="w-4 h-4" aria-hidden="true" />
           Devenir partenaire de la 45ème édition
         </a>
-        <p className="text-xs text-[#94A3B8] mt-3">
+        <p className="text-xs text-[#8A95A8] mt-3">
           Pauline Petitdidier — pauline.petitdidier@spidauphine.com
         </p>
       </motion.div>

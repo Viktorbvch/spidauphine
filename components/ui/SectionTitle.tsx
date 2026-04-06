@@ -30,7 +30,7 @@ export default function SectionTitle({
       {eyebrow && (
         <p
           className={`text-xs font-semibold uppercase tracking-widest mb-3 ${
-            light ? 'text-[#0BBFBF]' : 'text-[#1A6B8C]'
+            light ? 'text-[#3DB8A4]' : 'text-[#1E6FA8]'
           }`}
         >
           {eyebrow}
@@ -38,7 +38,7 @@ export default function SectionTitle({
       )}
       <h2
         className={`text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 ${
-          light ? 'text-white' : 'text-[#0B2545]'
+          light ? 'text-white' : 'text-[#0C1B33]'
         }`}
         style={{ fontFamily: 'var(--font-playfair)' }}
       >
@@ -46,7 +46,7 @@ export default function SectionTitle({
         {titleAccent && (
           <>
             {' '}
-            <em className={`not-italic ${light ? 'text-[#E8A930]' : 'text-gradient-ocean'}`}>
+            <em className={`not-italic ${light ? 'text-[#C8A24D]' : 'text-gradient-ocean'}`}>
               {titleAccent}
             </em>
           </>
@@ -56,7 +56,7 @@ export default function SectionTitle({
         <p
           className={`text-base sm:text-lg leading-relaxed max-w-2xl ${
             centered ? 'mx-auto' : ''
-          } ${light ? 'text-white/70' : 'text-[#64748B]'}`}
+          } ${light ? 'text-white/70' : 'text-[#7A8599]'}`}
         >
           {subtitle}
         </p>

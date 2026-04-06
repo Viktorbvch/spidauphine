@@ -135,7 +135,7 @@ function MainVideoPlayer() {
           className="w-full h-1 bg-white/25 rounded-full mb-3 cursor-pointer hover:h-1.5 transition-all pointer-events-auto"
           onClick={handleSeek}
         >
-          <div className="h-full rounded-full bg-[#E8A930] transition-all duration-200" style={{ width: `${progress}%` }} />
+          <div className="h-full rounded-full bg-[#C8A24D] transition-all duration-200" style={{ width: `${progress}%` }} />
         </div>
         <div className="flex items-center gap-3 pointer-events-auto">
           <button onClick={togglePlay} aria-label={playing ? 'Pause' : 'Lecture'}
@@ -273,13 +273,13 @@ function ThemeCard({
     <motion.div
       {...fadeUp(index * 0.09)}
       className="flex flex-col md:flex-row overflow-hidden rounded-2xl"
-      style={{ boxShadow: '0 4px 32px rgba(7,26,53,0.13)' }}
+      style={{ boxShadow: '0 4px 32px rgba(12,27,51,0.13)' }}
     >
       {/* Photo slot */}
       {photoSide === 'left' && (
         <div
           className="relative md:w-[42%] flex-shrink-0 min-h-[220px]"
-          style={photo ? {} : { background: `linear-gradient(135deg, #071A35 0%, ${couleur}30 100%)` }}
+          style={photo ? {} : { background: `linear-gradient(135deg, #0C1B33 0%, ${couleur}30 100%)` }}
         >
           {photo ? (
             <Image src={photo} alt={titre} fill className="object-cover" sizes="42vw" />
@@ -304,7 +304,7 @@ function ThemeCard({
       )}
 
       {/* Contenu */}
-      <div className="flex-1 bg-[#0B2545] p-7 lg:p-9 flex flex-col justify-between gap-5">
+      <div className="flex-1 bg-[#0C1B33] p-7 lg:p-9 flex flex-col justify-between gap-5">
         {/* Header */}
         <div>
           <div className="flex items-center gap-3 mb-5">
@@ -339,7 +339,7 @@ function ThemeCard({
       {photoSide === 'right' && (
         <div
           className="relative md:w-[42%] flex-shrink-0 min-h-[220px]"
-          style={photo ? {} : { background: `linear-gradient(225deg, #071A35 0%, ${couleur}30 100%)` }}
+          style={photo ? {} : { background: `linear-gradient(225deg, #0C1B33 0%, ${couleur}30 100%)` }}
         >
           {photo ? (
             <Image src={photo} alt={titre} fill className="object-cover" sizes="42vw" />
@@ -372,7 +372,7 @@ export default function EngagementPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#071A35]">
+      <main className="bg-[#0C1B33]">
 
         {/* ══════════════════════════════════════════════════════
             BANNIÈRE — fondu vers le navy en dessous
@@ -388,12 +388,12 @@ export default function EngagementPage() {
           />
           {/* Fondu navy en bas (vers la section suivante) */}
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(to bottom, rgba(7,26,53,0.05) 0%, rgba(7,26,53,0.15) 35%, rgba(7,26,53,0.55) 65%, #071A35 100%)' }}
+            style={{ background: 'linear-gradient(to bottom, rgba(12,27,51,0.05) 0%, rgba(12,27,51,0.15) 35%, rgba(12,27,51,0.55) 65%, #0C1B33 100%)' }}
             aria-hidden="true"
           />
           {/* Fondu gauche pour lisibilité du titre */}
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(to right, rgba(7,26,53,0.6) 0%, rgba(7,26,53,0.2) 50%, transparent 100%)' }}
+            style={{ background: 'linear-gradient(to right, rgba(12,27,51,0.6) 0%, rgba(12,27,51,0.2) 50%, transparent 100%)' }}
             aria-hidden="true"
           />
 
@@ -410,7 +410,7 @@ export default function EngagementPage() {
             <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-14 lg:pb-18">
               <motion.p
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-[#0BBFBF] text-[10px] font-semibold uppercase tracking-[0.3em] mb-4"
+                className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.3em] mb-4"
                 style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
               >
                 Challenge SPI Dauphine · 45ème édition
@@ -420,7 +420,7 @@ export default function EngagementPage() {
                 className="text-white"
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, lineHeight: 1.08, textShadow: '0 2px 20px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)' }}
               >
-                Histoire & <span style={{ color: '#E8A930' }}>engagements</span>
+                Histoire & <span style={{ color: '#C8A24D' }}>engagements</span>
               </motion.h1>
             </div>
           </div>
@@ -433,9 +433,9 @@ export default function EngagementPage() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-16 lg:pb-20">
             <motion.div {...fadeUp()} className="flex flex-wrap items-end justify-between gap-4 mb-8">
               <div>
-                <p className="text-[#0BBFBF] text-[10px] font-semibold uppercase tracking-[0.3em] mb-3">La SPI en images</p>
+                <p className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.3em] mb-3">La SPI en images</p>
                 <h2 className="text-white" style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 700 }}>
-                  Revivez <span style={{ color: '#E8A930' }}>45 ans</span> de SPI
+                  Revivez <span style={{ color: '#C8A24D' }}>45 ans</span> de SPI
                 </h2>
               </div>
               <p className="text-white/35 text-sm max-w-xs leading-relaxed">
@@ -458,8 +458,8 @@ export default function EngagementPage() {
               {/* Gauche : récit */}
               <motion.div {...fadeUp()}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="h-px w-8" style={{ background: 'rgba(232,169,48,0.5)' }} />
-                  <span className="text-[#E8A930] text-[10px] font-bold uppercase tracking-[0.40em]">
+                  <div className="h-px w-8" style={{ background: 'rgba(200,162,77,0.5)' }} />
+                  <span className="text-[#C8A24D] text-[10px] font-bold uppercase tracking-[0.40em]">
                     La genèse · 1981
                   </span>
                 </div>
@@ -467,7 +467,7 @@ export default function EngagementPage() {
                   className="text-white mb-6 leading-tight"
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 700 }}
                 >
-                  Nés d&apos;une <span style={{ color: '#E8A930' }}>frustration</span>,<br />devenus une légende
+                  Nés d&apos;une <span style={{ color: '#C8A24D' }}>frustration</span>,<br />devenus une légende
                 </h2>
                 <p className="text-white/60 text-base leading-relaxed mb-5">
                   Tout commence par une conviction : les étudiants de Paris Dauphine méritent leur propre régate. Frustrés des conditions d&apos;accueil de la régate Edhec Voile, un groupe d&apos;étudiants passionnés décide en 1981 de créer quelque chose à eux — plus humain, plus festif, plus dauphinois.
@@ -484,19 +484,19 @@ export default function EngagementPage() {
               <motion.div {...fadeUp(0.15)} className="flex flex-col gap-5">
                 <blockquote
                   className="relative p-8 rounded-2xl overflow-hidden"
-                  style={{ background: 'rgba(232,169,48,0.06)', border: '1px solid rgba(232,169,48,0.15)' }}
+                  style={{ background: 'rgba(200,162,77,0.06)', border: '1px solid rgba(200,162,77,0.15)' }}
                 >
                   <div
                     className="absolute top-4 left-7 pointer-events-none select-none"
-                    style={{ fontFamily: 'var(--font-playfair)', fontSize: '5.5rem', lineHeight: 1, color: 'rgba(232,169,48,0.18)' }}
+                    style={{ fontFamily: 'var(--font-playfair)', fontSize: '5.5rem', lineHeight: 1, color: 'rgba(200,162,77,0.18)' }}
                     aria-hidden="true"
                   >&ldquo;</div>
                   <p className="relative text-white/75 text-lg leading-relaxed italic mt-6" style={{ fontFamily: 'var(--font-playfair)' }}>
                     On voulait une régate qui ressemble à Dauphine — libre, joyeuse, et un peu folle.
                   </p>
                   <footer className="mt-5 flex items-center gap-3">
-                    <div className="h-px flex-1" style={{ background: 'rgba(232,169,48,0.20)' }} />
-                    <span className="text-[#E8A930] text-[10px] font-bold uppercase tracking-[0.25em]">
+                    <div className="h-px flex-1" style={{ background: 'rgba(200,162,77,0.20)' }} />
+                    <span className="text-[#C8A24D] text-[10px] font-bold uppercase tracking-[0.25em]">
                       Fondateurs · 1981
                     </span>
                   </footer>
@@ -515,7 +515,7 @@ export default function EngagementPage() {
                     >
                       <div
                         className="font-bold mb-1.5 tabular-nums"
-                        style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)', color: '#E8A930' }}
+                        style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)', color: '#C8A24D' }}
                       >
                         {stat.val}
                       </div>
@@ -540,9 +540,9 @@ export default function EngagementPage() {
         <section className="border-t border-white/6 py-14 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp()} className="max-w-xl mb-10">
-              <p className="text-[#0BBFBF] text-[10px] font-semibold uppercase tracking-[0.3em] mb-3">Depuis 1981</p>
+              <p className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.3em] mb-3">Depuis 1981</p>
               <h2 className="text-white mb-3" style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 700 }}>
-                Une histoire de <span style={{ color: '#E8A930' }}>passion</span>
+                Une histoire de <span style={{ color: '#C8A24D' }}>passion</span>
               </h2>
               <p className="text-white/50 text-base leading-relaxed">
                 Né de la volonté d'étudiants de Paris Dauphine, le Challenge SPI est devenu en 45 ans l'événement étudiant le plus emblématique du sud de l'Europe.
@@ -553,14 +553,14 @@ export default function EngagementPage() {
               {jalons.map((j, i) => (
                 <motion.div key={j.annee} {...fadeUp(i * 0.08)}
                   className="relative pl-6 pr-6 pb-10 lg:pb-0"
-                  style={{ borderLeft: '2px solid', borderColor: j.annee === '2026' ? '#E8A930' : 'rgba(255,255,255,0.1)' }}
+                  style={{ borderLeft: '2px solid', borderColor: j.annee === '2026' ? '#C8A24D' : 'rgba(255,255,255,0.1)' }}
                 >
                   <div className="absolute left-0 top-0 w-3 h-3 rounded-full -translate-x-[7px]"
-                    style={{ backgroundColor: j.annee === '2026' ? '#E8A930' : 'rgba(255,255,255,0.4)', boxShadow: j.annee === '2026' ? '0 0 0 4px rgba(232,169,48,0.2)' : 'none' }}
+                    style={{ backgroundColor: j.annee === '2026' ? '#C8A24D' : 'rgba(255,255,255,0.4)', boxShadow: j.annee === '2026' ? '0 0 0 4px rgba(200,162,77,0.2)' : 'none' }}
                     aria-hidden="true"
                   />
                   <p className="text-3xl font-bold mb-3 tabular-nums"
-                    style={{ fontFamily: 'var(--font-playfair)', color: j.annee === '2026' ? '#E8A930' : '#fff' }}>
+                    style={{ fontFamily: 'var(--font-playfair)', color: j.annee === '2026' ? '#C8A24D' : '#fff' }}>
                     {j.annee}
                   </p>
                   <p className="text-sm text-white/45 leading-relaxed">{j.fait}</p>
@@ -577,9 +577,9 @@ export default function EngagementPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <motion.div {...fadeUp()} className="max-w-xl mb-12">
-              <p className="text-[#0BBFBF] text-[10px] font-semibold uppercase tracking-[0.3em] mb-3">Notre engagement</p>
+              <p className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.3em] mb-3">Notre engagement</p>
               <h2 className="text-white mb-3" style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', fontWeight: 700 }}>
-                La SPI <span style={{ color: '#E8A930' }}>s&apos;engage</span>
+                La SPI <span style={{ color: '#C8A24D' }}>s&apos;engage</span>
               </h2>
               <p className="text-white/50 text-base leading-relaxed">
                 Au-delà de la régate, le Challenge SPI Dauphine structure chaque édition autour de six piliers forts — sport, inclusion, environnement, respect, engagement associatif et valorisation du territoire.
@@ -595,12 +595,12 @@ export default function EngagementPage() {
               className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-14"
             >
               {([
-                { icon: Trophy,        color: '#E8A930', label: 'Sport et esprit',               desc: 'La compétition comme vecteur de dépassement et de cohésion collective.' },
-                { icon: Users,         color: '#0BBFBF', label: 'Inclusion',                     desc: 'Label 100% Handinamique — l\'événement accessible à tous.' },
+                { icon: Trophy,        color: '#C8A24D', label: 'Sport et esprit',               desc: 'La compétition comme vecteur de dépassement et de cohésion collective.' },
+                { icon: Users,         color: '#3DB8A4', label: 'Inclusion',                     desc: 'Label 100% Handinamique — l\'événement accessible à tous.' },
                 { icon: Leaf,          color: '#1A8C6B', label: 'Responsabilité environnementale', desc: 'Collectes, partenariats Fondation de la Mer, réduction d\'empreinte.' },
-                { icon: Heart,         color: '#E05B40', label: 'Respect des participants',      desc: 'Charte de conduite, sécurité et bien-être de chaque participant.' },
+                { icon: Heart,         color: '#E2593A', label: 'Respect des participants',      desc: 'Charte de conduite, sécurité et bien-être de chaque participant.' },
                 { icon: GraduationCap, color: '#A855F7', label: 'Engagement associatif',        desc: 'Un événement géré entièrement par des étudiants bénévoles.' },
-                { icon: MapPin,        color: '#1A6B8C', label: 'Valorisation du territoire',   desc: 'Ancrage local fort, partenariat actif avec la commune d\'Imperia.' },
+                { icon: MapPin,        color: '#1E6FA8', label: 'Valorisation du territoire',   desc: 'Ancrage local fort, partenariat actif avec la commune d\'Imperia.' },
               ] as { icon: React.ElementType; color: string; label: string; desc: string }[]).map(({ icon: Icon, color, label, desc }, i) => (
                 <motion.div
                   key={label}
@@ -631,7 +631,7 @@ export default function EngagementPage() {
                 style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.35)' }}>
                 <EngagementVideoCard
                   src="/assets/course-caritative.mp4"
-                  tag="Solidarité" couleur="#E05B40"
+                  tag="Solidarité" couleur="#E2593A"
                   titre="Course Caritative" date="Lundi 20 avril"
                   desc="Course à pied au profit de Vents Différents — ~1 000 coureurs mobilisés sur le front de mer d'Imperia."
                   side="left"
@@ -654,7 +654,7 @@ export default function EngagementPage() {
             <div className="flex flex-col gap-4 mt-4">
               <ThemeCard
                 icon={Users}
-                couleur="#1A6B8C"
+                couleur="#1E6FA8"
                 tag="Inclusion"
                 date="Lundi 20 avril"
                 titre="Journée de l'Inclusion"
@@ -665,7 +665,7 @@ export default function EngagementPage() {
               />
               <ThemeCard
                 icon={Lightbulb}
-                couleur="#E8A930"
+                couleur="#C8A24D"
                 tag="Entrepreneuriat"
                 date="Mercredi 22 avril"
                 titre="Journée Entrepreneuriat"
@@ -702,7 +702,7 @@ export default function EngagementPage() {
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
                 >
                   Un événement plus sûr<br />
-                  <span style={{ color: '#E8A930' }}>pour toutes et tous</span>
+                  <span style={{ color: '#C8A24D' }}>pour toutes et tous</span>
                 </h2>
                 <p className="text-white/55 leading-relaxed max-w-xl" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
                   La SPI Dauphine applique une politique de tolérance zéro face aux violences sexistes et sexuelles.
@@ -782,7 +782,7 @@ export default function EngagementPage() {
         ══════════════════════════════════════════════════════ */}
         <section
           className="border-t border-white/6 py-14 lg:py-20"
-          style={{ background: 'linear-gradient(180deg, #071A35 0%, #060f1e 100%)' }}
+          style={{ background: 'linear-gradient(180deg, #0C1B33 0%, #070D1F 100%)' }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -791,10 +791,10 @@ export default function EngagementPage() {
               <motion.div {...fadeUp()}>
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-                    style={{ background: 'rgba(11,191,191,0.12)', border: '1px solid rgba(11,191,191,0.25)' }}>
-                    <Users className="w-4 h-4" style={{ color: '#0BBFBF' }} />
+                    style={{ background: 'rgba(61,184,164,0.12)', border: '1px solid rgba(61,184,164,0.25)' }}>
+                    <Users className="w-4 h-4" style={{ color: '#3DB8A4' }} />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#0BBFBF' }}>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#3DB8A4' }}>
                     Inclusion · Mixité
                   </span>
                 </div>
@@ -802,7 +802,7 @@ export default function EngagementPage() {
                   className="text-white leading-tight mb-6"
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
                 >
-                  Un événement <span style={{ color: '#E8A930' }}>inclusif</span>
+                  Un événement <span style={{ color: '#C8A24D' }}>inclusif</span>
                 </h2>
                 <p className="text-white/55 leading-relaxed mb-4" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
                   Sur l&apos;eau, des bateaux mixtes aux couleurs de l&apos;inclusion prennent chaque année le départ —
@@ -826,13 +826,13 @@ export default function EngagementPage() {
                   />
                   <div
                     className="absolute inset-0 pointer-events-none"
-                    style={{ background: 'linear-gradient(to top, rgba(6,15,30,0.75) 0%, transparent 55%)' }}
+                    style={{ background: 'linear-gradient(to top, rgba(7,13,31,0.75) 0%, transparent 55%)' }}
                     aria-hidden="true"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <span
                       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-white"
-                      style={{ background: '#1A6B8C' }}
+                      style={{ background: '#1E6FA8' }}
                     >
                       Journée inclusion · Chaque édition
                     </span>
@@ -856,18 +856,18 @@ export default function EngagementPage() {
             <motion.div {...fadeUp(0.08)} className="mb-5">
               <div
                 className="flex items-center gap-5 p-5 rounded-2xl"
-                style={{ background: 'rgba(232,169,48,0.07)', border: '1px solid rgba(232,169,48,0.20)' }}
+                style={{ background: 'rgba(200,162,77,0.07)', border: '1px solid rgba(200,162,77,0.20)' }}
               >
                 <div
                   className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center"
-                  style={{ background: 'rgba(232,169,48,0.14)', border: '1px solid rgba(232,169,48,0.30)' }}
+                  style={{ background: 'rgba(200,162,77,0.14)', border: '1px solid rgba(200,162,77,0.30)' }}
                 >
-                  <Award className="w-6 h-6" style={{ color: '#E8A930' }} aria-hidden="true" />
+                  <Award className="w-6 h-6" style={{ color: '#C8A24D' }} aria-hidden="true" />
                 </div>
                 <div className="flex-1">
                   <p
                     className="text-[9px] font-bold uppercase tracking-[0.35em] mb-1"
-                    style={{ color: '#E8A930' }}
+                    style={{ color: '#C8A24D' }}
                   >
                     Label officiel
                   </p>
@@ -889,19 +889,19 @@ export default function EngagementPage() {
               {([
                 {
                   icon: Heart,
-                  color: '#E05B40',
+                  color: '#E2593A',
                   label: 'Quatre courses caritatives',
                   desc: 'Au profit des associations AIDA, Comme Les Autres et Vents Différents — ~1 000 coureurs mobilisés sur le front de mer d\'Imperia.',
                 },
                 {
                   icon: Users,
-                  color: '#1A6B8C',
+                  color: '#1E6FA8',
                   label: 'Équipages en situation de handicap',
                   desc: 'Accueil d\'équipages aux côtés de l\'association ASEI et Vents Différents — ensemble sur l\'eau, à armes égales.',
                 },
                 {
                   icon: Megaphone,
-                  color: '#0BBFBF',
+                  color: '#3DB8A4',
                   label: 'Relais & documentation nationale',
                   desc: 'Suivi, documentation et communication nationale des actions inclusives, en lien avec les territoires accueillants.',
                 },
@@ -951,7 +951,7 @@ export default function EngagementPage() {
                   className="text-white leading-tight mb-5"
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
                 >
-                  Un événement <span style={{ color: '#E8A930' }}>écoresponsable</span>
+                  Un événement <span style={{ color: '#C8A24D' }}>écoresponsable</span>
                 </h2>
                 <p className="text-white/55 leading-relaxed max-w-2xl" style={{ fontSize: 'clamp(0.88rem, 1.2vw, 1rem)' }}>
                   En complément de nos collaborations avec des partenaires engagés comme{' '}

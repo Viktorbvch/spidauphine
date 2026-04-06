@@ -202,11 +202,11 @@ export default function VillagePage() {
 
         {/* Gradients */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, rgba(5,10,20,0.18) 0%, rgba(5,10,20,0.15) 40%, rgba(5,10,20,0.65) 75%, #050a14 100%)' }}
+          style={{ background: 'linear-gradient(to bottom, rgba(7,13,31,0.18) 0%, rgba(7,13,31,0.15) 40%, rgba(7,13,31,0.65) 75%, #070D1F 100%)' }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, rgba(5,10,20,0.5) 0%, rgba(5,10,20,0.15) 50%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(to right, rgba(7,13,31,0.5) 0%, rgba(7,13,31,0.15) 50%, transparent 100%)' }}
           aria-hidden="true"
         />
 
@@ -215,7 +215,7 @@ export default function VillagePage() {
           <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 pb-14 lg:pb-20">
             <motion.p
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[#0BBFBF] font-bold uppercase mb-4"
+              className="text-[#3DB8A4] font-bold uppercase mb-4"
               style={{ fontSize: 10, letterSpacing: '0.40em' }}
             >
               Marina di Imperia · Avril 2026
@@ -225,7 +225,7 @@ export default function VillagePage() {
               className="text-white leading-tight mb-5"
               style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, textShadow: '0 2px 20px rgba(0,0,0,0.55)' }}
             >
-              Le village <span style={{ color: '#E8A930' }}>SPI Dauphine</span>
+              Le village <span style={{ color: '#C8A24D' }}>SPI Dauphine</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.32 }}
@@ -244,7 +244,7 @@ export default function VillagePage() {
       ══════════════════════════════════════════════════════════════ */}
       <section
         id="infrastructures"
-        style={{ background: 'linear-gradient(180deg, #050a14 0%, #060f1e 100%)' }}
+        style={{ background: 'linear-gradient(180deg, #070D1F 0%, #070D1F 100%)' }}
         className="py-24 lg:py-32"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
@@ -258,8 +258,8 @@ export default function VillagePage() {
             className="mb-16 lg:mb-20 max-w-3xl"
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="h-px w-8 bg-[#0BBFBF]/50" />
-              <span className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.40em]">
+              <div className="h-px w-8 bg-[#3DB8A4]/50" />
+              <span className="text-[#3DB8A4] text-[10px] font-bold uppercase tracking-[0.40em]">
                 Le village d&apos;animation
               </span>
             </div>
@@ -271,7 +271,7 @@ export default function VillagePage() {
                 fontWeight: 700,
               }}
             >
-              Ses <span style={{ color: '#E8A930' }}>infrastructures</span>
+              Ses <span style={{ color: '#C8A24D' }}>infrastructures</span>
             </h2>
             <p className="text-white/50 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)' }}>
               Espace de minimum <strong className="text-white/75 font-semibold">1 000 m²</strong> au cœur du dispositif,
@@ -288,7 +288,7 @@ export default function VillagePage() {
             <InfraCard
               index={0}
               icon={Utensils}
-              color="#0BBFBF"
+              color="#3DB8A4"
               stat="75 m²"
               statLabel="3 tentes · 5×5 m"
               title="L'espace restauration"
@@ -303,7 +303,7 @@ export default function VillagePage() {
             <InfraCard
               index={1}
               icon={MonitorPlay}
-              color="#E8A930"
+              color="#C8A24D"
               stat="15 m²"
               statLabel="Écran 3×5 m"
               title="L'écran géant LED"
@@ -318,7 +318,7 @@ export default function VillagePage() {
             <InfraCard
               index={2}
               icon={Building2}
-              color="#1A6B8C"
+              color="#1E6FA8"
               stat="90 m²"
               statLabel="10 tentes · 3×3 m"
               title="Les tentes entreprises"
@@ -333,7 +333,7 @@ export default function VillagePage() {
             <InfraCard
               index={3}
               icon={ShieldCheck}
-              color="#64748B"
+              color="#7A8599"
               stat="36 m²"
               statLabel="4 tentes · 9 m²"
               title="Sécurité & organisation"
@@ -348,7 +348,7 @@ export default function VillagePage() {
             <InfraCard
               index={4}
               icon={Tent}
-              color="#E8A930"
+              color="#C8A24D"
               stat="240 m²"
               statLabel="12×20 m · structure principale"
               title="Le chapiteau"
@@ -377,7 +377,7 @@ export default function VillagePage() {
         }}
       />
 
-      <div className="relative h-screen overflow-hidden" style={{ cursor: 'none', background: '#050a14' }}>
+      <div className="relative h-screen overflow-hidden" style={{ cursor: 'none', background: '#070D1F' }}>
 
         {/* ══ PHOTOS — parallax wrapper + crossfade ══ */}
         <div

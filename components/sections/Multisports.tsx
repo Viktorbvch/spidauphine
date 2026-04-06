@@ -51,7 +51,7 @@ export default function Multisports() {
   const activeSport = sports.find(s => s.id === activeTab)!
 
   return (
-    <section id="multisports" className="relative bg-[#071A35] overflow-hidden">
+    <section id="multisports" className="relative bg-[#0C1B33] overflow-hidden">
 
       {/* ── BANNER — photo crossfade ── */}
       <div className="relative h-[65vh] min-h-[480px] max-h-[700px]">
@@ -74,8 +74,8 @@ export default function Multisports() {
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071A35] via-[#071A35]/40 to-black/20" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071A35]/60 via-transparent to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C1B33] via-[#0C1B33]/40 to-black/20" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C1B33]/60 via-transparent to-transparent" aria-hidden="true" />
 
         {/* Contenu ancré en bas */}
         <div className="absolute inset-x-0 bottom-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
@@ -95,7 +95,7 @@ export default function Multisports() {
                 lineHeight: 1.1,
               }}
             >
-              Challenge <span style={{ color: '#E8A930' }}>Multisports</span>
+              Challenge <span style={{ color: '#C8A24D' }}>Multisports</span>
             </motion.h2>
 
             {/* Badge 30% — mis en avant, sobre, bien visible */}
@@ -106,9 +106,9 @@ export default function Multisports() {
               transition={{ duration: 0.45, delay: 0.15 }}
               className="flex-shrink-0 mb-1"
             >
-              <div className="flex items-baseline gap-1 px-4 py-2 rounded-full border border-[#E8A930]/40 bg-[#E8A930]/10 backdrop-blur-sm">
+              <div className="flex items-baseline gap-1 px-4 py-2 rounded-full border border-[#C8A24D]/40 bg-[#C8A24D]/10 backdrop-blur-sm">
                 <span
-                  className="font-bold text-[#E8A930]"
+                  className="font-bold text-[#C8A24D]"
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.6rem', lineHeight: 1 }}
                 >
                   30%
@@ -144,7 +144,7 @@ export default function Multisports() {
                   }`}
                 >
                   {/* Jour */}
-                  <span className={`text-[10px] font-mono mb-1.5 ${isActive ? 'text-[#E8A930]' : 'text-white/40'}`}>
+                  <span className={`text-[10px] font-mono mb-1.5 ${isActive ? 'text-[#C8A24D]' : 'text-white/40'}`}>
                     {sport.jours.split(' ').slice(0, 2).join(' ')}
                   </span>
                   {/* Icône + nom */}
@@ -189,18 +189,18 @@ export default function Multisports() {
             >
               <div
                 className="h-full"
-                style={{ width: '70%', background: 'linear-gradient(90deg, #0BBFBF, rgba(11,191,191,0.5))' }}
+                style={{ width: '70%', background: 'linear-gradient(90deg, #3DB8A4, rgba(61,184,164,0.5))' }}
               />
               <div
                 className="h-full"
-                style={{ width: '30%', background: 'linear-gradient(90deg, rgba(232,169,48,0.5), #E8A930)' }}
+                style={{ width: '30%', background: 'linear-gradient(90deg, rgba(200,162,77,0.5), #C8A24D)' }}
               />
             </div>
             <div className="flex justify-between mt-2.5">
-              <span className="text-[11px] font-semibold" style={{ color: 'rgba(11,191,191,0.7)' }}>
+              <span className="text-[11px] font-semibold" style={{ color: 'rgba(61,184,164,0.7)' }}>
                 70 % — épreuves nautiques
               </span>
-              <span className="text-[11px] font-semibold" style={{ color: 'rgba(232,169,48,0.7)' }}>
+              <span className="text-[11px] font-semibold" style={{ color: 'rgba(200,162,77,0.7)' }}>
                 30 % — épreuves terrestres
               </span>
             </div>
@@ -218,7 +218,7 @@ export default function Multisports() {
             >
               <p
                 className="text-[10px] font-bold uppercase tracking-[0.38em] mb-4"
-                style={{ color: '#0BBFBF' }}
+                style={{ color: '#3DB8A4' }}
               >
                 Le volet terrestre
               </p>
@@ -230,7 +230,7 @@ export default function Multisports() {
                 }}
               >
                 Une discipline différente<br />
-                <span style={{ color: '#E8A930' }}>chaque jour</span>
+                <span style={{ color: '#C8A24D' }}>chaque jour</span>
               </h3>
               <p className="text-white/55 leading-relaxed mb-4" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
                 Le Challenge Multisport constitue le volet terrestre de l&apos;événement et entre pleinement dans le classement général.
@@ -249,19 +249,19 @@ export default function Multisports() {
               {([
                 {
                   icon: CalendarDays,
-                  color: '#E8A930',
+                  color: '#C8A24D',
                   label: 'Programme évolutif',
                   desc: 'Une nouvelle discipline à chaque édition, pensée selon les infrastructures locales disponibles — plages, terrains, équipements municipaux.',
                 },
                 {
                   icon: MapPin,
-                  color: '#0BBFBF',
+                  color: '#3DB8A4',
                   label: 'Associations sportives locales',
                   desc: 'Partenariats opérationnels avec les clubs du territoire — mise à disposition de terrains, encadrement et prêt de matériel.',
                 },
                 {
                   icon: Users,
-                  color: '#1A6B8C',
+                  color: '#1E6FA8',
                   label: 'Ouverture sur la ville',
                   desc: 'Les jeunes de la ville hôte participent aux épreuves aux côtés des équipes étudiantes — une rencontre unique entre campus et territoire.',
                 },
@@ -315,7 +315,7 @@ export default function Multisports() {
               <ul className="flex flex-col gap-2">
                 {activeSport.regles.map((regle, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-white/55">
-                    <span className="text-[#E8A930]/60 mt-0.5 flex-shrink-0 text-xs">◆</span>
+                    <span className="text-[#C8A24D]/60 mt-0.5 flex-shrink-0 text-xs">◆</span>
                     {regle}
                   </li>
                 ))}
@@ -324,13 +324,13 @@ export default function Multisports() {
 
             {/* Contact — 1 col, sobre */}
             <div className="flex items-start gap-4 px-5 py-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="w-8 h-8 rounded-lg bg-[#0BBFBF]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Phone className="w-3.5 h-3.5 text-[#0BBFBF]" aria-hidden="true" />
+              <div className="w-8 h-8 rounded-lg bg-[#3DB8A4]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Phone className="w-3.5 h-3.5 text-[#3DB8A4]" aria-hidden="true" />
               </div>
               <div>
                 <p className="text-[11px] text-white/35 mb-1 uppercase tracking-wide">Responsable</p>
                 <p className="text-sm font-semibold text-white mb-0.5">Valentin Lottet</p>
-                <a href="tel:+33784270365" className="text-sm text-[#0BBFBF] hover:text-[#40D4D4] transition-colors cursor-pointer">
+                <a href="tel:+33784270365" className="text-sm text-[#3DB8A4] hover:text-[#5CC8B5] transition-colors cursor-pointer">
                   +33 7 84 27 03 65
                 </a>
               </div>

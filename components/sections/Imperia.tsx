@@ -29,7 +29,7 @@ export default function Imperia() {
   const textOpacity = useTransform(scrollYProgress, [0.1, 0.35], [0, 1])
 
   return (
-    <section id="imperia" ref={sectionRef} className="bg-[#060F1E] overflow-hidden">
+    <section id="imperia" ref={sectionRef} className="bg-[#070D1F] overflow-hidden">
 
       {/* ══ BLOC 1 : Vidéo hero plein-écran ══════════════════════════════ */}
       <div className="relative h-[82svh] flex items-end overflow-hidden">
@@ -47,22 +47,22 @@ export default function Imperia() {
         </motion.div>
 
         {/* Dégradés superposés */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060F1E] via-[#060F1E]/30 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060F1E]/40 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070D1F] via-[#070D1F]/30 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070D1F]/40 via-transparent to-transparent pointer-events-none" />
 
         {/* Texte hero bas-gauche */}
         <motion.div
           style={{ y: textY, opacity: textOpacity }}
           className="relative z-10 px-8 pb-14 lg:px-16 lg:pb-20 max-w-3xl"
         >
-          <p className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.38em] mb-4">
+          <p className="text-[#3DB8A4] text-[10px] font-bold uppercase tracking-[0.38em] mb-4">
             Ville hôte · 45ème édition
           </p>
           <h2
             className="text-white leading-[1.05] mb-5"
             style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700 }}
           >
-            Imperia, <span style={{ color: '#E8A930' }}>côte ligure</span>
+            Imperia, <span style={{ color: '#C8A24D' }}>côte ligure</span>
           </h2>
           <p className="text-white/90 leading-relaxed max-w-lg" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)', textShadow: '0 1px 12px rgba(0,0,0,0.6)' }}>
             Nichée entre mer Méditerranée et collines parfumées, Imperia est l'écrin idéal
@@ -81,7 +81,7 @@ export default function Imperia() {
       </div>
 
       {/* ══ BLOC 2 : Galerie photos interactive ══════════════════════════ */}
-      <div className="relative bg-[#060F1E] py-20 lg:py-28">
+      <div className="relative bg-[#070D1F] py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
           <div className="grid lg:grid-cols-[1fr_420px] gap-10 lg:gap-16 items-center">
@@ -112,7 +112,7 @@ export default function Imperia() {
                   <div
                     key={i}
                     className="h-[2px] rounded-full transition-all duration-400"
-                    style={{ width: active === i ? 20 : 8, background: active === i ? '#E8A930' : 'rgba(255,255,255,0.35)' }}
+                    style={{ width: active === i ? 20 : 8, background: active === i ? '#C8A24D' : 'rgba(255,255,255,0.35)' }}
                   />
                 ))}
               </div>
@@ -124,8 +124,8 @@ export default function Imperia() {
               {/* Titre bloc */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-px w-8 bg-[#0BBFBF]/50" />
-                  <span className="text-[#0BBFBF] text-[9px] font-bold uppercase tracking-[0.35em]">La ville hôte</span>
+                  <div className="h-px w-8 bg-[#3DB8A4]/50" />
+                  <span className="text-[#3DB8A4] text-[9px] font-bold uppercase tracking-[0.35em]">La ville hôte</span>
                 </div>
                 <h3 className="text-white leading-tight mb-3"
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', fontWeight: 700 }}>
@@ -144,7 +144,7 @@ export default function Imperia() {
                     key={i}
                     onClick={() => setActive(i)}
                     className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group"
-                    style={{ outline: active === i ? '2px solid #E8A930' : '2px solid transparent', outlineOffset: 2 }}
+                    style={{ outline: active === i ? '2px solid #C8A24D' : '2px solid transparent', outlineOffset: 2 }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={p.src} alt={p.label} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
@@ -161,8 +161,8 @@ export default function Imperia() {
                 {facts.map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background: 'rgba(11,191,191,0.1)' }}>
-                      <Icon className="w-3.5 h-3.5 text-[#0BBFBF]" aria-hidden="true" />
+                      style={{ background: 'rgba(61,184,164,0.1)' }}>
+                      <Icon className="w-3.5 h-3.5 text-[#3DB8A4]" aria-hidden="true" />
                     </div>
                     <div className="flex-1 flex items-center justify-between min-w-0">
                       <span className="text-white/40 text-[11px] uppercase tracking-[0.1em]">{label}</span>
@@ -183,11 +183,11 @@ export default function Imperia() {
           <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
             <div className="px-5 py-3.5 flex items-center gap-3"
               style={{ background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-              <Anchor className="w-4 h-4 text-[#E8A930]" aria-hidden="true" />
+              <Anchor className="w-4 h-4 text-[#C8A24D]" aria-hidden="true" />
               <span className="text-white/70 text-sm font-medium">Marina di Imperia — lieu du Challenge SPI Dauphine 45</span>
               <div className="ml-auto flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#0BBFBF] animate-pulse" />
-                <span className="text-[#0BBFBF] text-[10px] font-semibold uppercase tracking-wider">Live</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#3DB8A4] animate-pulse" />
+                <span className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-wider">Live</span>
               </div>
             </div>
             <iframe

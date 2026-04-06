@@ -1,97 +1,142 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { Download } from 'lucide-react'
+import { useRef, type MouseEvent } from 'react'
+import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export default function AfficheSection() {
+  /* ── 3D tilt state ── */
+  const cardRef = useRef<HTMLDivElement>(null)
+  const mouseX = useMotionValue(0.5)
+  const mouseY = useMotionValue(0.5)
+
+  const rotateX = useSpring(useTransform(mouseY, [0, 1], [8, -8]), { stiffness: 200, damping: 25 })
+  const rotateY = useSpring(useTransform(mouseX, [0, 1], [-8, 8]), { stiffness: 200, damping: 25 })
+  const glareX = useTransform(mouseX, [0, 1], ['0%', '100%'])
+  const glareY = useTransform(mouseY, [0, 1], ['0%', '100%'])
+
+  const handleMouse = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    mouseX.set((e.clientX - rect.left) / rect.width)
+    mouseY.set((e.clientY - rect.top) / rect.height)
+  }
+
+  const handleLeave = () => {
+    mouseX.set(0.5)
+    mouseY.set(0.5)
+  }
+
   return (
     <section
       id="affiche"
-      className="py-20 lg:py-28 bg-[#071A35] overflow-hidden"
+      className="relative py-24 lg:py-32 overflow-hidden"
       aria-label="Affiche officielle 45ème édition"
+      style={{ background: '#070D1F' }}
     >
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 text-center">
+      {/* Subtle radial glow behind the poster */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(30,111,168,0.06) 0%, transparent 65%)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 text-center relative">
+
         {/* Eyebrow */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-[#0BBFBF] text-xs font-semibold uppercase tracking-[0.3em] mb-4"
-        >
-          45ème Challenge SPI Dauphine
-        </motion.p>
+        <ScrollReveal direction="fade" delay={0}>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="h-px w-8 bg-[#3DB8A4]/40" />
+            <p
+              className="text-[10px] font-bold uppercase tracking-[0.4em]"
+              style={{ fontFamily: 'var(--font-mono)', color: 'rgba(61,184,164,0.7)' }}
+            >
+              45ème Challenge SPI Dauphine
+            </p>
+            <div className="h-px w-8 bg-[#3DB8A4]/40" />
+          </div>
+        </ScrollReveal>
 
         {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, delay: 0.1 }}
-          className="text-white mb-14"
-          style={{
-            fontFamily: 'var(--font-playfair)',
-            fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-            fontWeight: 700,
-            lineHeight: 1.2,
-          }}
-        >
-          L&apos;Affiche{' '}
-          <span style={{ color: '#E8A930' }}>Officielle</span>
-        </motion.h2>
-
-        {/* Affiche grande taille */}
-        <motion.div
-          initial={{ opacity: 0, y: 24, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="relative inline-block mb-10"
-        >
-          <div
-            className="relative mx-auto rounded-2xl overflow-hidden"
+        <ScrollReveal direction="up" delay={0.1}>
+          <h2
+            className="text-white mb-16"
             style={{
-              width: 'min(420px, 85vw)',
-              aspectRatio: '210 / 297',
-              boxShadow: '0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05)',
+              fontFamily: 'var(--font-playfair)',
+              fontSize: 'var(--text-display)',
+              fontWeight: 400,
+              lineHeight: 1.15,
+              letterSpacing: '-0.01em',
             }}
           >
-            <Image
-              src="/assets/affiche-45.png"
-              alt="Affiche officielle 45ème Challenge SPI Dauphine — Marina di Imperia, 18 au 25 avril 2026"
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 85vw, 420px"
-            />
-          </div>
+            L&apos;Affiche{' '}
+            <span style={{ color: '#C8A24D', fontStyle: 'italic' }}>Officielle</span>
+          </h2>
+        </ScrollReveal>
 
-          {/* Halo glow effect */}
+        {/* 3D tilting poster */}
+        <ScrollReveal direction="up" delay={0.2}>
           <div
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{
-              background: 'radial-gradient(ellipse at center, rgba(14,191,191,0.06) 0%, transparent 70%)',
-            }}
-            aria-hidden="true"
-          />
-        </motion.div>
+            ref={cardRef}
+            onMouseMove={handleMouse}
+            onMouseLeave={handleLeave}
+            className="inline-block mb-12"
+            style={{ perspective: 800 }}
+          >
+            <motion.div
+              style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+              className="relative mx-auto rounded-2xl overflow-hidden cursor-default"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div
+                className="relative"
+                style={{
+                  width: 'min(440px, 85vw)',
+                  aspectRatio: '210 / 297',
+                  boxShadow: '0 40px 100px rgba(0,0,0,0.55), 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04)',
+                }}
+              >
+                <Image
+                  src="/assets/affiche-45.png"
+                  alt="Affiche officielle 45ème Challenge SPI Dauphine — Marina di Imperia, 18 au 25 avril 2026"
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 640px) 85vw, 440px"
+                />
+
+                {/* Reflective highlight following mouse */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
+                  style={{
+                    background: useTransform(
+                      [glareX, glareY],
+                      ([x, y]) =>
+                        `radial-gradient(ellipse at ${x} ${y}, rgba(255,255,255,0.12) 0%, transparent 60%)`
+                    ),
+                  }}
+                  aria-hidden="true"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </ScrollReveal>
 
         {/* Download CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.45 }}
-        >
+        <ScrollReveal direction="fade" delay={0.4}>
           <a
             href="/assets/affiche-45.png"
             download="affiche-challenge-spi-dauphine-45.png"
-            className="inline-flex items-center gap-2.5 border border-white/20 rounded-full px-7 py-3 text-white/70 text-sm font-medium hover:bg-white/8 hover:text-white hover:border-white/40 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2.5 border border-white/15 rounded-full px-7 py-3 text-white/60 text-sm font-medium hover:bg-white/8 hover:text-white hover:border-white/35 transition-all duration-300 cursor-pointer group"
           >
-            <Download className="w-4 h-4" aria-hidden="true" />
+            <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-200" aria-hidden="true" />
             Télécharger l&apos;affiche
           </a>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   )

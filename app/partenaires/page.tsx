@@ -70,8 +70,8 @@ function LogoChip({ file }: { file: string }) {
       className="flex items-center justify-center bg-white rounded-xl transition-shadow duration-300 hover:shadow-lg"
       style={{
         width: CHIP_W, height: CHIP_H, padding: '8px 12px',
-        border: isYCF ? '1.5px solid rgba(232,169,48,0.55)' : '1px solid rgba(214,222,235,0.9)',
-        boxShadow: isYCF ? '0 2px 14px rgba(232,169,48,0.14)' : '0 2px 8px rgba(0,0,0,0.06)',
+        border: isYCF ? '1.5px solid rgba(200,162,77,0.55)' : '1px solid rgba(214,222,235,0.9)',
+        boxShadow: isYCF ? '0 2px 14px rgba(200,162,77,0.14)' : '0 2px 8px rgba(0,0,0,0.06)',
         transform: 'translate(-50%, -50%)',
       }}
       title={name}
@@ -221,17 +221,17 @@ export default function PartenairesPage() {
 
               {/* Eyebrow */}
               <div className="flex items-center gap-2 flex-shrink-0">
-                <div className="h-px bg-[#0BBFBF]/50 w-5" aria-hidden="true" />
-                <p className="text-[#0BBFBF] font-bold uppercase tracking-[0.32em] whitespace-nowrap"
+                <div className="h-px bg-[#3DB8A4]/50 w-5" aria-hidden="true" />
+                <p className="text-[#3DB8A4] font-bold uppercase tracking-[0.32em] whitespace-nowrap"
                   style={{ fontSize: 'clamp(8px, 0.75vw, 10px)' }}>
                   Ils nous soutiennent
                 </p>
-                <div className="h-px bg-[#0BBFBF]/50 w-5" aria-hidden="true" />
+                <div className="h-px bg-[#3DB8A4]/50 w-5" aria-hidden="true" />
               </div>
 
               {/* Titre */}
               <h1
-                className="text-[#0B2545] leading-[1.18] flex-shrink-0"
+                className="text-[#0C1B33] leading-[1.18] flex-shrink-0"
                 style={{
                   fontFamily: 'var(--font-playfair)',
                   fontSize: 'clamp(1.25rem, 3vw, 2.5rem)',
@@ -239,11 +239,11 @@ export default function PartenairesPage() {
                 }}
               >
                 Un grand merci<br />
-                à nos <span style={{ color: '#E8A930' }}>partenaires</span>
+                à nos <span style={{ color: '#C8A24D' }}>partenaires</span>
               </h1>
 
               {/* Sous-titre */}
-              <p className="text-[#94A3B8] flex-shrink-0" style={{ fontSize: 'clamp(0.68rem, 0.95vw, 0.82rem)', letterSpacing: '0.05em' }}>
+              <p className="text-[#8A95A8] flex-shrink-0" style={{ fontSize: 'clamp(0.68rem, 0.95vw, 0.82rem)', letterSpacing: '0.05em' }}>
                 28 partenaires · 45ème édition · 2026
               </p>
             </motion.div>
@@ -256,8 +256,8 @@ export default function PartenairesPage() {
             className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
             style={{ zIndex: 10 }}
           >
-            <span className="text-[8.5px] text-[#94A3B8] uppercase tracking-[0.28em] font-medium">Tous les partenaires</span>
-            <div className="w-px h-5 bg-gradient-to-b from-[#94A3B8]/40 to-transparent" aria-hidden="true" />
+            <span className="text-[8.5px] text-[#8A95A8] uppercase tracking-[0.28em] font-medium">Tous les partenaires</span>
+            <div className="w-px h-5 bg-gradient-to-b from-[#8A95A8]/40 to-transparent" aria-hidden="true" />
           </motion.div>
         </div>
 
@@ -266,7 +266,7 @@ export default function PartenairesPage() {
         ══════════════════════════════════════════════════════ */}
         <section
           className="py-20 lg:py-28"
-          style={{ background: '#071A35', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+          style={{ background: '#0C1B33', borderTop: '1px solid rgba(255,255,255,0.06)' }}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -277,10 +277,10 @@ export default function PartenairesPage() {
               transition={{ duration: 0.55 }}
               className="text-center mb-10"
             >
-              <p className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.3em] mb-3">Nos 28 partenaires</p>
+              <p className="text-[#3DB8A4] text-[10px] font-bold uppercase tracking-[0.3em] mb-3">Nos 28 partenaires</p>
               <h2 className="text-white"
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700 }}>
-                Ensemble pour la <span style={{ color: '#E8A930' }}>45ème édition</span>
+                Ensemble pour la <span style={{ color: '#C8A24D' }}>45ème édition</span>
               </h2>
             </motion.div>
 
@@ -292,10 +292,10 @@ export default function PartenairesPage() {
               className="flex justify-center mb-8"
             >
               <div className="flex items-center gap-5 px-7 py-4 rounded-2xl bg-white"
-                style={{ border: '1.5px solid rgba(232,169,48,0.4)', boxShadow: '0 4px 24px rgba(232,169,48,0.12)' }}>
+                style={{ border: '1.5px solid rgba(200,162,77,0.4)', boxShadow: '0 4px 24px rgba(200,162,77,0.12)' }}>
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#E8A930] mb-0.5">Régate homologuée</p>
-                  <p className="text-sm font-semibold text-[#0B2545]">Yacht Club de France</p>
+                  <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#C8A24D] mb-0.5">Régate homologuée</p>
+                  <p className="text-sm font-semibold text-[#0C1B33]">Yacht Club de France</p>
                 </div>
                 <div style={{ width: 100, height: 52 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -313,7 +313,7 @@ export default function PartenairesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: (i % 6) * 0.04 }}
-                    className="flex items-center justify-center bg-white rounded-xl border border-slate-100 hover:border-[#0BBFBF]/25 hover:shadow-md transition-all duration-200 p-3"
+                    className="flex items-center justify-center bg-white rounded-xl border border-slate-100 hover:border-[#3DB8A4]/25 hover:shadow-md transition-all duration-200 p-3"
                     style={{ aspectRatio: '3/2' }}
                     title={name}
                   >
@@ -330,7 +330,7 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             POURQUOI S'ENGAGER
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28 border-t border-slate-100" style={{ background: '#071A35' }}>
+        <section className="py-20 lg:py-28 border-t border-slate-100" style={{ background: '#0C1B33' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* En-tête */}
@@ -342,8 +342,8 @@ export default function PartenairesPage() {
               className="max-w-2xl mb-14"
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="h-px w-8" style={{ background: 'rgba(232,169,48,0.5)' }} aria-hidden="true" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#E8A930' }}>
+                <div className="h-px w-8" style={{ background: 'rgba(200,162,77,0.5)' }} aria-hidden="true" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#C8A24D' }}>
                   Rejoindre l&apos;aventure
                 </span>
               </div>
@@ -352,7 +352,7 @@ export default function PartenairesPage() {
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700 }}
               >
                 Pourquoi s&apos;engager<br />
-                <span style={{ color: '#E8A930' }}>à nos côtés&nbsp;?</span>
+                <span style={{ color: '#C8A24D' }}>à nos côtés&nbsp;?</span>
               </h2>
               <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)' }}>
                 S&apos;associer au Challenge SPI Dauphine, c&apos;est rejoindre un événement étudiant de référence — sportif, engagé, médiatisé —
@@ -373,11 +373,11 @@ export default function PartenairesPage() {
                 <div className="flex items-center gap-3 mb-5">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: 'rgba(232,169,48,0.12)', border: '1px solid rgba(232,169,48,0.25)' }}
+                    style={{ background: 'rgba(200,162,77,0.12)', border: '1px solid rgba(200,162,77,0.25)' }}
                   >
-                    <Star className="w-[18px] h-[18px]" style={{ color: '#E8A930' }} aria-hidden="true" />
+                    <Star className="w-[18px] h-[18px]" style={{ color: '#C8A24D' }} aria-hidden="true" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#E8A930' }}>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#C8A24D' }}>
                     Un événement de référence
                   </span>
                 </div>
@@ -408,7 +408,7 @@ export default function PartenairesPage() {
                   >
                     <div
                       className="font-bold tabular-nums mb-1"
-                      style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.15rem, 2vw, 1.45rem)', color: '#E8A930' }}
+                      style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.15rem, 2vw, 1.45rem)', color: '#C8A24D' }}
                     >
                       {val}
                     </div>
@@ -433,16 +433,16 @@ export default function PartenairesPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.1 }}
                 className="p-7 rounded-2xl flex flex-col gap-5"
-                style={{ background: 'rgba(11,191,191,0.05)', border: '1px solid rgba(11,191,191,0.14)' }}
+                style={{ background: 'rgba(61,184,164,0.05)', border: '1px solid rgba(61,184,164,0.14)' }}
               >
                 <div className="flex items-center gap-3">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: 'rgba(11,191,191,0.12)', border: '1px solid rgba(11,191,191,0.22)' }}
+                    style={{ background: 'rgba(61,184,164,0.12)', border: '1px solid rgba(61,184,164,0.22)' }}
                   >
-                    <Users className="w-[18px] h-[18px]" style={{ color: '#0BBFBF' }} aria-hidden="true" />
+                    <Users className="w-[18px] h-[18px]" style={{ color: '#3DB8A4' }} aria-hidden="true" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#0BBFBF' }}>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#3DB8A4' }}>
                     Opportunité entreprise
                   </span>
                 </div>
@@ -463,7 +463,7 @@ export default function PartenairesPage() {
                       <span
                         key={tag}
                         className="px-2.5 py-1 rounded-full text-[10px] font-semibold"
-                        style={{ background: 'rgba(11,191,191,0.10)', color: 'rgba(11,191,191,0.80)', border: '1px solid rgba(11,191,191,0.20)' }}
+                        style={{ background: 'rgba(61,184,164,0.10)', color: 'rgba(61,184,164,0.80)', border: '1px solid rgba(61,184,164,0.20)' }}
                       >
                         {tag}
                       </span>
@@ -505,9 +505,9 @@ export default function PartenairesPage() {
                   </p>
                   <div className="grid grid-cols-2 gap-y-3 gap-x-4">
                     {([
-                      { label: 'Esprit d\'équipe',          color: '#E8A930' },
-                      { label: 'Performance',               color: '#0BBFBF' },
-                      { label: 'Engagement sociétal',       color: '#E05B40' },
+                      { label: 'Esprit d\'équipe',          color: '#C8A24D' },
+                      { label: 'Performance',               color: '#3DB8A4' },
+                      { label: 'Engagement sociétal',       color: '#E2593A' },
                       { label: 'Engagement environnemental', color: '#1A8C6B' },
                     ] as { label: string; color: string }[]).map(({ label, color }) => (
                       <div key={label} className="flex items-center gap-2.5">
@@ -526,7 +526,7 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             BILAN MÉDIATIQUE
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 border-t border-white/6" style={{ background: '#060f1e' }}>
+        <section className="py-20 lg:py-24 border-t border-white/6" style={{ background: '#070D1F' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -540,11 +540,11 @@ export default function PartenairesPage() {
                 <div className="flex items-center gap-3 mb-5">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: 'rgba(232,169,48,0.12)', border: '1px solid rgba(232,169,48,0.22)' }}
+                    style={{ background: 'rgba(200,162,77,0.12)', border: '1px solid rgba(200,162,77,0.22)' }}
                   >
-                    <Radio className="w-[18px] h-[18px]" style={{ color: '#E8A930' }} aria-hidden="true" />
+                    <Radio className="w-[18px] h-[18px]" style={{ color: '#C8A24D' }} aria-hidden="true" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#E8A930' }}>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#C8A24D' }}>
                     Rayonnement · Visibilité
                   </span>
                 </div>
@@ -553,7 +553,7 @@ export default function PartenairesPage() {
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
                 >
                   Un événement qui résonne<br />
-                  <span style={{ color: '#E8A930' }}>bien au-delà de la marina</span>
+                  <span style={{ color: '#C8A24D' }}>bien au-delà de la marina</span>
                 </h2>
                 <p className="text-white/55 leading-relaxed mb-4" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
                   Le Challenge SPI Dauphine bénéficie d&apos;un écho médiatique réel — presse nautique, médias grand public,
@@ -617,7 +617,7 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             VOTRE PARTICIPATION — IMPACT DU SOUTIEN
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#071A35' }}>
+        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#0C1B33' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* Badge fiscal 60% + intro */}
@@ -629,11 +629,11 @@ export default function PartenairesPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55 }}
                 className="flex-shrink-0 text-center px-10 py-8 rounded-2xl"
-                style={{ background: 'rgba(232,169,48,0.07)', border: '1px solid rgba(232,169,48,0.22)' }}
+                style={{ background: 'rgba(200,162,77,0.07)', border: '1px solid rgba(200,162,77,0.22)' }}
               >
                 <div
                   className="font-bold tabular-nums leading-none mb-1"
-                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(3.5rem, 8vw, 5rem)', color: '#E8A930' }}
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(3.5rem, 8vw, 5rem)', color: '#C8A24D' }}
                 >
                   60<span style={{ fontSize: '55%' }}>%</span>
                 </div>
@@ -650,11 +650,11 @@ export default function PartenairesPage() {
                 <div className="flex items-center gap-3 mb-5">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: 'rgba(232,169,48,0.12)', border: '1px solid rgba(232,169,48,0.22)' }}
+                    style={{ background: 'rgba(200,162,77,0.12)', border: '1px solid rgba(200,162,77,0.22)' }}
                   >
-                    <Percent className="w-[18px] h-[18px]" style={{ color: '#E8A930' }} aria-hidden="true" />
+                    <Percent className="w-[18px] h-[18px]" style={{ color: '#C8A24D' }} aria-hidden="true" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#E8A930' }}>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.38em]" style={{ color: '#C8A24D' }}>
                     Votre participation
                   </span>
                 </div>
@@ -663,7 +663,7 @@ export default function PartenairesPage() {
                   style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
                 >
                   Voir concrètement<br />
-                  <span style={{ color: '#E8A930' }}>l&apos;impact de son soutien</span>
+                  <span style={{ color: '#C8A24D' }}>l&apos;impact de son soutien</span>
                 </h2>
                 <p className="text-white/55 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
                   Le Challenge SPI Dauphine est une association loi 1901. Votre soutien ouvre droit à une déduction fiscale
@@ -696,7 +696,7 @@ export default function PartenairesPage() {
                     'Des services pensés pour l\'expérience des participants et du public',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#E8A930' }} aria-hidden="true" />
+                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#C8A24D' }} aria-hidden="true" />
                       <span className="text-white/60 text-sm leading-relaxed">{item}</span>
                     </div>
                   ))}
@@ -725,7 +725,7 @@ export default function PartenairesPage() {
                     'Mener des actions de sensibilisation tout au long de la semaine',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#0BBFBF' }} aria-hidden="true" />
+                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#3DB8A4' }} aria-hidden="true" />
                       <span className="text-white/60 text-sm leading-relaxed">{item}</span>
                     </div>
                   ))}
@@ -741,9 +741,9 @@ export default function PartenairesPage() {
               transition={{ duration: 0.55, delay: 0.15 }}
               className="p-6 rounded-2xl"
               style={{
-                background: 'rgba(232,169,48,0.05)',
-                borderLeft: '3px solid rgba(232,169,48,0.5)',
-                border: '1px solid rgba(232,169,48,0.14)',
+                background: 'rgba(200,162,77,0.05)',
+                borderLeft: '3px solid rgba(200,162,77,0.5)',
+                border: '1px solid rgba(200,162,77,0.14)',
               }}
             >
               <p
@@ -761,7 +761,7 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             LES OFFRES DE SPONSORING
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#060f1e' }}>
+        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#070D1F' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <motion.div
@@ -772,8 +772,8 @@ export default function PartenairesPage() {
               className="max-w-xl mb-14"
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="h-px w-8" style={{ background: 'rgba(11,191,191,0.5)' }} aria-hidden="true" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#0BBFBF' }}>
+                <div className="h-px w-8" style={{ background: 'rgba(61,184,164,0.5)' }} aria-hidden="true" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.40em]" style={{ color: '#3DB8A4' }}>
                   Formes de partenariat
                 </span>
               </div>
@@ -781,7 +781,7 @@ export default function PartenairesPage() {
                 className="text-white leading-tight mb-4"
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 700 }}
               >
-                Les offres de <span style={{ color: '#E8A930' }}>sponsoring</span>
+                Les offres de <span style={{ color: '#C8A24D' }}>sponsoring</span>
               </h2>
               <p className="text-white/50 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.15vw, 0.97rem)' }}>
                 Trois formes d&apos;engagement pour s&apos;associer à la 45ème édition — de la participation financière
@@ -793,21 +793,21 @@ export default function PartenairesPage() {
               {([
                 {
                   icon: Banknote,
-                  color: '#E8A930',
+                  color: '#C8A24D',
                   titre: 'Partenariats financiers',
                   desc: 'Un soutien direct à l\'événement, avec visibilité logo sur l\'ensemble des supports de communication — affiche officielle, site, réseaux et diffusions sur place.',
                   tag: 'Visibilité · Notoriété',
                 },
                 {
                   icon: Anchor,
-                  color: '#0BBFBF',
+                  color: '#3DB8A4',
                   titre: 'Sailing & Business',
                   desc: 'Participez à la régate au sein d\'une équipe mixte étudiants–entreprise. Une expérience unique de cohésion, de dépassement et d\'immersion dans l\'événement.',
                   tag: 'Expérience · Team building',
                 },
                 {
                   icon: Building2,
-                  color: '#1A6B8C',
+                  color: '#1E6FA8',
                   titre: 'Village entreprises',
                   desc: 'Disposez d\'un espace de 9 m² au cœur du village d\'animation — stand, animations, contact direct avec plus d\'un millier de participants pendant toute la semaine.',
                   tag: 'Présence · Contact direct',
@@ -856,7 +856,7 @@ export default function PartenairesPage() {
             DEVENIR PARTENAIRE
         ══════════════════════════════════════════════════════ */}
         <section className="py-20 lg:py-28" style={{
-          background: 'linear-gradient(135deg, #0B2545 0%, #0F3460 50%, #0B2545 100%)',
+          background: 'linear-gradient(135deg, #0C1B33 0%, #0F3460 50%, #0C1B33 100%)',
         }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -868,26 +868,26 @@ export default function PartenairesPage() {
             >
               {/* Eyebrow */}
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-px w-10 bg-[#E8A930]/50" />
-                <p className="text-[#E8A930] text-[9px] font-bold uppercase tracking-[0.38em]">Rejoignez l'aventure</p>
-                <div className="h-px w-10 bg-[#E8A930]/50" />
+                <div className="h-px w-10 bg-[#C8A24D]/50" />
+                <p className="text-[#C8A24D] text-[9px] font-bold uppercase tracking-[0.38em]">Rejoignez l'aventure</p>
+                <div className="h-px w-10 bg-[#C8A24D]/50" />
               </div>
 
               {/* Titre */}
               <h2 className="text-white leading-tight mb-5"
                 style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700 }}>
                 Devenez partenaire de la<br />
-                <span style={{ color: '#E8A930' }}>45ème édition</span>
+                <span style={{ color: '#C8A24D' }}>45ème édition</span>
               </h2>
 
               {/* CTA */}
               <div className="flex justify-center mt-8">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-[#0B2545] transition-all duration-200 hover:scale-105 cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-[#0C1B33] transition-all duration-200 hover:scale-105 cursor-pointer"
                   style={{
-                    background: 'linear-gradient(135deg, #E8A930 0%, #D4921A 100%)',
-                    boxShadow: '0 6px 28px rgba(232,169,48,0.35)',
+                    background: 'linear-gradient(135deg, #C8A24D 0%, #D4921A 100%)',
+                    boxShadow: '0 6px 28px rgba(200,162,77,0.35)',
                     fontSize: '0.88rem',
                     letterSpacing: '0.04em',
                   }}

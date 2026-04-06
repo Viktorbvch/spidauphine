@@ -74,12 +74,12 @@ const articles: Article[] = [
 
 /* Tag colors — dark theme */
 const tagColors: Record<string, { bg: string; text: string; dot: string }> = {
-  'Officiel':        { bg: 'rgba(46,125,175,0.18)',  text: '#7EC8E3', dot: '#2E7DAF' },
-  'Nautisme':        { bg: 'rgba(11,191,191,0.14)',  text: '#0BBFBF', dot: '#0BBFBF' },
-  'Partenaires':     { bg: 'rgba(232,169,48,0.14)',  text: '#E8C66A', dot: '#E8A930' },
-  'Institutions':    { bg: 'rgba(224,91,64,0.14)',   text: '#F5956C', dot: '#E05B40' },
+  'Officiel':        { bg: 'rgba(30,111,168,0.18)',  text: '#7EC8E3', dot: '#1E6FA8' },
+  'Nautisme':        { bg: 'rgba(61,184,164,0.14)',  text: '#3DB8A4', dot: '#3DB8A4' },
+  'Partenaires':     { bg: 'rgba(200,162,77,0.14)',  text: '#E8C66A', dot: '#C8A24D' },
+  'Institutions':    { bg: 'rgba(226,89,58,0.14)',   text: '#F5956C', dot: '#E2593A' },
   'Presse étudiante':{ bg: 'rgba(124,58,237,0.14)',  text: '#C4B5FD', dot: '#8B5CF6' },
-  'Université':      { bg: 'rgba(26,107,140,0.18)',  text: '#7EC8E3', dot: '#1A6B8C' },
+  'Université':      { bg: 'rgba(30,111,168,0.18)',  text: '#7EC8E3', dot: '#1E6FA8' },
 }
 const defaultTagColor = { bg: 'rgba(255,255,255,0.07)', text: 'rgba(255,255,255,0.5)', dot: 'rgba(255,255,255,0.3)' }
 
@@ -99,7 +99,7 @@ function FeaturedArticle({ article }: { article: Article }) {
         background: 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(255,255,255,0.07)',
       }}
-      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(11,191,191,0.28)' }}
+      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(61,184,164,0.28)' }}
       onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.07)' }}
     >
       {/* Accent coloré gauche */}
@@ -124,7 +124,7 @@ function FeaturedArticle({ article }: { article: Article }) {
             <span className="text-white/30 text-xs">{article.date}</span>
           </div>
           <h3
-            className="text-white font-bold mb-4 leading-snug group-hover:text-[#0BBFBF] transition-colors duration-300"
+            className="text-white font-bold mb-4 leading-snug group-hover:text-[#3DB8A4] transition-colors duration-300"
             style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.15rem, 2vw, 1.5rem)' }}
           >
             {article.titre}
@@ -139,7 +139,7 @@ function FeaturedArticle({ article }: { article: Article }) {
           >
             {article.media}
           </span>
-          <div className="flex items-center gap-1.5 text-xs font-medium text-white/30 group-hover:text-[#0BBFBF] transition-colors whitespace-nowrap">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-white/30 group-hover:text-[#3DB8A4] transition-colors whitespace-nowrap">
             Lire l&apos;article
             <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
           </div>
@@ -198,7 +198,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         </div>
         {/* Titre */}
         <h3
-          className="text-[13px] font-bold text-white leading-snug group-hover:text-[#0BBFBF] transition-colors flex-1 line-clamp-3"
+          className="text-[13px] font-bold text-white leading-snug group-hover:text-[#3DB8A4] transition-colors flex-1 line-clamp-3"
         >
           {article.titre}
         </h3>
@@ -211,7 +211,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
           className="pt-3 flex items-center justify-end"
           style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
         >
-          <span className="text-[10px] font-medium text-white/28 group-hover:text-[#0BBFBF] transition-colors flex items-center gap-1">
+          <span className="text-[10px] font-medium text-white/28 group-hover:text-[#3DB8A4] transition-colors flex items-center gap-1">
             Lire <ExternalLink className="w-2.5 h-2.5" />
           </span>
         </div>
@@ -226,7 +226,7 @@ export default function Presse() {
     <section
       id="presse"
       className="py-20 lg:py-28"
-      style={{ background: 'linear-gradient(180deg, #060f1e 0%, #071428 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #070D1F 0%, #071428 100%)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -238,14 +238,14 @@ export default function Presse() {
           transition={{ duration: 0.55 }}
           className="rounded-3xl p-8 lg:p-10 mb-16"
           style={{
-            background: 'linear-gradient(135deg, #0B2545 0%, #071A35 100%)',
+            background: 'linear-gradient(135deg, #0C1B33 0%, #0C1B33 100%)',
             border: '1px solid rgba(255,255,255,0.08)',
             boxShadow: '0 24px 80px rgba(0,0,0,0.35)',
           }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.38em] mb-4">Espace presse</p>
+              <p className="text-[#3DB8A4] text-[10px] font-bold uppercase tracking-[0.38em] mb-4">Espace presse</p>
               <h2
                 className="text-white mb-4 leading-tight"
                 style={{
@@ -254,7 +254,7 @@ export default function Presse() {
                   fontWeight: 700,
                 }}
               >
-                Couvrez la <span style={{ color: '#E8A930' }}>45ème édition</span>
+                Couvrez la <span style={{ color: '#C8A24D' }}>45ème édition</span>
               </h2>
               <p className="text-white/60 text-sm leading-relaxed max-w-lg">
                 Le <strong className="text-white/90">45ème Challenge SPI Dauphine</strong> réunit plus de{' '}
@@ -283,9 +283,9 @@ export default function Presse() {
               <a
                 href="mailto:contact@spidauphine.com?subject=Demande%20d%27accr%C3%A9ditation%20presse%20SPI%20Dauphine%2045"
                 className="flex items-center gap-3 rounded-xl px-5 py-3.5 font-semibold text-sm transition-colors duration-200 cursor-pointer"
-                style={{ background: '#E8A930', color: '#0B2545' }}
+                style={{ background: '#C8A24D', color: '#0C1B33' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#d4962a' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#E8A930' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#C8A24D' }}
               >
                 <FileText className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                 Demande d&apos;accréditation presse
@@ -328,9 +328,9 @@ export default function Presse() {
                       download={dl}
                       className="flex items-center gap-2.5 text-white/65 text-xs hover:text-white transition-colors cursor-pointer group"
                     >
-                      <Download className="w-3 h-3 flex-shrink-0 group-hover:text-[#E8A930]" aria-hidden="true" />
+                      <Download className="w-3 h-3 flex-shrink-0 group-hover:text-[#C8A24D]" aria-hidden="true" />
                       <span className="font-medium">{label}</span>
-                      <span className="ml-auto text-[10px] text-[#0BBFBF] font-bold uppercase tracking-wide">{badge}</span>
+                      <span className="ml-auto text-[10px] text-[#3DB8A4] font-bold uppercase tracking-wide">{badge}</span>
                     </a>
                   ))}
                   <div className="flex items-center gap-2.5 text-white/25 text-xs">
@@ -381,16 +381,16 @@ export default function Presse() {
         >
           <div
             className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ background: 'rgba(11,191,191,0.12)', border: '1px solid rgba(11,191,191,0.22)' }}
+            style={{ background: 'rgba(61,184,164,0.12)', border: '1px solid rgba(61,184,164,0.22)' }}
           >
-            <Mail className="w-5 h-5 text-[#0BBFBF]" aria-hidden="true" />
+            <Mail className="w-5 h-5 text-[#3DB8A4]" aria-hidden="true" />
           </div>
           <div>
-            <p className="text-[#0BBFBF] text-[10px] font-semibold uppercase tracking-[0.30em] mb-1">Contact presse</p>
+            <p className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.30em] mb-1">Contact presse</p>
             <p className="text-white font-semibold text-sm mb-0.5">Pauline Petitdidier — Présidente</p>
             <a
               href="mailto:contact@spidauphine.com"
-              className="text-white/45 text-sm hover:text-[#0BBFBF] transition-colors cursor-pointer"
+              className="text-white/45 text-sm hover:text-[#3DB8A4] transition-colors cursor-pointer"
             >
               contact@spidauphine.com
             </a>

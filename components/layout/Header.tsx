@@ -66,11 +66,11 @@ export default function Header() {
         )}
         <span className="relative z-10 pointer-events-none">{link.label}</span>
         <motion.span
-          className="absolute bottom-[5px] left-3.5 right-3.5 h-[1.5px] rounded-full bg-[#E8A930] pointer-events-none origin-left"
+          className="absolute bottom-[5px] left-3.5 right-3.5 h-[1.5px] rounded-full bg-[#C8A24D] pointer-events-none origin-left"
           initial={{ scaleX: 0, opacity: 0 }} whileHover={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.18 }}
         />
         {isActive && (
-          <motion.span layoutId={`nav-dot-${side}`} className="absolute bottom-[5px] left-3.5 right-3.5 h-[1.5px] rounded-full bg-[#E8A930] pointer-events-none" />
+          <motion.span layoutId={`nav-dot-${side}`} className="absolute bottom-[5px] left-3.5 right-3.5 h-[1.5px] rounded-full bg-[#C8A24D] pointer-events-none" />
         )}
       </>
     )
@@ -86,7 +86,7 @@ export default function Header() {
       <div
         className="relative transition-all duration-500"
         style={{
-          background: scrolled ? 'rgba(4,16,35,0.96)' : 'rgba(7,26,53,0.70)',
+          background: scrolled ? 'rgba(4,16,35,0.96)' : 'rgba(12,27,51,0.70)',
           backdropFilter: 'blur(28px)',
           WebkitBackdropFilter: 'blur(28px)',
           boxShadow: scrolled
@@ -98,7 +98,7 @@ export default function Header() {
         <div
           className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none transition-opacity duration-500"
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, #0BBFBF 25%, #E8A930 60%, transparent 100%)',
+            background: 'linear-gradient(90deg, transparent 0%, #3DB8A4 25%, #C8A24D 60%, transparent 100%)',
             opacity: scrolled ? 0.7 : 0.35,
           }}
           aria-hidden="true"
@@ -123,8 +123,8 @@ export default function Header() {
                   <div className="relative flex items-center justify-center">
                     <motion.div
                       className="absolute rounded-full border pointer-events-none transition-colors duration-300"
-                      style={{ inset: '-6px', borderColor: 'rgba(11,191,191,0.22)' }}
-                      whileHover={{ borderColor: 'rgba(11,191,191,0.55)' }}
+                      style={{ inset: '-6px', borderColor: 'rgba(61,184,164,0.22)' }}
+                      whileHover={{ borderColor: 'rgba(61,184,164,0.55)' }}
                     />
                     <Image
                       src="/assets/logo.png"
@@ -151,8 +151,8 @@ export default function Header() {
                   href="/contact"
                   className="ml-4 flex-shrink-0 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.08em] text-white transition-all duration-200 hover:brightness-110 active:scale-[0.97]"
                   style={{
-                    background: 'linear-gradient(135deg, #1B5C8A 0%, #2E7DAF 100%)',
-                    boxShadow: '0 2px 14px rgba(46,125,175,0.28), inset 0 1px 0 rgba(255,255,255,0.12)',
+                    background: 'linear-gradient(135deg, #1E6FA8 0%, #1E6FA8 100%)',
+                    boxShadow: '0 2px 14px rgba(30,111,168,0.28), inset 0 1px 0 rgba(255,255,255,0.12)',
                   }}
                 >
                   Contact
@@ -165,14 +165,14 @@ export default function Header() {
               <Link href="/" className="flex items-center gap-3 group" aria-label="Challenge SPI Dauphine — Accueil">
                 <div className="relative flex items-center justify-center">
                   <motion.div className="absolute rounded-full border pointer-events-none"
-                    style={{ inset: '-5px', borderColor: 'rgba(11,191,191,0.25)' }}
-                    whileHover={{ borderColor: 'rgba(11,191,191,0.6)' }} />
+                    style={{ inset: '-5px', borderColor: 'rgba(61,184,164,0.25)' }}
+                    whileHover={{ borderColor: 'rgba(61,184,164,0.6)' }} />
                   <Image src="/assets/logo.png" alt="SPI Dauphine" width={30} height={30}
                     className="brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity duration-200 relative z-10" />
                 </div>
                 <div className="leading-none">
                   <span className="block text-white/90 text-[11px] font-bold uppercase tracking-[0.22em]">SPI Dauphine</span>
-                  <span className="block text-[#0BBFBF]/55 text-[8.5px] font-semibold uppercase tracking-[0.2em] mt-0.5">45ème édition · 2026</span>
+                  <span className="block text-[#3DB8A4]/55 text-[8.5px] font-semibold uppercase tracking-[0.2em] mt-0.5">45ème édition · 2026</span>
                 </div>
               </Link>
 
@@ -199,7 +199,7 @@ export default function Header() {
         <div
           className="absolute bottom-0 left-0 right-0 h-[1px] pointer-events-none transition-opacity duration-500"
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, rgba(11,191,191,0.25) 30%, rgba(232,169,48,0.2) 65%, transparent 100%)',
+            background: 'linear-gradient(90deg, transparent 0%, rgba(61,184,164,0.25) 30%, rgba(200,162,77,0.2) 65%, transparent 100%)',
             opacity: scrolled ? 1 : 0.45,
           }}
           aria-hidden="true"
@@ -227,7 +227,7 @@ export default function Header() {
                   const resolvedHref = !isHome && link.href.startsWith('#') ? `/${link.href}` : link.href
                   const isPage = resolvedHref.startsWith('/')
                   const cls = "flex items-center justify-between px-4 py-3 text-[11px] font-bold uppercase tracking-[0.12em] text-white/60 rounded-xl hover:bg-white/6 hover:text-white transition-colors cursor-pointer group"
-                  const chevron = <ChevronRight className="w-3.5 h-3.5 text-white/20 group-hover:text-[#E8A930] group-hover:translate-x-0.5 transition-all pointer-events-none" aria-hidden="true" />
+                  const chevron = <ChevronRight className="w-3.5 h-3.5 text-white/20 group-hover:text-[#C8A24D] group-hover:translate-x-0.5 transition-all pointer-events-none" aria-hidden="true" />
                   return isPage ? (
                     <motion.div key={link.href} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.03 }}>
                       <Link href={resolvedHref} onClick={() => setMenuOpen(false)} className={cls}>{link.label}{chevron}</Link>

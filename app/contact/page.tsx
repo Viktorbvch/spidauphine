@@ -92,7 +92,7 @@ function Field({ def, value, onChange }: {
       id={def.id} rows={4} value={value} required={def.required}
       placeholder={def.placeholder}
       onChange={e => onChange(e.target.value)}
-      className="placeholder-white/25 focus:border-[#0BBFBF]/60 resize-none"
+      className="placeholder-white/25 focus:border-[#3DB8A4]/60 resize-none"
       style={{ ...base, padding: '12px 16px' }}
     />
   )
@@ -101,12 +101,12 @@ function Field({ def, value, onChange }: {
     <select
       id={def.id} value={value} required={def.required}
       onChange={e => onChange(e.target.value)}
-      className="focus:border-[#0BBFBF]/60"
+      className="focus:border-[#3DB8A4]/60"
       style={{ ...base, padding: '12px 16px', cursor: 'pointer' }}
     >
-      <option value="" style={{ background: '#0B2545' }}>Sélectionner…</option>
+      <option value="" style={{ background: '#0C1B33' }}>Sélectionner…</option>
       {def.options?.map(o => (
-        <option key={o} value={o} style={{ background: '#0B2545' }}>{o}</option>
+        <option key={o} value={o} style={{ background: '#0C1B33' }}>{o}</option>
       ))}
     </select>
   )
@@ -116,7 +116,7 @@ function Field({ def, value, onChange }: {
       id={def.id} type={def.type} value={value} required={def.required}
       placeholder={def.placeholder}
       onChange={e => onChange(e.target.value)}
-      className="placeholder-white/25 focus:border-[#0BBFBF]/60"
+      className="placeholder-white/25 focus:border-[#3DB8A4]/60"
       style={{ ...base, padding: '12px 16px' }}
     />
   )
@@ -176,12 +176,12 @@ export default function ContactPage() {
             style={{
               top: -120, right: '15%',
               width: 480, height: 480,
-              background: 'radial-gradient(circle, rgba(11,191,191,0.07) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(61,184,164,0.07) 0%, transparent 70%)',
               borderRadius: '50%',
             }}
           />
           <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-            <p className="text-[#0BBFBF] text-[10px] font-bold uppercase tracking-[0.50em] mb-4">
+            <p className="text-[#3DB8A4] text-[10px] font-bold uppercase tracking-[0.50em] mb-4">
               SPI Dauphine · 45ème édition
             </p>
             <h1
@@ -218,7 +218,7 @@ export default function ContactPage() {
                   border: '1px solid rgba(255,255,255,0.07)',
                 }}
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.40em] text-[#E8A930] mb-5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.40em] text-[#C8A24D] mb-5">
                   Nous écrire directement
                 </p>
                 <div className="space-y-5">
@@ -233,9 +233,9 @@ export default function ContactPage() {
                     >
                       <div
                         className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors duration-200"
-                        style={{ background: 'rgba(11,191,191,0.12)', border: '1px solid rgba(11,191,191,0.22)' }}
+                        style={{ background: 'rgba(61,184,164,0.12)', border: '1px solid rgba(61,184,164,0.22)' }}
                       >
-                        <Mail className="w-4 h-4 text-[#0BBFBF]" aria-hidden="true" />
+                        <Mail className="w-4 h-4 text-[#3DB8A4]" aria-hidden="true" />
                       </div>
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.32em] text-white/35 font-semibold mb-0.5">{label}</p>
@@ -256,15 +256,15 @@ export default function ContactPage() {
                   border: '1px solid rgba(255,255,255,0.07)',
                 }}
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.40em] text-[#E8A930] mb-5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.40em] text-[#C8A24D] mb-5">
                   Sur place
                 </p>
                 <div className="flex items-start gap-3.5">
                   <div
                     className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                    style={{ background: 'rgba(11,191,191,0.12)', border: '1px solid rgba(11,191,191,0.22)' }}
+                    style={{ background: 'rgba(61,184,164,0.12)', border: '1px solid rgba(61,184,164,0.22)' }}
                   >
-                    <MapPin className="w-4 h-4 text-[#0BBFBF]" aria-hidden="true" />
+                    <MapPin className="w-4 h-4 text-[#3DB8A4]" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm text-white/70 leading-relaxed">Marina di Imperia</p>
@@ -291,10 +291,10 @@ export default function ContactPage() {
                       className="text-left rounded-2xl p-5 cursor-pointer transition-all duration-250 relative overflow-hidden"
                       style={{
                         background: active
-                          ? 'rgba(11,191,191,0.10)'
+                          ? 'rgba(61,184,164,0.10)'
                           : 'rgba(255,255,255,0.03)',
                         border: active
-                          ? '1px solid rgba(11,191,191,0.38)'
+                          ? '1px solid rgba(61,184,164,0.38)'
                           : '1px solid rgba(255,255,255,0.07)',
                       }}
                     >
@@ -302,13 +302,13 @@ export default function ContactPage() {
                         <motion.div
                           layoutId="channel-glow"
                           className="absolute inset-0 pointer-events-none rounded-2xl"
-                          style={{ background: 'rgba(11,191,191,0.05)' }}
+                          style={{ background: 'rgba(61,184,164,0.05)' }}
                           transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                         />
                       )}
                       <ch.Icon
                         className="w-5 h-5 mb-3"
-                        style={{ color: active ? '#0BBFBF' : 'rgba(255,255,255,0.35)' }}
+                        style={{ color: active ? '#3DB8A4' : 'rgba(255,255,255,0.35)' }}
                         aria-hidden="true"
                       />
                       <p
@@ -345,9 +345,9 @@ export default function ContactPage() {
                     >
                       <div
                         className="w-16 h-16 rounded-full flex items-center justify-center"
-                        style={{ background: 'rgba(11,191,191,0.14)', border: '1px solid rgba(11,191,191,0.30)' }}
+                        style={{ background: 'rgba(61,184,164,0.14)', border: '1px solid rgba(61,184,164,0.30)' }}
                       >
-                        <CheckCircle2 className="w-7 h-7 text-[#0BBFBF]" />
+                        <CheckCircle2 className="w-7 h-7 text-[#3DB8A4]" />
                       </div>
                       <div>
                         <h3
@@ -363,7 +363,7 @@ export default function ContactPage() {
                       </div>
                       <button
                         onClick={() => { setSubmitted(false); setFormData({}) }}
-                        className="text-[#0BBFBF] text-sm font-medium hover:text-white transition-colors cursor-pointer mt-2"
+                        className="text-[#3DB8A4] text-sm font-medium hover:text-white transition-colors cursor-pointer mt-2"
                       >
                         Envoyer un autre message
                       </button>
@@ -380,7 +380,7 @@ export default function ContactPage() {
                     >
                       {/* Destinataire */}
                       <div className="flex items-center gap-2 mb-7 pb-6" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                        <current.Icon className="w-4 h-4 text-[#0BBFBF]" aria-hidden="true" />
+                        <current.Icon className="w-4 h-4 text-[#3DB8A4]" aria-hidden="true" />
                         <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/40">
                           {current.label}
                         </span>
@@ -395,7 +395,7 @@ export default function ContactPage() {
                               htmlFor={f.id}
                               className="block text-[10px] font-semibold uppercase tracking-[0.32em] text-white/40 mb-2"
                             >
-                              {f.label}{f.required && <span className="text-[#0BBFBF] ml-1">*</span>}
+                              {f.label}{f.required && <span className="text-[#3DB8A4] ml-1">*</span>}
                             </label>
                             <Field
                               def={f}
@@ -414,8 +414,8 @@ export default function ContactPage() {
                         className="mt-7 w-full flex items-center justify-center gap-2.5 font-semibold text-sm rounded-xl cursor-pointer"
                         style={{
                           padding: '14px 24px',
-                          background: 'linear-gradient(135deg, #0B2545 0%, #1A6B8C 100%)',
-                          border: '1px solid rgba(11,191,191,0.28)',
+                          background: 'linear-gradient(135deg, #0C1B33 0%, #1E6FA8 100%)',
+                          border: '1px solid rgba(61,184,164,0.28)',
                           color: 'white',
                         }}
                       >

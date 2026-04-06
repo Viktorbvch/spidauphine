@@ -1,67 +1,105 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens — Challenge SPI Dauphine ─── */
+/* ═══════════════════════════════════════════════════════════════════
+   Design Tokens — « Crépuscule sur la Ligure »
+   Challenge SPI Dauphine · 45ème édition
+═══════════════════════════════════════════════════════════════════ */
 @theme inline {
-  /* Couleurs principales */
-  --color-deep-navy:  #060f1e;
-  --color-navy:       #0B2545;
-  --color-navy-light: #133366;
+  /* — Fonds — */
+  --color-midnight:   #070D1F;
+  --color-deep-sea:   #0C1B33;
+  --color-drift:      #F7F4EF;
+  --color-cloud:      #FFFFFF;
+
+  /* — Accents — */
+  --color-azure:      #1E6FA8;
+  --color-gold:       #C8A24D;
+  --color-coral:      #E2593A;
+  --color-seafoam:    #3DB8A4;
+
+  /* — Texte — */
+  --color-ink:        #1A1A2E;
+  --color-chalk:      #F0ECE3;
+
+  /* — Aliases (compatibilité descendante) — */
+  --color-deep-navy:  #070D1F;
+  --color-navy:       #0C1B33;
+  --color-navy-light: #14355A;
   --color-ocean-blue: #1B3A5C;
-  --color-azure:      #2E7DAF;
-  --color-ocean:      #1A6B8C;
-  --color-turquoise:  #0BBFBF;
-  --color-turquoise-light: #40D4D4;
-  --color-gold:       #E8A930;
-  --color-gold-light: #F5C842;
-  --color-coral:      #E05B40;
-  --color-sand:       #F5EED9;
-  --color-sand-light: #FDF8ED;
-  --color-off-white:  #F8FAFC;
-  --color-muted:      #64748B;
-  --color-border:     #E2E8F0;
+  --color-ocean:      #1E6FA8;
+  --color-turquoise:  #3DB8A4;
+  --color-turquoise-light: #5CC8B5;
+  --color-gold-light: #D4B86A;
+  --color-sand:       #F7F4EF;
+  --color-sand-light: #FAF8F3;
+  --color-off-white:  #F7F4EF;
+  --color-muted:      #7A8599;
+  --color-border:     #E2E0DA;
 }
 
-/* ─── Base ─── */
+/* ═══ Base ═══════════════════════════════════════════════════════ */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #060f1e;
-  color: #e8edf4;
+  background-color: #070D1F;
+  color: #F0ECE3;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
-/* ─── Gradient text helpers ─── */
+/* ═══ Typography scale (CSS custom properties) ═══════════════════ */
+:root {
+  --text-hero:    clamp(3.5rem, 8vw, 7rem);
+  --text-display: clamp(2.5rem, 5vw, 4.5rem);
+  --text-heading: clamp(1.5rem, 3vw, 2.25rem);
+  --text-subhead: clamp(1.1rem, 1.5vw, 1.35rem);
+  --text-body:    clamp(1rem, 1.2vw, 1.125rem);
+  --text-small:   clamp(0.8rem, 1vw, 0.875rem);
+  --text-micro:   0.75rem;
+
+  /* — Glass effects — */
+  --glass:          rgba(255, 255, 255, 0.05);
+  --glass-border:   rgba(255, 255, 255, 0.08);
+  --glass-hover:    rgba(255, 255, 255, 0.09);
+  --glow-azure:     rgba(30, 111, 168, 0.3);
+  --glow-gold:      rgba(200, 162, 77, 0.25);
+}
+
+/* ═══ Gradient text helpers ═════════════════════════════════════ */
 .text-gradient-ocean {
-  background: linear-gradient(135deg, #0B2545 0%, #1A6B8C 50%, #0BBFBF 100%);
+  background: linear-gradient(135deg, #0C1B33 0%, #1E6FA8 50%, #3DB8A4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #E8A930 0%, #F5C842 100%);
+  background: linear-gradient(135deg, #C8A24D 0%, #D4B86A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ─── Glass card ─── */
+/* ═══ Glass card ════════════════════════════════════════════════ */
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+.glass-card:hover {
+  background: var(--glass-hover);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-/* ─── Scrollbar hide ─── */
+/* ═══ Scrollbar hide ════════════════════════════════════════════ */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* ─── Marquee ─── */
+/* ═══ Marquee ═══════════════════════════════════════════════════ */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -74,10 +112,7 @@ body {
   animation-play-state: paused;
 }
 
-/* ─── Orbit animations (Partenaires) ─── */
-/* Principe : translate(-50%,-50%) centre l'élément sur top/left:50%
-   puis rotate+translateY le place sur le cercle, le counter-rotate finale
-   maintient le texte lisible pendant la rotation de l'orbite. */
+/* ═══ Orbit animations (Partenaires) ════════════════════════════ */
 @keyframes orbit-cw {
   from { transform: translate(-50%,-50%) rotate(0deg)    translateY(var(--r)) rotate(0deg); }
   to   { transform: translate(-50%,-50%) rotate(360deg)  translateY(var(--r)) rotate(-360deg); }
@@ -87,11 +122,12 @@ body {
   to   { transform: translate(-50%,-50%) rotate(-360deg) translateY(var(--r)) rotate(360deg); }
 }
 
-/* ─── Reduced motion ─── */
+/* ═══ Reduced motion ════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

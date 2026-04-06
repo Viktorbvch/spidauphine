@@ -8,12 +8,12 @@ export default function ChiffresClés() {
     <section
       className="relative overflow-hidden"
       aria-label="Le Challenge en chiffres"
-      style={{ background: 'linear-gradient(160deg, #0B2545 0%, #071A35 55%, #0B2545 100%)' }}
+      style={{ background: 'linear-gradient(160deg, #0C1B33 0%, #0C1B33 55%, #0C1B33 100%)' }}
     >
       {/* Ligne haute */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(11,191,191,0.28) 30%, rgba(232,169,48,0.22) 70%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(61,184,164,0.28) 30%, rgba(200,162,77,0.22) 70%, transparent 100%)' }}
         aria-hidden="true"
       />
 
@@ -26,7 +26,7 @@ export default function ChiffresClés() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-[10px] font-bold uppercase tracking-[0.45em] mb-10 lg:mb-14"
-          style={{ color: 'rgba(11,191,191,0.65)' }}
+          style={{ color: 'rgba(61,184,164,0.65)' }}
         >
           Le Challenge en chiffres
         </motion.p>
@@ -76,7 +76,7 @@ export default function ChiffresClés() {
               </div>
               <p
                 className="font-bold uppercase mb-2"
-                style={{ color: '#E8A930', fontSize: 11, letterSpacing: '0.20em' }}
+                style={{ color: '#C8A24D', fontSize: 11, letterSpacing: '0.20em' }}
               >
                 {item.label}
               </p>
@@ -139,7 +139,7 @@ export default function ChiffresClés() {
               </div>
               <p
                 className="font-bold uppercase mb-1"
-                style={{ color: '#E8A930', fontSize: 10, letterSpacing: '0.16em' }}
+                style={{ color: '#C8A24D', fontSize: 10, letterSpacing: '0.16em' }}
               >
                 {item.label}
               </p>

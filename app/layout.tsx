@@ -1,21 +1,36 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
+import { Instrument_Serif, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const playfair = Playfair_Display({
+/* ── Fonts ─────────────────────────────────────────────────────── */
+
+// Display serif — titres h1/h2, sections monumentales
+// Variable gardée comme --font-playfair pour compatibilité downstream
+const displaySerif = Instrument_Serif({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '900'],
+  weight: ['400'],
   style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',
 })
 
+// Sans-serif — navigation, body, boutons
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-jakarta',
   display: 'swap',
 })
+
+// Monospace — labels, compteurs, tags, données
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-mono',
+  display: 'swap',
+})
+
+/* ── Metadata ──────────────────────────────────────────────────── */
 
 export const metadata: Metadata = {
   title: 'Challenge SPI Dauphine — 45ème édition | Marina di Imperia, Avril 2026',
@@ -51,7 +66,8 @@ export const metadata: Metadata = {
   },
 }
 
-/* ── Schema.org Event (SEO structuré) ─────────────────────────── */
+/* ── Schema.org Event ──────────────────────────────────────────── */
+
 const eventSchema = {
   '@context': 'https://schema.org',
   '@type': 'SportsEvent',
@@ -78,11 +94,13 @@ const eventSchema = {
   sport: 'Sailing',
 }
 
+/* ── Layout ────────────────────────────────────────────────────── */
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="fr"
-      className={`${playfair.variable} ${jakarta.variable} h-full`}
+      className={`${displaySerif.variable} ${jakarta.variable} ${mono.variable} h-full`}
     >
       <head>
         <script
@@ -91,9 +109,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body
-        className="min-h-full flex flex-col"
+        className="min-h-full flex flex-col relative"
         style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
       >
+        {/* Grain photographique — texture argentique subtile */}
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 pointer-events-none"
+          style={{
+            zIndex: 9999,
+            opacity: 0.018,
+            mixBlendMode: 'overlay',
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '200px 200px',
+          }}
+        />
         {children}
       </body>
     </html>
