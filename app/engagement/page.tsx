@@ -823,10 +823,11 @@ export default function EngagementPage() {
               <motion.div {...fadeUp(0.12)}>
                 <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '4/3' }}>
                   <Image
-                    src="/photos/handi-sport.jpg"
-                    alt="Journée de l'inclusion — SPI Dauphine"
+                    src="/photos/vents-differents.jpg"
+                    alt="Vents Différents — inclusion au Challenge SPI Dauphine"
                     fill
                     className="object-cover"
+                    style={{ objectPosition: 'center 25%' }}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div
