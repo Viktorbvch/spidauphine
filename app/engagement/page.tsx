@@ -931,30 +931,6 @@ export default function EngagementPage() {
               ))}
             </div>
 
-            {/* ── Vidéo : Course Caritative ── */}
-            <motion.div {...fadeUp(0.1)} className="mt-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-6" style={{ background: 'rgba(226,89,58,0.40)' }} aria-hidden="true" />
-                <p
-                  className="text-[10px] font-bold uppercase tracking-[0.35em]"
-                  style={{ color: '#E2593A', fontFamily: 'var(--font-mono)' }}
-                >
-                  En images · Course Caritative
-                </p>
-              </div>
-              <div className="overflow-hidden rounded-2xl aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/GX0FN2ROqMI?si=DQRQHtwK7Cx_XLPq"
-                  title="Course Caritative — SPI Dauphine"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  className="w-full h-full"
-                  style={{ border: 0 }}
-                />
-              </div>
-            </motion.div>
-
           </div>
         </section>
 
@@ -1067,30 +1043,6 @@ export default function EngagementPage() {
                     <p className="text-white/35 text-xs leading-relaxed">{detail}</p>
                   </div>
                 ))}
-              </div>
-            </motion.div>
-
-            {/* ── Vidéo : Collecte de déchets ── */}
-            <motion.div {...fadeUp(0.1)} className="mb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-6" style={{ background: 'rgba(26,140,107,0.40)' }} aria-hidden="true" />
-                <p
-                  className="text-[10px] font-bold uppercase tracking-[0.35em]"
-                  style={{ color: '#1A8C6B', fontFamily: 'var(--font-mono)' }}
-                >
-                  En images · Collecte Port Propre
-                </p>
-              </div>
-              <div className="overflow-hidden rounded-2xl aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/EHrD92E-1H8?si=Qq2KQjlEv9j1GSxd"
-                  title="Collecte de déchets Port Propre — SPI Dauphine"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  className="w-full h-full"
-                  style={{ border: 0 }}
-                />
               </div>
             </motion.div>
 
