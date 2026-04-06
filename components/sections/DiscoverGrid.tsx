@@ -32,7 +32,7 @@ export default function DiscoverGrid() {
       aria-label="Explorer le Challenge SPI Dauphine"
       style={{ background: '#070D1F', borderTop: '1px solid rgba(255,255,255,0.06)' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
 
         {/* Eyebrow */}
         <motion.div
@@ -57,7 +57,7 @@ export default function DiscoverGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-white mb-14"
+          className="text-white mb-8 sm:mb-14"
           style={{
             fontFamily: 'var(--font-playfair)',
             fontSize: 'var(--text-heading)',
@@ -76,13 +76,12 @@ export default function DiscoverGrid() {
               key={card.href}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '0px' }}
               transition={{ duration: 0.6, delay: 0.15 + i * 0.1 }}
             >
               <Link
                 href={card.href}
-                className="group relative overflow-hidden rounded-2xl block"
-                style={{ aspectRatio: '4 / 5' }}
+                className="group relative overflow-hidden rounded-2xl block aspect-[3/2] sm:aspect-[4/5]"
               >
                 <Image
                   src={card.photo}

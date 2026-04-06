@@ -265,10 +265,10 @@ export default function PartenairesPage() {
             GRILLE COMPLÈTE
         ══════════════════════════════════════════════════════ */}
         <section
-          className="py-20 lg:py-28"
+          className="py-14 sm:py-20 lg:py-28"
           style={{ background: '#0C1B33', borderTop: '1px solid rgba(255,255,255,0.06)' }}
         >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -304,7 +304,7 @@ export default function PartenairesPage() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4">
               {[...innerRing, ...outerRing].map((file, i) => {
                 const name = file.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ')
                 return (
@@ -330,8 +330,8 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             POURQUOI S'ENGAGER
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28 border-t border-slate-100" style={{ background: '#0C1B33' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-14 sm:py-20 lg:py-28 border-t border-slate-100" style={{ background: '#0C1B33' }}>
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
             {/* En-tête */}
             <motion.div
@@ -339,7 +339,7 @@ export default function PartenairesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-2xl mb-14"
+              className="max-w-2xl mb-10 sm:mb-14"
             >
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-px w-8" style={{ background: 'rgba(200,162,77,0.5)' }} aria-hidden="true" />
@@ -526,9 +526,9 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             BILAN MÉDIATIQUE
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-24 border-t border-white/6" style={{ background: '#070D1F' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <section className="py-14 sm:py-20 lg:py-24 border-t border-white/6" style={{ background: '#070D1F' }}>
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
               {/* Texte */}
               <motion.div
@@ -617,11 +617,11 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             VOTRE PARTICIPATION — IMPACT DU SOUTIEN
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#0C1B33' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-14 sm:py-20 lg:py-28 border-t border-white/6" style={{ background: '#0C1B33' }}>
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
             {/* Badge fiscal 60% + intro */}
-            <div className="grid lg:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-start mb-14">
+            <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-start mb-10 sm:mb-14">
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.94 }}
@@ -672,66 +672,86 @@ export default function PartenairesPage() {
               </motion.div>
             </div>
 
-            {/* 2 colonnes : ce que ça finance / ce que ça permet */}
-            <div className="grid sm:grid-cols-2 gap-5 mb-8">
-
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: 0.05 }}
-                className="p-7 rounded-2xl"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <p
-                  className="text-[10px] font-bold uppercase tracking-[0.30em] mb-5"
-                  style={{ color: 'rgba(255,255,255,0.30)' }}
-                >
-                  Votre participation finance
-                </p>
-                <div className="flex flex-col gap-3.5">
-                  {[
-                    'Une sécurité renforcée pour tous les participants',
-                    'Des infrastructures solides et accueillantes',
-                    'Des services pensés pour l\'expérience des participants et du public',
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#C8A24D' }} aria-hidden="true" />
-                      <span className="text-white/60 text-sm leading-relaxed">{item}</span>
-                    </div>
-                  ))}
+            {/* Impact concret — fusionné en une seule card responsive */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.05 }}
+              className="p-5 sm:p-7 rounded-2xl mb-8"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+                {/* Colonne : finance */}
+                <div>
+                  <p
+                    className="text-[10px] font-bold uppercase tracking-[0.30em] mb-4 sm:mb-5"
+                    style={{ color: '#C8A24D', fontFamily: 'var(--font-mono)' }}
+                  >
+                    Votre participation finance
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      'Une sécurité renforcée pour tous les participants',
+                      'Des infrastructures solides et accueillantes',
+                      'Des services pensés pour l\'expérience des participants et du public',
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#C8A24D' }} aria-hidden="true" />
+                        <span className="text-white/60 text-sm leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: 0.12 }}
-                className="p-7 rounded-2xl"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <p
-                  className="text-[10px] font-bold uppercase tracking-[0.30em] mb-5"
-                  style={{ color: 'rgba(255,255,255,0.30)' }}
-                >
-                  Votre engagement permet de
-                </p>
-                <div className="flex flex-col gap-3.5">
-                  {[
-                    'Développer des actions d\'inclusion concrètes',
-                    'Investir dans des équipements durables',
-                    'Proposer des activités sportives accessibles',
-                    'Mener des actions de sensibilisation tout au long de la semaine',
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#3DB8A4' }} aria-hidden="true" />
-                      <span className="text-white/60 text-sm leading-relaxed">{item}</span>
-                    </div>
-                  ))}
+                {/* Séparateur mobile / bordure desktop */}
+                <div className="sm:hidden h-px" style={{ background: 'rgba(255,255,255,0.06)' }} aria-hidden="true" />
+                <div className="hidden sm:block" style={{ borderLeft: '1px solid rgba(255,255,255,0.06)', paddingLeft: '2rem' }}>
+                  <p
+                    className="text-[10px] font-bold uppercase tracking-[0.30em] mb-5"
+                    style={{ color: '#3DB8A4', fontFamily: 'var(--font-mono)' }}
+                  >
+                    Votre engagement permet de
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      'Développer des actions d\'inclusion concrètes',
+                      'Investir dans des équipements durables',
+                      'Proposer des activités sportives accessibles',
+                      'Mener des actions de sensibilisation tout au long de la semaine',
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#3DB8A4' }} aria-hidden="true" />
+                        <span className="text-white/60 text-sm leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
-            </div>
+
+                {/* Mobile only — second column content */}
+                <div className="sm:hidden">
+                  <p
+                    className="text-[10px] font-bold uppercase tracking-[0.30em] mb-4"
+                    style={{ color: '#3DB8A4', fontFamily: 'var(--font-mono)' }}
+                  >
+                    Votre engagement permet de
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {[
+                      'Développer des actions d\'inclusion concrètes',
+                      'Investir dans des équipements durables',
+                      'Proposer des activités sportives accessibles',
+                      'Mener des actions de sensibilisation tout au long de la semaine',
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#3DB8A4' }} aria-hidden="true" />
+                        <span className="text-white/60 text-sm leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
             {/* Quote callout */}
             <motion.div
@@ -761,15 +781,15 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             LES OFFRES DE SPONSORING
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28 border-t border-white/6" style={{ background: '#070D1F' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-14 sm:py-20 lg:py-28 border-t border-white/6" style={{ background: '#070D1F' }}>
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-xl mb-14"
+              className="max-w-xl mb-10 sm:mb-14"
             >
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-px w-8" style={{ background: 'rgba(61,184,164,0.5)' }} aria-hidden="true" />
@@ -789,7 +809,7 @@ export default function PartenairesPage() {
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
               {([
                 {
                   icon: Banknote,
@@ -855,7 +875,7 @@ export default function PartenairesPage() {
         {/* ══════════════════════════════════════════════════════
             DEVENIR PARTENAIRE
         ══════════════════════════════════════════════════════ */}
-        <section className="py-20 lg:py-28" style={{
+        <section className="py-14 sm:py-20 lg:py-28" style={{
           background: 'linear-gradient(135deg, #0C1B33 0%, #0F3460 50%, #0C1B33 100%)',
         }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
 
 interface Props {
   value: number
@@ -11,32 +10,43 @@ interface Props {
 
 export default function AnimatedNumber({ value, suffix = '', duration = 2000 }: Props) {
   const [current, setCurrent] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   useEffect(() => {
-    if (!isInView) return
+    if (hasAnimated) return
+    const el = ref.current
+    if (!el) return
 
-    const startTime = performance.now()
-    const startValue = 0
+    // Use a smaller margin on mobile for more reliable triggering
+    const margin = window.innerWidth < 640 ? '0px' : '-40px'
 
-    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true)
+          observer.disconnect()
 
-    const animate = (now: number) => {
-      const elapsed = now - startTime
-      const progress = Math.min(elapsed / duration, 1)
-      const easedProgress = easeOut(progress)
-      const currentValue = Math.round(startValue + (value - startValue) * easedProgress)
+          const startTime = performance.now()
+          const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
 
-      setCurrent(currentValue)
+          const animate = (now: number) => {
+            const elapsed = now - startTime
+            const progress = Math.min(elapsed / duration, 1)
+            const currentValue = Math.round(value * easeOut(progress))
+            setCurrent(currentValue)
+            if (progress < 1) requestAnimationFrame(animate)
+          }
 
-      if (progress < 1) {
-        requestAnimationFrame(animate)
-      }
-    }
+          requestAnimationFrame(animate)
+        }
+      },
+      { threshold: 0.1, rootMargin: margin }
+    )
 
-    requestAnimationFrame(animate)
-  }, [isInView, value, duration])
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [hasAnimated, value, duration])
 
   const formatted = current >= 1000 ? current.toLocaleString('fr-FR') : current.toString()
 

@@ -52,7 +52,7 @@ body {
 
 /* ═══ Typography scale (CSS custom properties) ═══════════════════ */
 :root {
-  --text-hero:    clamp(3.5rem, 8vw, 7rem);
+  --text-hero:    clamp(2.8rem, 8vw, 7rem);
   --text-display: clamp(2.5rem, 5vw, 4.5rem);
   --text-heading: clamp(1.5rem, 3vw, 2.25rem);
   --text-subhead: clamp(1.1rem, 1.5vw, 1.35rem);

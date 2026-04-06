@@ -24,7 +24,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative h-screen min-h-[700px] overflow-hidden flex flex-col justify-end"
+      className="relative h-screen min-h-[600px] overflow-hidden flex flex-col justify-end"
       aria-label="Challenge SPI Dauphine — 45ème édition"
     >
       {/* ── Background photo with parallax ── */}
@@ -65,7 +65,7 @@ export default function Hero() {
       {/* ── Main content — anchored to bottom ── */}
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 pb-20 lg:pb-28"
+        className="relative z-10 max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-10 pb-14 sm:pb-20 lg:pb-28"
       >
         <div className="max-w-2xl lg:max-w-3xl">
 

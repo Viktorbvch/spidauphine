@@ -17,17 +17,17 @@ export default function ChiffresClés() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-0">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-14 sm:pt-20 lg:pt-24 pb-0">
 
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '0px' }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-12 lg:mb-16"
+          className="flex items-center gap-3 mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="h-px w-8 bg-[#1E6FA8]/30" />
+          <div className="h-px w-6 sm:w-8 bg-[#1E6FA8]/30" />
           <p
             className="text-[10px] font-bold uppercase tracking-[0.45em]"
             style={{ fontFamily: 'var(--font-mono)', color: 'rgba(30,111,168,0.65)' }}
@@ -59,12 +59,12 @@ export default function ChiffresClés() {
           ] as { valeur: number; suffix: string; label: string; description: string; delay: number }[]).map((item, i) => (
             <motion.div
               key={item.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: item.delay }}
+              viewport={{ once: true, margin: '0px' }}
+              transition={{ duration: 0.6, delay: item.delay }}
               className={[
-                'py-12 lg:py-16',
+                'py-8 sm:py-12 lg:py-16',
                 i === 0
                   ? 'sm:border-r sm:pr-10 lg:pr-16'
                   : 'sm:pl-10 lg:pl-16',
@@ -77,10 +77,10 @@ export default function ChiffresClés() {
               }}
             >
               <div
-                className="tabular-nums leading-none mb-3"
+                className="tabular-nums leading-none mb-2 sm:mb-3"
                 style={{
                   fontFamily: 'var(--font-playfair)',
-                  fontSize: 'clamp(4rem, 9vw, 7.5rem)',
+                  fontSize: 'clamp(3rem, 8vw, 7.5rem)',
                   fontWeight: 400,
                   letterSpacing: '-0.025em',
                   color: '#1A1A2E',
@@ -89,7 +89,7 @@ export default function ChiffresClés() {
                 <AnimatedNumber value={item.valeur} suffix={item.suffix} duration={2000} />
               </div>
               <p
-                className="font-bold uppercase mb-2"
+                className="font-bold uppercase mb-1.5 sm:mb-2"
                 style={{ color: '#C8A24D', fontSize: 11, letterSpacing: '0.20em', fontFamily: 'var(--font-mono)' }}
               >
                 {item.label}
@@ -103,17 +103,17 @@ export default function ChiffresClés() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.22 }}
-          className="flex items-center gap-4 py-5"
+          viewport={{ once: true, margin: '0px' }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex items-center gap-3 sm:gap-4 py-4 sm:py-5"
           style={{ borderBottom: '1px solid rgba(26,26,46,0.08)' }}
         >
           <div className="h-px flex-1" style={{ background: 'rgba(26,26,46,0.08)' }} aria-hidden="true" />
           <span
-            className="font-medium flex-shrink-0"
+            className="font-medium flex-shrink-0 text-center"
             style={{
-              fontSize: 10,
-              letterSpacing: '0.26em',
+              fontSize: 9,
+              letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: 'rgba(26,26,46,0.25)',
               fontFamily: 'var(--font-mono)',
@@ -134,14 +134,14 @@ export default function ChiffresClés() {
           ] as { valeur: number; suffix: string; label: string; description: string }[]).map((item, i) => (
             <motion.div
               key={item.label}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.28 + i * 0.07 }}
+              viewport={{ once: true, margin: '0px' }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.06 }}
               className={[
-                'py-10 lg:py-12',
-                i < 3 ? 'pr-5 md:pr-8' : '',
-                i > 0 ? 'pl-5 md:pl-8' : '',
+                'py-7 sm:py-10 lg:py-12',
+                i < 3 ? 'pr-4 sm:pr-5 md:pr-8' : '',
+                i > 0 ? 'pl-4 sm:pl-5 md:pl-8' : '',
               ].join(' ')}
               style={{
                 ...(i < 3 ? { borderRight: '1px solid rgba(26,26,46,0.08)' } : {}),
@@ -149,10 +149,10 @@ export default function ChiffresClés() {
               }}
             >
               <div
-                className="tabular-nums leading-none mb-2"
+                className="tabular-nums leading-none mb-1.5 sm:mb-2"
                 style={{
                   fontFamily: 'var(--font-playfair)',
-                  fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+                  fontSize: 'clamp(1.6rem, 3.5vw, 2.8rem)',
                   fontWeight: 400,
                   color: '#1A1A2E',
                 }}
@@ -161,11 +161,11 @@ export default function ChiffresClés() {
               </div>
               <p
                 className="font-bold uppercase mb-1"
-                style={{ color: '#C8A24D', fontSize: 10, letterSpacing: '0.16em', fontFamily: 'var(--font-mono)' }}
+                style={{ color: '#C8A24D', fontSize: 9, letterSpacing: '0.14em', fontFamily: 'var(--font-mono)' }}
               >
                 {item.label}
               </p>
-              <p className="text-xs" style={{ color: 'rgba(26,26,46,0.35)' }}>{item.description}</p>
+              <p className="text-[11px] sm:text-xs leading-snug" style={{ color: 'rgba(26,26,46,0.35)' }}>{item.description}</p>
             </motion.div>
           ))}
         </div>

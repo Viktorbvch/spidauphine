@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Utensils, MonitorPlay, Tent, ShieldCheck, Building2 } from 'lucide-react'
+import { Utensils, MonitorPlay, Tent, ShieldCheck, Building2, ChevronLeft, ChevronRight } from 'lucide-react'
 
 /* ══ Utils ═══════════════════════════════════════════════════════ */
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
@@ -28,6 +28,18 @@ function interpVal(stops: { p: number; v: number }[], progress: number): number 
   if (i === -1) return stops[stops.length - 1].v
   const a = stops[i - 1], b = stops[i]
   return lerp(a.v, b.v, (progress - a.p) / (b.p - a.p))
+}
+
+/* ══ Hook: detect mobile ═══════════════════════════════════════ */
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < breakpoint)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [breakpoint])
+  return isMobile
 }
 
 /* ══ Time: 9h → 2h (17h range) ═════════════════════════════════ */
@@ -131,31 +143,36 @@ const staggerChild = {
    PAGE
 ══════════════════════════════════════════════════════════════════ */
 export default function VillagePage() {
+  const isMobile = useIsMobile()
   const [progress, setProgress] = useState(0.30)
+  const [mobileActIdx, setMobileActIdx] = useState(2) // Start at régate
   const tintRef     = useRef<HTMLDivElement>(null)
   const parallaxRef = useRef<HTMLDivElement>(null)
   const cursorRef   = useRef<HTMLDivElement>(null)
 
   const act = useMemo((): Act => {
+    // On mobile, select directly by index
+    if (isMobile) return ACTS[mobileActIdx] || ACTS[0]
     const active = ACTS.filter(a => progress >= a.s && progress <= a.e)
     if (active.length) return active[active.length - 1]
     const past = ACTS.filter(a => progress > a.e)
     return past.length ? past[past.length - 1] : ACTS[0]
-  }, [progress])
+  }, [progress, isMobile, mobileActIdx])
 
   const time   = getTime(progress)
   const actIdx = ACTS.findIndex(a => a.id === act.id)
 
-  /* DOM direct — tint + photo filter */
+  /* DOM direct — tint + photo filter (desktop only) */
   useEffect(() => {
+    if (isMobile) return
     if (tintRef.current)
       tintRef.current.style.background = interpRgba(TINT, progress)
     if (parallaxRef.current)
       parallaxRef.current.style.filter =
         `brightness(${interpVal(BRIGHT, progress).toFixed(2)}) saturate(${interpVal(SAT, progress).toFixed(2)})`
-  }, [progress])
+  }, [progress, isMobile])
 
-  /* Souris / touch → progress + curseur + parallax */
+  /* Souris → progress + curseur + parallax (desktop only) */
   const update = useCallback((cx: number, cy: number) => {
     setProgress(clamp(cx / window.innerWidth))
     if (cursorRef.current)
@@ -168,15 +185,41 @@ export default function VillagePage() {
   }, [])
 
   useEffect(() => {
+    if (isMobile) return // No mouse tracking on mobile
     const mm = (e: MouseEvent) => update(e.clientX, e.clientY)
-    const tm = (e: TouchEvent) => update(e.touches[0].clientX, e.touches[0].clientY)
     window.addEventListener('mousemove', mm)
-    window.addEventListener('touchmove', tm, { passive: true })
     return () => {
       window.removeEventListener('mousemove', mm)
-      window.removeEventListener('touchmove', tm)
     }
-  }, [update])
+  }, [update, isMobile])
+
+  /* Mobile: swipe gesture support */
+  const touchStartX = useRef(0)
+  useEffect(() => {
+    if (!isMobile) return
+    const onStart = (e: TouchEvent) => { touchStartX.current = e.touches[0].clientX }
+    const onEnd = (e: TouchEvent) => {
+      const dx = e.changedTouches[0].clientX - touchStartX.current
+      if (Math.abs(dx) < 50) return // Ignore small movements
+      if (dx < 0 && actIdx < ACTS.length - 1) {
+        // Swipe left → next
+        const next = actIdx + 1
+        setMobileActIdx(next)
+        setProgress((ACTS[next].s + ACTS[next].e) / 2)
+      } else if (dx > 0 && actIdx > 0) {
+        // Swipe right → prev
+        const prev = actIdx - 1
+        setMobileActIdx(prev)
+        setProgress((ACTS[prev].s + ACTS[prev].e) / 2)
+      }
+    }
+    window.addEventListener('touchstart', onStart, { passive: true })
+    window.addEventListener('touchend', onEnd, { passive: true })
+    return () => {
+      window.removeEventListener('touchstart', onStart)
+      window.removeEventListener('touchend', onEnd)
+    }
+  }, [isMobile, actIdx])
 
   return (
     <>
@@ -187,7 +230,7 @@ export default function VillagePage() {
       ══════════════════════════════════════════════════════════════ */}
       <div
         className="relative overflow-hidden"
-        style={{ height: 'clamp(520px, 78vh, 860px)', marginTop: 82 }}
+        style={{ height: 'clamp(380px, 65vh, 860px)', marginTop: 82 }}
       >
         {/* TODO: remplacer l'image par <video src="..." autoPlay muted loop playsInline> */}
         <Image
@@ -212,18 +255,18 @@ export default function VillagePage() {
 
         {/* Contenu overlay */}
         <div className="absolute inset-0 flex flex-col justify-end">
-          <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 pb-14 lg:pb-20">
+          <div className="max-w-7xl mx-auto w-full px-5 sm:px-10 lg:px-16 pb-8 sm:pb-14 lg:pb-20">
             <motion.p
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[#3DB8A4] font-bold uppercase mb-4"
+              className="text-[#3DB8A4] font-bold uppercase mb-3 sm:mb-4"
               style={{ fontSize: 10, letterSpacing: '0.40em' }}
             >
               Marina di Imperia · Avril 2026
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.2 }}
-              className="text-white leading-tight mb-5"
-              style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, textShadow: '0 2px 20px rgba(0,0,0,0.55)' }}
+              className="text-white leading-tight mb-3 sm:mb-5"
+              style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.8rem, 5vw, 4rem)', fontWeight: 400, textShadow: '0 2px 20px rgba(0,0,0,0.55)' }}
             >
               Le village <span style={{ color: '#C8A24D' }}>SPI Dauphine</span>
             </motion.h1>
@@ -245,9 +288,9 @@ export default function VillagePage() {
       <section
         id="infrastructures"
         style={{ background: 'linear-gradient(180deg, #070D1F 0%, #070D1F 100%)' }}
-        className="py-24 lg:py-32"
+        className="py-16 sm:py-24 lg:py-32"
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16">
 
           {/* ── En-tête de section ── */}
           <motion.div
@@ -255,7 +298,7 @@ export default function VillagePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="mb-16 lg:mb-20 max-w-3xl"
+            className="mb-10 sm:mb-16 lg:mb-20 max-w-3xl"
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="h-px w-8 bg-[#3DB8A4]/50" />
@@ -365,19 +408,26 @@ export default function VillagePage() {
         </div>
       </section>
 
-      {/* Curseur custom — journée type */}
-      <div
-        ref={cursorRef}
-        aria-hidden="true"
-        className="fixed pointer-events-none"
-        style={{
-          top: 0, left: 0, width: 8, height: 8,
-          borderRadius: '50%', background: 'rgba(255,255,255,0.85)',
-          zIndex: 9999, willChange: 'transform',
-        }}
-      />
+      {/* ══════════════════════════════════════════════════════════════
+          JOURNÉE TYPE — Desktop: cursor-driven · Mobile: tap cards
+      ══════════════════════════════════════════════════════════════ */}
 
-      <div className="relative h-screen overflow-hidden" style={{ cursor: 'none', background: '#070D1F' }}>
+      {/* Curseur custom — desktop only */}
+      {!isMobile && (
+        <div
+          ref={cursorRef}
+          aria-hidden="true"
+          className="fixed pointer-events-none hidden md:block"
+          style={{
+            top: 0, left: 0, width: 8, height: 8,
+            borderRadius: '50%', background: 'rgba(255,255,255,0.85)',
+            zIndex: 9999, willChange: 'transform',
+          }}
+        />
+      )}
+
+      {/* ── DESKTOP: cursor-driven immersive timeline ── */}
+      <div className="hidden md:block relative h-screen overflow-hidden" style={{ cursor: 'none', background: '#070D1F' }}>
 
         {/* ══ PHOTOS — parallax wrapper + crossfade ══ */}
         <div
@@ -463,7 +513,7 @@ export default function VillagePage() {
             </div>
 
             {/* Droite : lieu + indicateur scènes */}
-            <div className="hidden sm:flex flex-col items-end" style={{ paddingTop: 4 }}>
+            <div className="flex flex-col items-end" style={{ paddingTop: 4 }}>
               <p className="text-white/26" style={{ fontSize: 10, letterSpacing: '0.32em', textTransform: 'uppercase', fontWeight: 500 }}>
                 Marina di Imperia
               </p>
@@ -614,6 +664,191 @@ export default function VillagePage() {
                   </span>
                 )
               })}
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── MOBILE: tap-to-navigate timeline ── */}
+      <div className="md:hidden" style={{ background: '#070D1F' }}>
+
+        {/* Eyebrow */}
+        <div className="px-5 pt-10 pb-6">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="h-px w-6 bg-[#C8A24D]/40" />
+            <span
+              className="text-[10px] font-bold uppercase tracking-[0.35em]"
+              style={{ color: '#C8A24D', fontFamily: 'var(--font-mono)' }}
+            >
+              Journée type
+            </span>
+          </div>
+          <h2
+            className="text-white leading-tight"
+            style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.6rem, 6vw, 2rem)', fontWeight: 400 }}
+          >
+            De 9h à 2h du matin
+          </h2>
+        </div>
+
+        {/* Active card — photo + content */}
+        <div className="relative" style={{ minHeight: '70svh' }}>
+
+          {/* Photo background */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={act.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={act.photo}
+                alt={act.label}
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority={act.id === 'briefing' || act.id === 'regate'}
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Tint */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: interpRgba(TINT, (act.s + act.e) / 2) }}
+            aria-hidden="true"
+          />
+
+          {/* Gradient overlay for text readability */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, rgba(7,13,31,0.15) 0%, rgba(7,13,31,0.20) 30%, rgba(7,13,31,0.75) 65%, rgba(7,13,31,0.95) 100%)' }}
+            aria-hidden="true"
+          />
+
+          {/* Content overlay */}
+          <div className="relative z-10 flex flex-col justify-end h-full" style={{ minHeight: '70svh' }}>
+
+            {/* Step indicator dots */}
+            <div className="px-5 mb-4">
+              <div className="flex items-center gap-1.5">
+                {ACTS.map((a, i) => (
+                  <button
+                    key={a.id}
+                    onClick={() => {
+                      setMobileActIdx(i)
+                      setProgress((ACTS[i].s + ACTS[i].e) / 2)
+                    }}
+                    className="relative"
+                    style={{
+                      width: actIdx === i ? 24 : 6,
+                      height: 6,
+                      borderRadius: 3,
+                      background: actIdx === i ? '#C8A24D' : 'rgba(255,255,255,0.20)',
+                      transition: 'all 0.4s cubic-bezier(0.22,1,0.36,1)',
+                    }}
+                    aria-label={`Voir ${a.label}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Time + period */}
+            <div className="px-5 mb-3">
+              <p
+                className="text-white/40 mb-1"
+                style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.45em', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}
+              >
+                {act.period}
+              </p>
+              <div
+                className="text-white tabular-nums leading-none"
+                style={{
+                  fontFamily: 'var(--font-playfair)',
+                  fontSize: 'clamp(3rem, 14vw, 5rem)',
+                  fontWeight: 400,
+                  letterSpacing: '-0.03em',
+                }}
+              >
+                {act.sub}
+              </div>
+            </div>
+
+            {/* Activity info */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={act.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4 }}
+                className="px-5 pb-5"
+              >
+                <h3
+                  className="text-white leading-snug mb-2"
+                  style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.15rem, 5vw, 1.4rem)', fontWeight: 400 }}
+                >
+                  {act.label}
+                </h3>
+                <p
+                  className="text-white/45 leading-relaxed"
+                  style={{ fontSize: 13 }}
+                >
+                  {act.desc}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation buttons */}
+            <div className="px-5 pb-8 flex items-center justify-between">
+              <button
+                onClick={() => {
+                  const prev = Math.max(0, actIdx - 1)
+                  setMobileActIdx(prev)
+                  setProgress((ACTS[prev].s + ACTS[prev].e) / 2)
+                }}
+                disabled={actIdx === 0}
+                className="flex items-center gap-2 py-2.5 px-4 rounded-full transition-all duration-200 active:scale-95"
+                style={{
+                  background: actIdx === 0 ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.10)',
+                  opacity: actIdx === 0 ? 0.3 : 1,
+                }}
+                aria-label="Activité précédente"
+              >
+                <ChevronLeft className="w-4 h-4 text-white/70" />
+                <span className="text-white/60 text-xs font-medium" style={{ fontFamily: 'var(--font-mono)' }}>Préc.</span>
+              </button>
+
+              <span
+                className="text-white/20 text-[10px] tabular-nums"
+                style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.12em' }}
+              >
+                {actIdx + 1} / {ACTS.length}
+              </span>
+
+              <button
+                onClick={() => {
+                  const next = Math.min(ACTS.length - 1, actIdx + 1)
+                  setMobileActIdx(next)
+                  setProgress((ACTS[next].s + ACTS[next].e) / 2)
+                }}
+                disabled={actIdx === ACTS.length - 1}
+                className="flex items-center gap-2 py-2.5 px-4 rounded-full transition-all duration-200 active:scale-95"
+                style={{
+                  background: actIdx === ACTS.length - 1 ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.10)',
+                  opacity: actIdx === ACTS.length - 1 ? 0.3 : 1,
+                }}
+                aria-label="Activité suivante"
+              >
+                <span className="text-white/60 text-xs font-medium" style={{ fontFamily: 'var(--font-mono)' }}>Suiv.</span>
+                <ChevronRight className="w-4 h-4 text-white/70" />
+              </button>
             </div>
 
           </div>
