@@ -572,6 +572,28 @@ export default function EngagementPage() {
                 </motion.div>
               ))}
             </div>
+
+            {/* ── Vidéo : 45 ans de SPI ── */}
+            <motion.div {...fadeUp(0.12)} className="mt-14">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8" style={{ background: 'rgba(200,162,77,0.4)' }} />
+                <span className="text-[#C8A24D] text-[10px] font-bold uppercase tracking-[0.35em]">En images</span>
+              </div>
+              <div
+                className="relative w-full overflow-hidden rounded-2xl aspect-video"
+                style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 40px rgba(0,0,0,0.45)' }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/O2VMuHXUj2g?rel=0&modestbranding=1"
+                  title="L'histoire des 45 ans de la SPI Dauphine"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 0 }}
+                />
+              </div>
+            </motion.div>
+
           </div>
         </section>
 
@@ -905,6 +927,27 @@ export default function EngagementPage() {
               en lien étroit avec les territoires et associations partenaires.
             </motion.p>
 
+            {/* ── Vidéo : Course Caritative ── */}
+            <motion.div {...fadeUp(0.1)} className="mt-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8" style={{ background: 'rgba(226,89,58,0.5)' }} />
+                <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#E2593A' }}>Course Caritative · Vents Différents</span>
+              </div>
+              <div
+                className="relative w-full overflow-hidden rounded-2xl aspect-video"
+                style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 40px rgba(0,0,0,0.45)' }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/-4Hvh6j6R8U?rel=0&modestbranding=1"
+                  title="Course Caritative SPI Dauphine — Vents Différents"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 0 }}
+                />
+              </div>
+            </motion.div>
+
           </div>
         </section>
 
@@ -988,6 +1031,27 @@ export default function EngagementPage() {
               >
                 Poursuivre et renforcer nos engagements RSE aux côtés du port et de la commune.
               </p>
+            </motion.div>
+
+            {/* ── Vidéo : Collecte de déchets ── */}
+            <motion.div {...fadeUp(0.1)} className="mb-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8" style={{ background: 'rgba(26,140,107,0.5)' }} />
+                <span className="text-[10px] font-bold uppercase tracking-[0.35em]" style={{ color: '#1A8C6B' }}>Collecte Port Propre · En vidéo</span>
+              </div>
+              <div
+                className="relative w-full overflow-hidden rounded-2xl aspect-video"
+                style={{ border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 8px 40px rgba(0,0,0,0.45)' }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/e1luWl4taco?rel=0&modestbranding=1"
+                  title="Collecte de déchets SPI Dauphine — Port Propre"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 0 }}
+                />
+              </div>
             </motion.div>
 
             {/* 5 actions */}
