@@ -181,22 +181,28 @@ export default function ContactPage() {
             }}
           />
           <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-            <p className="text-[#3DB8A4] text-[10px] font-bold uppercase tracking-[0.50em] mb-4">
-              SPI Dauphine · 45ème édition
-            </p>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-8 bg-[#3DB8A4]/40" />
+              <p
+                className="text-[10px] font-bold uppercase tracking-[0.4em]"
+                style={{ fontFamily: 'var(--font-mono)', color: 'rgba(61,184,164,0.7)' }}
+              >
+                SPI Dauphine · 45ème édition
+              </p>
+            </div>
             <h1
               className="text-white mb-5"
               style={{
                 fontFamily: 'var(--font-playfair)',
                 fontSize: 'clamp(2.4rem, 5.5vw, 4rem)',
-                fontWeight: 700,
-                letterSpacing: '-0.02em',
+                fontWeight: 400,
+                letterSpacing: '-0.01em',
                 lineHeight: 1.1,
               }}
             >
-              Contactez-nous
+              Contactez-<span style={{ color: '#C8A24D', fontStyle: 'italic' }}>nous</span>
             </h1>
-            <p className="text-white/45 text-base max-w-xl leading-relaxed">
+            <p className="text-white/45 max-w-xl leading-relaxed" style={{ fontSize: 'var(--text-body)' }}>
               Une question, une demande d&apos;accréditation presse ou un projet de partenariat ?
               Choisissez le canal adapté — on vous répond rapidement.
             </p>

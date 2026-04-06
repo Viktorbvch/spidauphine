@@ -408,19 +408,24 @@ export default function EngagementPage() {
           {/* Titre */}
           <div className="absolute inset-0 flex flex-col justify-end pointer-events-none">
             <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-14 lg:pb-18">
-              <motion.p
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-[#3DB8A4] text-[10px] font-semibold uppercase tracking-[0.3em] mb-4"
-                style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
+              <motion.div
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex items-center gap-3 mb-5"
               >
-                Challenge SPI Dauphine · 45ème édition
-              </motion.p>
+                <div className="h-px w-8 bg-[#3DB8A4]/40" />
+                <p
+                  className="text-[10px] font-bold uppercase tracking-[0.4em]"
+                  style={{ fontFamily: 'var(--font-mono)', color: 'rgba(61,184,164,0.8)', textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
+                >
+                  Challenge SPI Dauphine · 45ème édition
+                </p>
+              </motion.div>
               <motion.h1
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.22, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
                 className="text-white"
-                style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 700, lineHeight: 1.08, textShadow: '0 2px 20px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)' }}
+                style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 400, lineHeight: 1.08, letterSpacing: '-0.01em', textShadow: '0 2px 24px rgba(0,0,0,0.45)' }}
               >
-                Histoire & <span style={{ color: '#C8A24D' }}>engagements</span>
+                Histoire &amp; <span style={{ color: '#C8A24D', fontStyle: 'italic' }}>engagements</span>
               </motion.h1>
             </div>
           </div>
