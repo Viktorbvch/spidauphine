@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=1200&q=80',
+        url: 'https://www.spidauphine.com/photos/spi-09.jpg',
         width: 1200,
         height: 630,
         alt: 'Challenge SPI Dauphine — régate universitaire Méditerranée, Marina di Imperia',
