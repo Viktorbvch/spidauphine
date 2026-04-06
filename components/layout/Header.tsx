@@ -157,13 +157,6 @@ export default function Header() {
                 >
                   Contact
                 </Link>
-                <a
-                  href="mailto:clara.chaumarel@spidauphine.com"
-                  className="ml-3 flex-shrink-0 text-white/40 hover:text-white/70 transition-colors duration-200 cursor-pointer"
-                  style={{ fontSize: 10, letterSpacing: '0.02em' }}
-                >
-                  clara.chaumarel@spidauphine.com
-                </a>
               </nav>
             </div>
 
@@ -245,15 +238,6 @@ export default function Header() {
                     </motion.a>
                   )
                 })}
-              </div>
-              <div className="mt-4 pt-4 border-t border-white/6 px-4">
-                <a
-                  href="mailto:clara.chaumarel@spidauphine.com"
-                  className="text-white/35 hover:text-white/60 transition-colors cursor-pointer"
-                  style={{ fontSize: 11, letterSpacing: '0.01em' }}
-                >
-                  clara.chaumarel@spidauphine.com
-                </a>
               </div>
             </nav>
           </motion.div>
