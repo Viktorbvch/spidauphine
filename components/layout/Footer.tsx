@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 
 /* ── Social icons ──────────────────────────────────────────── */
 function InstagramIcon({ className }: { className?: string }) {
@@ -202,12 +202,6 @@ export default function Footer() {
                     contact@spidauphine.com
                   </a>
                 </div>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-[#3DB8A4]/60 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <a href="tel:+33698698849" className="text-sm text-white/40 hover:text-white transition-colors cursor-pointer">
-                  +33 6 98 69 88 49
-                </a>
               </li>
             </ul>
           </div>
